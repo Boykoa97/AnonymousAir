@@ -1,10 +1,17 @@
 var express = require('express');
 var app = express();
+var cors = require('cors');
+var cookieParser = require('cookie-parser');
 const opn = require('opn');
 
+app.use(express.static('public'))
+
+
 app.get('/login',function(req,res){
-  res.send('LOGIN')
+  res.sendFile(__dirname + '/public/view/login.html');
 });
+
+
 
 app.get('/main',function(req,res){
   res.sendFile(__dirname + '/view/main.html');
@@ -39,4 +46,4 @@ app.get('/admin',function(req,res){
 });
 
 app.listen(3000)
-opn('http://localhost:3000/login', {app:'firefox'})
+opn('http://localhost:3000/login', {app:'chrome'})
