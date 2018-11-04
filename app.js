@@ -14,35 +14,35 @@ app.get('/login',function(req,res){
 
 
 app.get('/main',function(req,res){
-  res.sendFile(__dirname + '/view/main.html');
+  res.sendFile(__dirname + '/public/view/main.html');
 });
 
 app.get('/contact',function(req,res){
-  res.sendFile(__dirname + '/view/contact.html');
+  res.sendFile(__dirname + '/public/view/contact.html');
 });
 
 app.get('/bookflight',function(req,res){
-  res.sendFile(__dirname + '/view/bookflight.html');
+  res.sendFile(__dirname + '/public/view/bookflight.html');
 });
 
 app.get('/accountinfo',function(req,res){
-  res.sendFile(__dirname + '/view/accountinfo.html');
+  res.sendFile(__dirname + '/public/view/accountinfo.html');
 });
 
 app.get('/shoppingcart',function(req,res){
-  res.sendFile(__dirname + '/view/shoppingcart.html');
+  res.sendFile(__dirname + '/public/view/shoppingcart.html');
 });
 
 app.get('/checkin',function(req,res){
-  res.sendFile(__dirname + '/view/checkin.html');
+  res.sendFile(__dirname + '/public/view/checkin.html');
 });
 
 app.get('/travelinfo',function(req,res){
-  res.sendFile(__dirname + '/view/travelinfo.html');
+  res.sendFile(__dirname + '/public/view/travelinfo.html');
 });
 
 app.get('/admin',function(req,res){
-  res.sendFile(__dirname + '/view/admin.html');
+  res.sendFile(__dirname + '/public/view/admin.html');
 });
 
 app.listen(3000)
