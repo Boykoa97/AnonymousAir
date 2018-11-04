@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-
+//create connection
 var connection = mysql.createConnection({
   host : 'cosc304.ok.ubc.ca',
   user : 'mspouge',
