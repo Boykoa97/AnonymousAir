@@ -1,49 +1,25 @@
 var express = require('express');
+var path= require('path');
 var app = express();
 var cors = require('cors');
 var cookieParser = require('cookie-parser');
 const opn = require('opn');
+var mysql = require('mysql');
+var hbs = require("express-handlebars");
 
-app.use(express.static('public'))
+var routes = require('./public/routes/index');
 
+//handlebars setup
+app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'layout', layoutDir: __dirname + "/public/view/layout"}));
+app.set('views',path.join(__dirname,'views'))
+app.set('view engine','hbs');
 
-app.get('/login',function(req,res){
-  res.sendFile(__dirname + '/public/view/login.html');
-});
+//set static content folder location (i.e. where to locate css files, javascript files, and images)
+app.use(express.static('public'));
 
+//set up the routes to get referenced in the index.js file
+app.use('/',routes);
 
-
-app.get('/main',function(req,res){
-  res.sendFile(__dirname + '/public/view/main.html');
-});
-
-app.get('/contact',function(req,res){
-  res.sendFile(__dirname + '/public/view/contact.html');
-});
-
-app.get('/bookflight',function(req,res){
-  res.sendFile(__dirname + '/public/view/bookflight.html');
-});
-
-app.get('/accountinfo',function(req,res){
-  res.sendFile(__dirname + '/public/view/accountinfo.html');
-});
-
-app.get('/shoppingcart',function(req,res){
-  res.sendFile(__dirname + '/public/view/shoppingcart.html');
-});
-
-app.get('/checkin',function(req,res){
-  res.sendFile(__dirname + '/public/view/checkin.html');
-});
-
-app.get('/travelinfo',function(req,res){
-  res.sendFile(__dirname + '/public/view/travelinfo.html');
-});
-
-app.get('/admin',function(req,res){
-  res.sendFile(__dirname + '/public/view/admin.html');
-});
-
+//launch the app
 app.listen(3000)
 opn('http://localhost:3000/login', {app:'chrome'})
