@@ -34,7 +34,7 @@ var promise = new Promise(function(resolve,reject){
 var obj = promise.then(function(result_set){ //Runs if the promise was successful
 
   //Log the result set from the database
-  console.log(result_set);
+  //console.log(result_set);
   connection.end();
 
   //return the variables you want to see on the HTML page
