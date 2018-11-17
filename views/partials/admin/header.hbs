@@ -1,0 +1,38 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<h1>{{title}}</h1>
+<p>Tools</p>
+<div class="nav">
+    <table>
+        <tr>
+            <td><div class="nav-item"><button class="btn" onclick="location.href= 'admin/customerTable';">Customer Data</button></div></td>
+            <td><div class ="nav-item"><input class="btn" onclick="confirmReset()" type="button" value="Reset Table" id="resetButton"></div></td>
+            <td><div class="nav-item"><button class="btn">Add</button></div></td>
+        </tr>
+    </table>
+</div>
+<p></p>
+<script>
+    function confirmReset(){
+
+        if(confirm("Are you sure you want to reset the server?")){
+
+            let url = "/queries/adminReset";
+            document.getElementById("resetButton").value = "Working...";
+            $.get(
+                    url,
+                    {confirmed: true},
+                    function(data){
+                        if(data.resetSuccess == true){
+                            document.getElementById("resetButton").value = "Complete";
+                        }else{
+                            document.getElementById("resetButton").value = "Failed";
+                        }
+                        window.setTimeout(function(){document.getElementById("resetButton").value = "Reset Table"}, 500)
+                    }
+            );
+
+
+        }
+    }
+</script>

@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+
+    margin: 0;
+}
+
+
+.bg {
+    /* The image used */
+    /*background-image: url(http://www.technocrazed.com/wp-content/uploads/2015/12/Airplane-wallpaper-140.jpg);*/
+    z-index: 1;
+    background-image: url(/images/bimage.jpg);
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#loginbutton {
+    position: absolute;
+    top:65%;
+    left: 30%;
+}
+#signupbutton {
+    position: absolute;
+    top:80%;
+    right:21.5%;
+}
+
+.logintext{
+    color: white;
+    position: absolute;
+    top:5%;
+    left: 15.5%;
+}
+
+#username{
+    position: relative;
+    margin-bottom: 8px;
+    top: 80px;
+    left: 5%;
+    width: 90%;
+
+}
+
+#box{
+    z-index: 2;
+    border-color: white;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.5);
+    height: 300px;
+    width: 150px;
+    position: absolute;
+    top: 25%;
+    bottom: 50%;
+    left:45%;
+}
