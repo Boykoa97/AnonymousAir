@@ -21,7 +21,8 @@ router.get('/login',function(req,res,next){
   var login = require(path.join(__dirname,'../queries/login.js'));
   var promise = login.then(function(result){
     console.log(result);
-    res.render('login',result);
+    obj= Object.assign({},result,{layout: 'login_layout.hbs'})
+    res.render('login',obj);
   });
 });
 
