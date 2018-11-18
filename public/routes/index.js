@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 //var mysql = require("mysql");
 var path = require("path");
+var fs = require("fs");
 
 
 //Render the admin page into the handlebars file
@@ -9,18 +10,29 @@ router.get('/admin', function(req,res,next){
   //retrieve the export from admin.js
   var admin = require(path.join(__dirname,'../queries/admin.js'));
   //a promise is returned so this formats the data into a result set
-  var promise = admin.then(function(result){
-    console.log(result);
+  var promise = admin.listCustomer().then(function(result){
+    //console.log(result)
     //send the data into the handlebars file
     res.render('admin',result);
   });
+});
+
+router.get('/admin/customerTable', function(req,res,next){
+    //retrieve the export from admin.js
+    var admin = require(path.join(__dirname,'../queries/admin.js'));
+    //a promise is returned so this formats the data into a result set
+    var promise = admin.listCustomer().then(function(result){
+        //console.log(result)
+        //send the data into the handlebars file
+        res.render('adminTable',result);
+    });
 });
 
 //Render the login page into the handlebars file
 router.get('/login',function(req,res,next){
   var login = require(path.join(__dirname,'../queries/login.js'));
   var promise = login.then(function(result){
-    console.log(result);
+    //console.log(result);
     res.render('login',result);
   });
 });

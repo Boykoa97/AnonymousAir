@@ -1,0 +1,12 @@
+<div class = 'table'>
+    <table>
+        <tr><th>Customer Number</th><th>Username</th><th>Password</th></tr>
+        {{#each response}}
+            <tr>
+                <td>{{{this.cno}}}</td>
+                <td>{{{this.username}}}</td>
+                <td>{{{this.password}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
