@@ -1,38 +1,60 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<h1>{{title}}</h1>
+<h1>Anonymous Air - Admin Portal</h1>
 <p>Tools</p>
 <div class="nav">
-    <table>
-        <tr>
-            <td><div class="nav-item"><button class="btn" onclick="location.href= 'admin/customerTable';">Customer Data</button></div></td>
-            <td><div class ="nav-item"><input class="btn" onclick="confirmReset()" type="button" value="Reset Table" id="resetButton"></div></td>
-            <td><div class="nav-item"><button class="btn">Add</button></div></td>
-        </tr>
-    </table>
+
+    <div class="nav-item">
+        <button class="btn btn-primary" onclick=" location.href= '/admin/customerTable';">Customer Data</button>
+    </div>
+
+    <div class="nav-item"><input class="btn btn-primary" onclick="confirmReset()" type="button" value="Reset Table"
+                                 id="resetButton"></div>
+    <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+           Add
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href='/admin/add?type=Customer'>Add new Customer</a>
+            <a class="dropdown-item" href='/admin/add?type=Flight'>Add new Flight</a>
+            <a class="dropdown-item" href='/admin/add?type=Alias'>Add new Alias</a>
+        </div>
+    </div>
+
 </div>
 <p></p>
 <script>
-    function confirmReset(){
+    function confirmReset() {
 
-        if(confirm("Are you sure you want to reset the server?")){
+        if (confirm("Are you sure you want to reset the server?")) {
 
-            let url = "/queries/adminReset";
+            let url = "/queries/admin/adminReset";
             document.getElementById("resetButton").value = "Working...";
             $.get(
                     url,
-                    {confirmed: true},
-                    function(data){
-                        if(data.resetSuccess == true){
+                    {secure: false},
+                    function (data) {
+                        if (data.resetSuccess == true) {
                             document.getElementById("resetButton").value = "Complete";
-                        }else{
+                        } else {
                             document.getElementById("resetButton").value = "Failed";
                         }
-                        window.setTimeout(function(){document.getElementById("resetButton").value = "Reset Table"}, 500)
-                    }
-            );
+                        window.setTimeout(function () {
+                            document.getElementById("resetButton").value = "Reset Table"
+                        }, 750);
 
+                    }
+            ).fail(function () {
+                document.getElementById("resetButton").value = "Failed";
+            });
+            window.setTimeout(function () {
+                document.getElementById("resetButton").value = "Reset Table"
+            }, 750);
 
         }
+    }
+
+    function getRoot(){
+        return window.location.protocol +'//' + window.location.host;
     }
 </script>

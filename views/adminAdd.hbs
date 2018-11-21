@@ -1,15 +1,54 @@
 {{>admin/header}}
 
-<form action>
+<script src = "../queries/tools/insertionErrorHandler.js";></script>
+
+<h2>Add new {{displayText}}</h2>
+
+<div class ="table-striped">
     <table>
         <tr>
-            <td>Username</td>
-            <td>Password</td>
+            {{#each nameConvention}}
+                {{#unless this.hide}}
+                <td>{{this.fancyName}}</td>
+                {{/unless}}
+            {{/each}}
         </tr>
         <tr>
-            <td><input type = "text" name = "userName" value=""></td>
-            <td><input type = "text" name = "password" value=""></td>
-            <td><input type = "submit" value = "Add"</td>
+            {{#each nameConvention}}
+                {{#unless this.hide}}
+                <td><input type = "text" id = "{{this.sqlName}}" value=""></td>
+                {{/unless}}
+            {{/each}}
+            <td><input class="btn" onclick="addItem()" type="button" value="Add"></td>
         </tr>
     </table>
-</form>
+</div>
+<div class="error">
+    <p id="errorText"></p>
+</div>
+
+
+<script>
+    function addItem(){
+
+        dataToSend = {type: '{{type}}' , data: {}};
+        parameter = {data: [ {{#each nameConvention}} {{#unless this.hide}} { sqlName: "{{this.sqlName}}" },{{/unless}}{{/each}} ] };
+        parameter.data.forEach(function(element){
+            //dataToSend[element.sqlName] = document.getElementById(element.sqlName).value
+            dataToSend.data[element.sqlName] = document.getElementById(element.sqlName).value;
+        });
+        $.get(
+            '/queries/admin/addTuple',
+                dataToSend,
+                function(dataRecieved){
+                    if(dataRecieved.success == false){
+                        handleError(dataRecieved,'{{type}}',"errorText");
+                    }else{
+                        handleSuccess(dataRecieved,'{{type}}',"errorText");
+                    }
+                }
+        )
+
+
+    }
+</script>

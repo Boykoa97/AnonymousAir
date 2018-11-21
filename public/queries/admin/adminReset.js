@@ -1,8 +1,12 @@
-var mysql = require("mysql");
-var fs = require('fs');
+const mysql = require("mysql");
+const fs = require('fs');
+const path = require('path');
 
 //this is just for one query on the page, more can be added
-function admin_reset(){
+module.exports = function(req){
+    //Check security token
+    if(req.secure == false)
+        return {resetSuccess: false, text: "You do not have permission to do this!"};
 
     //connect to database
     var connection = mysql.createConnection({
@@ -18,12 +22,11 @@ function admin_reset(){
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-    let sql = fs.readFileSync(__dirname + "/ddl/TablesDDL.sql").toString();
-    sql = sql + fs.readFileSync(__dirname+"/ddl/CustomerDDL.sql").toString();
-    sql = sql + fs.readFileSync(__dirname+"/ddl/AliasDDL.sql").toString();
-    //sql = sql + fs.readFileSync(__dirname+"/ddl/AirportDDL.sql").toString();
+    let sql =   fs.readFileSync(path.join(__dirname,"../ddl/TablesDDL.sql")).toString();
+    sql = sql + fs.readFileSync(path.join(__dirname,"../ddl/CustomerDDL.sql")).toString();
+    sql = sql + fs.readFileSync(path.join(__dirname,"../ddl/AliasDDL.sql")).toString();
+    sql = sql + fs.readFileSync(path.join(__dirname,"../ddl/AirportDDL.sql")).toString();
 
-    console.log(sql)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -43,7 +46,7 @@ function admin_reset(){
     var obj = promise.then(function(result_set){ //Runs if the promise was successful
 
         //Log the result set from the database
-        console.log(result_set);
+        //console.log(result_set);
         connection.end();
 
         //return the variables you want to see on the HTML page
@@ -52,19 +55,17 @@ function admin_reset(){
         //can add data manipulation here (i.e. for-loops, calculations,
         // or anything you need to format after obtaining the data from the db)
 
-        return {title:'The Admin Page', response: result_set};
+        return {resetSuccess: true};
 
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     }).catch(function(err){ //Runs if the promise throws an error
-        console.log("THE PROMISE THREW --> " + err);
+        console.log("Error at SQL query adminReset " + err);
+        return {resetSuccess: false};
         connection.end();
     });
 
-    //return obj;
-}
-
-//add any new query functions you make here...
-module.exports = admin_reset();
+    return obj;
+};

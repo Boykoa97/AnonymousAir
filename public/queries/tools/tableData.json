@@ -1,0 +1,159 @@
+{
+  "types": {
+    "customer": {
+      "fieldData": [
+        {
+          "sqlName": "cno",
+          "fancyName": "Customer Number"
+        },
+        {
+          "sqlName": "username",
+          "fancyName": "Username"
+        },
+        {
+          "sqlName": "password",
+          "fancyName": "Password"
+        }
+      ],
+      "displayText": "customer",
+      "primaryKeyAttributes": ["cno"]
+    },
+    "airplane": {
+      "fieldData": [
+        {
+          "sqlName": "model",
+          "fancyName": "Model Number"
+        },
+        {
+          "sqlName": "manDate",
+          "fancyName": "Manufacture Date"
+        },
+        {
+          "sqlName": "pid",
+          "fancyName": "Plane ID No."
+        }
+      ],
+      "displayText": "airplane",
+      "primaryKeyAttributes": ["pid"]
+    },
+    "flight": {
+      "fieldData": [
+        {
+          "sqlName": "fid",
+          "fancyName": "Flight No."
+        },
+        {
+          "sqlName": "dept",
+          "fancyName": "Departure Airport"
+        },
+        {
+          "sqlName": "arr",
+          "fancyName": "Arrival Airport"
+        },
+        {
+          "sqlName": "deptTime",
+          "fancyName": "Departure Time"
+        },
+        {
+          "sqlName": "arrTime",
+          "fancyName": "Arrival Time"
+        },
+        {
+          "hide": true,
+          "sqlName": "actDeptTime",
+          "fancyName": "DO NOT DISPLAY"
+        },
+        {
+          "hide": true,
+          "sqlName": "actArrTime",
+          "fancyName": "DO NOT DISPLAY"
+        },
+        {
+          "sqlName": "price",
+          "fancyName": "Price Economy"
+        },
+        {
+          "sqlName": "priceFirstClass",
+          "fancyName": "Price First Class"
+        },
+        {
+          "sqlName": "priceStanding",
+          "fancyName": "Price Standing"
+        },
+        {
+          "sqlName": "pid",
+          "fancyName": "Plane ID No."
+        }
+      ],
+      "duplicateValues":
+              [{"from": "arrTime","to":"actArrTime"},
+                {"from": "deptTime", "to": "actDeptTime"}
+              ],
+      "displayText": "flight",
+      "primaryKeyAttributes": [
+        "fid",
+        "deptTime"
+      ]
+    },
+    "alias": {
+      "fieldData": [
+        {
+          "sqlName": "aliasId",
+          "fancyName": "Alias Id"
+        },
+        {
+          "sqlName": "cno",
+          "fancyName": "CustomerName"
+        },
+        {
+          "sqlName": "aliasFirst",
+          "fancyName": "First Name"
+        },
+        {
+          "sqlName": "aliasMid",
+          "fancyName": "Middle Name"
+        },
+        {
+          "sqlName": "aliasLast",
+          "fancyName": "Last Name"
+        },
+        {
+          "sqlName": "country",
+          "fancyName": "Country"
+        },
+        {
+          "sqlName": "passportNum",
+          "fancyName": "Passport Number"
+        }
+      ],
+      "displayText": "alias",
+      "primaryKeyAttributes": ["aliasId"]
+    },
+    "onflight": {
+      "fieldData": [
+        {
+          "sqlName": "fid",
+          "fancyName": "Flight No."
+        },
+        {
+          "sqlName": "deptTime",
+          "fancyName": "Departure Time"
+        },
+        {
+          "sqlName": "aliasId",
+          "fancyName": "Alias Id"
+        },
+        {
+          "sqlName": "seatNo",
+          "fancyName": "Seat No."
+        }
+      ],
+      "displayText": "flight for customer",
+      "primaryKeyAttributes": [
+        "fid",
+        "deptTime",
+        "aliasId"
+      ]
+    }
+  }
+}

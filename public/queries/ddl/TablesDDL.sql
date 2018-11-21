@@ -34,8 +34,8 @@ CREATE TABLE AirplaneModel (
 );
 
 CREATE TABLE Airplane (
-  model   CHAR(5),
-  manDate DATE,
+  model   CHAR(5) NOT NULL,
+  manDate DATE NOT NULL,
   pid     CHAR(5),
   PRIMARY KEY (pid),
   FOREIGN KEY (model) REFERENCES AirplaneModel (model)
@@ -83,18 +83,18 @@ CREATE TABLE PaymentOption (
 
 CREATE TABLE Flight (
   fid              CHAR(6),
-  dest            CHAR(4),
-  arr             CHAR(4),
-  deptTime        DATETIME,
-  arrTime         DATETIME,
+  dept            CHAR(4) NOT NULL,
+  arr             CHAR(4) NOT NULL,
+  deptTime        DATETIME NOT NULL,
+  arrTime         DATETIME NOT NULL,
   actDeptTime     DATETIME,
   actArrTime      DATETIME,
-  price           DECIMAL(10, 2),
-  priceFirstClass DECIMAL(10, 2),
-  priceStanding   DECIMAL(10, 2),
-  pid             CHAR(5),
+  price           DECIMAL(10, 2) NOT NULL,
+  priceFirstClass DECIMAL(10, 2) NOT NULL,
+  priceStanding   DECIMAL(10, 2) NOT NULL,
+  pid             CHAR(5) NOT NULL,
   PRIMARY KEY (fid, deptTime),
-  FOREIGN KEY (dest) REFERENCES Airport (aid),
+  FOREIGN KEY (dept) REFERENCES Airport (aid),
   FOREIGN KEY (arr) REFERENCES Airport (aid),
   FOREIGN KEY (pid) REFERENCES Airplane (pid)
 );
