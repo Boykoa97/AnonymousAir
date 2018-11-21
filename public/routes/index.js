@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 //var mysql = require("mysql");
 var path = require("path");
+var fs = require("fs");
 
 
 //Render the admin page into the handlebars file
@@ -9,11 +10,22 @@ router.get('/admin', function(req,res,next){
   //retrieve the export from admin.js
   var admin = require(path.join(__dirname,'../queries/admin.js'));
   //a promise is returned so this formats the data into a result set
-  var promise = admin.then(function(result){
-    console.log(result);
+  var promise = admin.listCustomer().then(function(result){
+    //console.log(result)
     //send the data into the handlebars file
     res.render('admin',result);
   });
+});
+
+router.get('/admin/customerTable', function(req,res,next){
+    //retrieve the export from admin.js
+    var admin = require(path.join(__dirname,'../queries/admin.js'));
+    //a promise is returned so this formats the data into a result set
+    var promise = admin.listCustomer().then(function(result){
+        //console.log(result)
+        //send the data into the handlebars file
+        res.render('adminTable',result);
+    });
 });
 
 //Render the login page into the handlebars file
@@ -23,6 +35,7 @@ router.get('/login',function(req,res,next){
     console.log(result);
     obj= Object.assign({},result,{layout: 'login_layout.hbs'})
     res.render('login',obj);
+
   });
 });
 
@@ -88,5 +101,31 @@ router.get('/travelinfo',function(req,res,next){
     res.render('travelinfo',result);
   });
 });
+
+// //Iterate and generate proper stuff for all the queries
+// fs.readdir(path.join(__dirname, '../queries'),function(err,files){
+//   if(err){ console.error("Couldn't Parse queries directory.",err); process.exit(1)};
+//   files.forEach(function(file,index){
+//     //console.log(file);
+//     let trimmed = file.toString().substring(0,file.toString().lastIndexOf('.'));
+//     console.log(path.join('/queries/',trimmed));
+//     router.get(path.join('queries',trimmed), function(req,res,next) {
+//         var query = require(path.join(__dirname, '../queries/', file));
+//         var promise = query.then(function (result) {
+//             res.send({text: 'Completed Reset', success: true});
+//         });
+//     });
+//   });
+// });
+
+// router.get('/queries/adminReset',function(req,res,next){
+//   var admin = require(path.join(__dirname,'../queries/admin.js'));
+//   var promise = admin.adminReset().then(function (result) {
+//       res.send(result);
+//
+//   });
+// });
+
+router.get('/view')
 
 module.exports = router;
