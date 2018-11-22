@@ -10,7 +10,10 @@ var hbs = require("express-handlebars");
 var routes = require('./public/routes/index');
 
 //handlebars setup
-app.set('views',path.join(__dirname,'views'));
+
+app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'navbar_layout', layoutDir: __dirname + "/public/views/layout"}));
+app.set('views',path.join(__dirname,'views'))
+
 app.set('view engine','hbs');
 app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'layout', layoutDir: __dirname + "public/views/layout"}));
 
