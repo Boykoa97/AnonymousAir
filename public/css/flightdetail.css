@@ -1,0 +1,41 @@
+body{
+  background: #fff;
+}
+.box {
+  display: inline;
+  position: relative;
+  transition: box-shadow .3s;
+  width: 600px;
+  height: 150px;
+  margin: 20px;
+  border-radius:10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  padding-left: 20px;
+  padding-top: 20px;
+
+
+}
+.box:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.5);
+}
+
+#fld {
+
+  width: 200px;
+  height: 40px;
+
+}
+
+#timeleft {
+  padding: 10px;
+  color: green;
+  position: relative;
+  left: 300px;
+  background-color: #edeeef;
+  background-blend-mode: lighten;
+  border-radius: 3px;
+
+
+}

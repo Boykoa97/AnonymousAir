@@ -35,6 +35,15 @@ router.get('/main',function(req,res,next){
   });
 });
 
+//Render the flight detail into the handlebars file
+router.get('/flightdetail',function(req,res,next){
+  var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
+  var promise = flightdetail.then(function(result){
+    console.log(result);
+    res.render('flightdetail',result);
+  });
+});
+
 //Render the accountinfo page into the handlebars file
 router.get('/accountinfo',function(req,res,next){
   var accountinfo = require(path.join(__dirname,'../queries/accountinfo.js'));
