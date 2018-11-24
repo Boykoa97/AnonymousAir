@@ -104,12 +104,22 @@ router.get('/travelinfo',function(req,res,next){
 
 //Render the the sign up page into the handlebars file
 router.get('/signup',function(req,res,next){
+
+res.render('signup')
+
+});
+
+
+router.post('/signup',function(req,res,next){
+
   var signup = require(path.join(__dirname,'../queries/userSignUpPage.js'));
-  var promise = signup(req.query).then(function(result){
+  var promise = signup.addUser(req.query).then(function(result){
     console.log(req.query);
-    res.render('signup',result);
+    // res.render('signup',result);
   });
 });
+
+
 
 
 module.exports = router;

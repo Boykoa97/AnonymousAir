@@ -15,7 +15,7 @@ app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'navbar_layout', layoutDir:
 app.set('views',path.join(__dirname,'views'))
 
 app.set('view engine','hbs');
-app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'layout', layoutDir: __dirname + "public/views/layout"}));
+app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'login_layout', layoutDir: __dirname + "public/views/layout"}));
 
 //set static content folder location (i.e. where to locate css files, javascript files, and images)
 app.use(express.static('public'));
