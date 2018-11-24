@@ -1,0 +1,26 @@
+INSERT INTO Airport VALUES ('LFQE','FRA','Etain','Grand Est',' Unnamed Road','Étain-Rouvres Air Base','RGNL',3);
+INSERT INTO Airport VALUES ('YWG','CAN','Winnipeg','MB','2000 Wellington Ave','Winnipeg / James Armstrong Richardson International Airport','INTL',4);
+INSERT INTO Airport VALUES ('CPH','DNK','Copenhagen','','6 Lufthavnsboulevarden','Copenhagen Kastrup Airport','RGNL',2);
+INSERT INTO Airport VALUES ('TSL','MEX','Tamuin','S.L.P.',' ','Tamuin Airport','RGNL',2);
+INSERT INTO Airport VALUES ('RNS','FRA','Rennes','Bretagne',' Avenue Joseph le Brix','Rennes-Saint-Jacques Airport','RGNL',1);
+INSERT INTO Airport VALUES ('PRY','ZAF','Pretoria','GP','322 Airport Rd','Wonderboom Airport','RGNL',2);
+INSERT INTO Airport VALUES ('ZSJ','CAN','Sandy Lake','ON',' ','Sandy Lake Airport','RGNL',1);
+INSERT INTO Airport VALUES ('EKVD','DNK','Kolding','','1 Lufthavnsvej','Kolding Vamdrup Airport','RGNL',3);
+INSERT INTO Airport VALUES ('SZA','AGO','Soyo','Zaire',' ','Soyo Airport','RGNL',3);
+INSERT INTO Airport VALUES ('MDL','MMR','Mandalay','Mandalay Region',' ','Mandalay International Airport','INTL',2);
+INSERT INTO Airport VALUES ('ICN','KOR','Seoul','Incheon','272 ','Incheon International Airport','INTL',4);
+INSERT INTO Airport VALUES ('GLK','SOM','Galcaio','',' ','Galcaio Airport','RGNL',5);
+INSERT INTO Airport VALUES ('EFLA','FIN','Vesivehmaa','','206 Urajärventie','Lahti Vesivehmaa Airport','RGNL',3);
+INSERT INTO Airport VALUES ('WA44','IDN','Sulawesi Tenggara','South East Sulawesi',' ','Maranggo Airport','RGNL',2);
+INSERT INTO Airport VALUES ('MSS','USA','Massena','NY','90 Aviation Rd','Massena International Richards Field','INTL',1);
+INSERT INTO Airport VALUES ('KRL','CHN','Korla','Xinjiang Weiwuerzizhiqu',' Unnamed Road','Korla Airport','RGNL',1);
+INSERT INTO Airport VALUES ('CPT','ZAF','Cape Town','WC',' Matroosfontein','Cape Town International Airport','INTL',1);
+INSERT INTO Airport VALUES ('YRO','CAN','Ottawa','ON',' Unnamed Road','Ottawa / Rockcliffe Airport','RGNL',1);
+INSERT INTO Airport VALUES ('PMG','BRA','Ponta Pora','MS','131 R. Livorno','Ponta Porã Airport','RGNL',2);
+INSERT INTO Airport VALUES ('VAG','BRA','Varginha','MG',' Av. José Ribeiro Tristão','Major Brigadeiro Trompowsky Airport','RGNL',2);
+INSERT INTO Airport VALUES ('UEMA','RUS','Honuu','Sakha (Yakutiya) Republits',' ','Moma Airport','RGNL',4);
+INSERT INTO Airport VALUES ('HNM','USA','Hana','HI','700 Alalele Pl','Hana Airport','RGNL',2);
+INSERT INTO Airport VALUES ('MYJ','JPN','Matsuyama','Ehime Prefecture',' ','Matsuyama Airport','RGNL',2);
+INSERT INTO Airport VALUES ('HTMP','TZA','Mpanda','Rukwa Region',' Unnamed Road','Mpanda Airport','RGNL',3);
+INSERT INTO Airport VALUES ('HUF','USA','Terre Haute','IN',' ','Terre Haute International Hulman Field','INTL',4);
+
