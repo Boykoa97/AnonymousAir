@@ -46,3 +46,7 @@ body, html {
   bottom: 50%;
   left:45%;
 }
+
+.dropdown-item{
+    position: relative;
+}

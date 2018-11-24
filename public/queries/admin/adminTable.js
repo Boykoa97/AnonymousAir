@@ -1,29 +1,20 @@
 var mysql = require("mysql");
-var fs = require('fs');
 
 //this is just for one query on the page, more can be added
-function admin_reset(){
+module.exports = function(){
 
     //connect to database
     var connection = mysql.createConnection({
         host : 'cosc304.ok.ubc.ca',
         user : 'mspouge',
         password : '13792149',
-        database : 'db_mspouge',
-        multipleStatements: true
+        database : 'db_mspouge'
     });
 
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-    let sql = fs.readFileSync(__dirname + "/ddl/TablesDDL.sql").toString();
-    sql = sql + fs.readFileSync(__dirname+"/ddl/CustomerDDL.sql").toString();
-    sql = sql + fs.readFileSync(__dirname+"/ddl/AliasDDL.sql").toString();
-    //sql = sql + fs.readFileSync(__dirname+"/ddl/AirportDDL.sql").toString();
-
-    console.log(sql)
+    let sql = 'SELECT * From Customer ORDER BY cno';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -43,7 +34,7 @@ function admin_reset(){
     var obj = promise.then(function(result_set){ //Runs if the promise was successful
 
         //Log the result set from the database
-        console.log(result_set);
+       // console.log(result_set);
         connection.end();
 
         //return the variables you want to see on the HTML page
@@ -63,8 +54,5 @@ function admin_reset(){
         connection.end();
     });
 
-    //return obj;
-}
-
-//add any new query functions you make here...
-module.exports = admin_reset();
+    return obj;
+};
