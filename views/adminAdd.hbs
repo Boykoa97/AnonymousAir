@@ -1,6 +1,6 @@
 {{>admin/header}}
 
-<script src = "../queries/tools/insertionErrorHandler.js";></script>
+<script src = "../js/insertionErrorHandler.js";></script>
 
 <h2>Add new {{displayText}}</h2>
 
@@ -28,13 +28,13 @@
 </div>
 
 
+
 <script>
     function addItem(){
 
         dataToSend = {type: '{{type}}' , data: {}};
         parameter = {data: [ {{#each nameConvention}} {{#unless this.hide}} { sqlName: "{{this.sqlName}}" },{{/unless}}{{/each}} ] };
         parameter.data.forEach(function(element){
-            //dataToSend[element.sqlName] = document.getElementById(element.sqlName).value
             dataToSend.data[element.sqlName] = document.getElementById(element.sqlName).value;
         });
         $.get(

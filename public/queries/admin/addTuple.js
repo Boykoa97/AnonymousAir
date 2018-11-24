@@ -12,13 +12,28 @@ module.exports = function (parameters) {
             });
         case 'flight':
             return addFlight(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{return result});
+        case 'alias':
+            return addAlias(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{ return result});
+        case 'airplane':
+            return addAirplane(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{ return result});
+        case 'airplanemodel':
+            return addAirplaneModel(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{ return result});
+        case 'airport':
+            return addAirport(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{ return result});
+        case 'onflight':
+            return addOnFlight(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{ return result});
+        case 'flightreview':
+            return addFlightReview(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{ return result});
+        case 'extra':
+            return addExtra(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{ return result});
         default:
             console.log('WE HIT DEFAULT');
     }
 
 }
 
-function addCustomer(parameters) {
+//TODO BRING UP TO SPEED WITH TABLEDATA
+function addCustomer(parameters, tableData) {
     console.log("Inserting new entry into customer!");
     sql = "INSERT INTO Customer VALUES (?,?,?);";
 
@@ -30,7 +45,7 @@ function addCustomer(parameters) {
         if (result.success === false)
             return {success: false, err: result.err};
         //TODO: Max this better. Check against regex
-        if (parameters.cno === '') {
+
             max = 0;
             //Find maximum Value
             result.data.forEach(function (val) {
@@ -41,12 +56,13 @@ function addCustomer(parameters) {
             max++;
             //Force to CHAR(5) size
             let cnoString = '' + max;
-            while (cnoString.length < 5) {
+            while (cnoString.length < 4) {
                 cnoString = '0' + cnoString;
             }
+            cnoString = 'C' + cnoString;
             console.log("CNO STRING: " + cnoString)
             parameters['cno'] = cnoString;
-        }
+
 
         let insertionValues = [parameters.cno, parameters.username, parameters.password];
         return query(mysql.format(sql, insertionValues)).then(function (result) {
@@ -94,8 +110,6 @@ function addFlight(parameters, tableData) {
        primaryKeys.push(parameters.data[e]);
     });
 
-    console.log(insertionValues);
-
     return query(mysql.format(sql, insertionValues)).then(function (result) {
 
             return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters}
@@ -109,6 +123,313 @@ function addFlight(parameters, tableData) {
 
 
     return queryResult;
+
+
+}
+
+function addAlias(parameters, tableData){
+
+    numerateKey = 'aliasId';
+    type = 'Alias';
+
+    queryResult = getPrimaryKeys(type, numerateKey).then(function (result) {
+
+        sqlString = "INSERT INTO Alias VALUES (?,?,?,?,?,?,?);"
+
+        //make sure query didn't fail
+        if (result.success === false)
+            return {success: false, err: result.err};
+        //TODO: Max this better. Check against regex
+
+        max = 0;
+        //Find maximum Value
+        result.data.forEach(function (val) {
+            if (parseInt(val[numerateKey]) > max)
+                max = parseInt(val[numerateKey]);
+        });
+        parameters.data[numerateKey] = ++max;
+
+        let insertionValues = [];
+
+        tableData.fieldData.forEach(e=>{
+            insertionValues.push(parameters.data[e.sqlName]);
+        })
+
+        primaryKeys = [];
+        tableData.primaryKeyAttributes.forEach(e =>{
+            primaryKeys.push(parameters.data[e]);
+        });
+
+        return query(mysql.format(sqlString, insertionValues)).then(function (result) {
+
+            return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters.data}
+
+
+
+        }).catch(function (err) {
+            console.error(err);
+            return {success: false, err: err}
+        });
+
+
+    })
+    return queryResult;
+
+
+}
+
+function addAirplane(parameters, tableData){
+
+    numerateKey = 'pid';
+    type = 'Airplane';
+
+    queryResult = getPrimaryKeys(type, numerateKey).then(function (result) {
+
+        sqlString = "INSERT INTO Airplane VALUES (?,?,?);"
+
+        //make sure query didn't fail
+        if (result.success === false)
+            return {success: false, err: result.err};
+        //TODO: Max this better. Check against regex
+
+        max = 0;
+        //Find maximum Value
+        result.data.forEach(function (val) {
+            if (parseInt(val[numerateKey]) > max)
+                max = parseInt(val[numerateKey]);
+        });
+        parameters.data[numerateKey] = "" + ++max;
+
+        while(parameters.data[numerateKey].length < 4){
+            parameters.data[numerateKey] = '0' + parameters.data[numerateKey];
+        }
+
+        parameters.data[numerateKey] = 'P' + parameters.data[numerateKey];
+
+        let insertionValues = [];
+
+        tableData.fieldData.forEach(e=>{
+            insertionValues.push(parameters.data[e.sqlName]);
+        })
+
+        primaryKeys = [];
+        tableData.primaryKeyAttributes.forEach(e =>{
+            primaryKeys.push(parameters.data[e]);
+        });
+
+        return query(mysql.format(sqlString, insertionValues)).then(function (result) {
+
+            return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters.data}
+
+        }).catch(function (err) {
+            console.error(err);
+            return {success: false, err: err}
+        });
+
+
+    })
+    return queryResult;
+
+
+}
+
+function addAirplaneModel(parameters, tableData){
+
+    numerateKey = '';
+    type = 'AirplaneModel';
+
+
+        sqlString = "INSERT INTO AirplaneModel VALUES (?,?,?,?,?,?,?,?);"
+
+        //make sure query didn't fail
+        //TODO: Max this better. Check against regex
+
+        let insertionValues = [];
+
+        tableData.fieldData.forEach(e=>{
+            insertionValues.push(parameters.data[e.sqlName]);
+        })
+
+        primaryKeys = [];
+        tableData.primaryKeyAttributes.forEach(e =>{
+            primaryKeys.push(parameters.data[e]);
+        });
+
+        return query(mysql.format(sqlString, insertionValues)).then(function (result) {
+
+            return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters.data}
+
+
+
+        }).catch(function (err) {
+            console.error(err);
+            return {success: false, err: err}
+        });
+
+
+
+
+}
+
+function addAirport(parameters, tableData){
+
+    numerateKey = '';
+    type = 'Airport';
+
+
+        sqlString = "INSERT INTO Airport VALUES (?,?,?,?,?,?,?,?);"
+
+        //make sure query didn't fail
+        //TODO: Max this better. Check against regex
+
+        let insertionValues = [];
+
+        tableData.fieldData.forEach(e=>{
+            insertionValues.push(parameters.data[e.sqlName]);
+        })
+
+        primaryKeys = [];
+        tableData.primaryKeyAttributes.forEach(e =>{
+            primaryKeys.push(parameters.data[e]);
+        });
+
+        return query(mysql.format(sqlString, insertionValues)).then(function (result) {
+
+            return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters.data}
+
+
+
+        }).catch(function (err) {
+            console.error(err);
+            return {success: false, err: err}
+        });
+
+
+
+
+
+
+}
+
+function addOnFlight(parameters, tableData){
+
+    numerateKey = '';
+    type = 'OnFlight';
+
+
+    sqlString = "INSERT INTO OnFlight VALUES (?,?,?,?);"
+
+    //make sure query didn't fail
+    //TODO: Max this better. Check against regex
+
+    let insertionValues = [];
+
+    tableData.fieldData.forEach(e=>{
+        insertionValues.push(parameters.data[e.sqlName]);
+    })
+
+    primaryKeys = [];
+    tableData.primaryKeyAttributes.forEach(e =>{
+        primaryKeys.push(parameters.data[e]);
+    });
+
+    return query(mysql.format(sqlString, insertionValues)).then(function (result) {
+
+        return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters.data}
+
+
+
+    }).catch(function (err) {
+        console.error(err);
+        return {success: false, err: err}
+    });
+
+
+
+
+
+
+}
+
+function addFlightReview(parameters, tableData){
+
+    numerateKey = 'postDate';
+    type = 'OnFlight';
+
+    currentTime = new Date();
+    dateString = currentTime.getFullYear() + '-' + currentTime.getMonth() + '-' + currentTime.getDay();
+
+    parameters.data[numerateKey] = dateString;
+    sqlString = "INSERT INTO FlightReview VALUES (?,?,?,?,?);"
+
+    //make sure query didn't fail
+    //TODO: Max this better. Check against regex
+
+    let insertionValues = [];
+
+    tableData.fieldData.forEach(e=>{
+        insertionValues.push(parameters.data[e.sqlName]);
+    })
+
+    primaryKeys = [];
+    tableData.primaryKeyAttributes.forEach(e =>{
+        primaryKeys.push(parameters.data[e]);
+    });
+
+    return query(mysql.format(sqlString, insertionValues)).then(function (result) {
+
+        return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters.data}
+
+
+
+    }).catch(function (err) {
+        console.error(err);
+        return {success: false, err: err}
+    });
+
+
+
+
+
+
+}
+
+function addExtra(parameters, tableData){
+
+    numerateKey = '';
+    type = 'Extra';
+
+
+    sqlString = "INSERT INTO Extra VALUES (?,?,?,?,?,?);"
+
+    //make sure query didn't fail
+    //TODO: Max this better. Check against regex
+
+    let insertionValues = [];
+
+    tableData.fieldData.forEach(e=>{
+        insertionValues.push(parameters.data[e.sqlName]);
+    })
+
+    primaryKeys = [];
+    tableData.primaryKeyAttributes.forEach(e =>{
+        primaryKeys.push(parameters.data[e]);
+    });
+
+    return query(mysql.format(sqlString, insertionValues)).then(function (result) {
+
+        return {success: result.success, err: result.err, data: result.data, primaryKeyValue: primaryKeys, inputParameters: parameters.data}
+
+
+
+    }).catch(function (err) {
+        console.error(err);
+        return {success: false, err: err}
+    });
+
+
+
+
 
 
 }

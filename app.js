@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 const opn = require('opn');
 var mysql = require('mysql');
 var hbs = require("express-handlebars");
+var bodyParser = require('body-parser')
 
 var routes = require('./public/routes/index');
 
@@ -15,10 +16,17 @@ app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'navbar_layout', layoutDir:
 
 app.set('view engine','hbs');
 
+
+
 //set static content folder location (i.e. where to locate css files, javascript files, and images)
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 //set up the routes to get referenced in the index.js file
 app.use('/',routes);
+
 //register partials for HandleBars
 //launch the app
 app.listen(3000)

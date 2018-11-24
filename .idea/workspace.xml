@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeffe063-b130-4ec2-ab92-b924489fc5ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo_no_bg.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo_no_caption.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layouts/navbar_layout.hbs" afterDir="false" />
+    <list default="true" id="eeffe063-b130-4ec2-ab92-b924489fc5ea" name="Default Changelist" comment="Merge branch 'dev' of https://github.com/littleAdler/AnonymousAir into stewart&#10;&#10;# Conflicts:&#10;#&#9;app.js&#10;#&#9;public/routes/index.js&#10;#&#9;views/layouts/login_layout.hbs">
+      <change afterPath="$PROJECT_DIR$/public/queries/admin/aliasTable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/aliasTable.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AnonymousAir.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AnonymousAir.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/read.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/json.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/raw.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/raw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/text.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/text.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/addTuple.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/addTuple.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/adminTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/adminTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/ddl/AliasDDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/ddl/AliasDDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/ddl/CustomerDDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/ddl/CustomerDDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/tools/insertionErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/insertionErrorHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/tools/tableData.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/tools/tableData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/login_layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/login_layout.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/adminAdd.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/adminAdd.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/adminTable.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/adminTable.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/navbar_layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/navbar_layout.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/admin/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/admin/header.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,6 +47,7 @@
         <counts>
           <entry key="project.closed" value="10" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.25" value="1" />
@@ -37,117 +57,90 @@
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="10" />
-          <entry key="hbs" value="27" />
-          <entry key="js" value="42" />
+          <entry key="hbs" value="36" />
+          <entry key="js" value="56" />
           <entry key="json" value="4" />
-          <entry key="sql" value="6" />
+          <entry key="sql" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="10" />
-          <entry key="Handlebars/Mustache" value="27" />
+          <entry key="Handlebars/Mustache" value="36" />
           <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="42" />
-          <entry key="SQL" value="6" />
+          <entry key="JavaScript" value="56" />
+          <entry key="SQL" value="11" />
           <entry key="tsconfig" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="31" />
-          <entry key="hbs" value="5530" />
-          <entry key="js" value="14419" />
-          <entry key="json" value="1520" />
-          <entry key="sql" value="47" />
+          <entry key="hbs" value="7108" />
+          <entry key="js" value="16391" />
+          <entry key="json" value="2925" />
+          <entry key="sql" value="83" />
           <entry key="txt" value="214" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="31" />
-          <entry key="Handlebars/Mustache" value="5530" />
-          <entry key="JSON" value="1381" />
-          <entry key="JavaScript" value="14419" />
+          <entry key="Handlebars/Mustache" value="7108" />
+          <entry key="JSON" value="2786" />
+          <entry key="JavaScript" value="16391" />
           <entry key="PLAIN_TEXT" value="214" />
-          <entry key="SQL" value="47" />
+          <entry key="SQL" value="83" />
           <entry key="tsconfig" value="139" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.merge" value="1" />
+          <entry key="git.branch.compare" value="2" />
+          <entry key="git.branch.merge" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/adminTable.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/queries/admin/addTuple.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            <state relative-caret-position="221">
+              <caret line="222" selection-start-line="222" selection-end-line="222" />
+              <folding>
+                <element signature="n#!!block;n#addCustomer#0" />
+                <element signature="n#!!block;n#addFlight#0" />
+                <element signature="n#!!block;n#addAlias#0" />
+                <element signature="n#!!block;n#addAirplaneModel#0" />
+                <element signature="n#!!block;n#addAirport#0" />
+                <element signature="n#!!block;n#getPrimaryKeys#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/admin/header.hbs">
+        <entry file="file://$PROJECT_DIR$/public/queries/ddl/CustomerDDL.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layouts/login_layout.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/admin.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="283" column="54" selection-start-line="283" selection-start-column="54" selection-end-line="283" selection-end-column="54" />
+            <state relative-caret-position="535">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
@@ -155,26 +148,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="140" column="21" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
+            <state relative-caret-position="187">
+              <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/adminAdd.hbs">
+        <entry file="file://$PROJECT_DIR$/views/login.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="35" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="35" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/queries/tools/tableData.json">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layouts/navbar_layout.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/aliasTable.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/queries/admin/adminTable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="42" column="71" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/queries/admin/adminReset.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -185,8 +214,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Handlebars File" />
         <option value="tsconfig.json" />
+        <option value="Handlebars File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -196,6 +225,9 @@
       <find>console.log</find>
       <find>primaryKey</find>
       <find>data.err.sqlMessage.toString()</find>
+      <find>FederalElevat</find>
+      <find>cno</find>
+      <find>body</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -215,7 +247,6 @@
         <option value="$PROJECT_DIR$/public/queries/adminTable.js" />
         <option value="$PROJECT_DIR$/views/partials/admin/customerData.hbs" />
         <option value="$PROJECT_DIR$/public/queries/adminReset.js" />
-        <option value="$PROJECT_DIR$/views/adminTable.hbs" />
         <option value="$PROJECT_DIR$/views/admin.hbs" />
         <option value="$PROJECT_DIR$/public/queries/ddl/addTuple.js" />
         <option value="$PROJECT_DIR$/public/queries/admin.js" />
@@ -228,15 +259,23 @@
         <option value="$PROJECT_DIR$/public/queries/admin/adminReset.js" />
         <option value="$PROJECT_DIR$/public/queries/admin/adminAddHandler.js" />
         <option value="$PROJECT_DIR$/public/queries/adminAdd.js" />
-        <option value="$PROJECT_DIR$/views/partials/admin/header.hbs" />
-        <option value="$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql" />
+        <option value="$PROJECT_DIR$/views/layouts/login_layout.hbs" />
+        <option value="$PROJECT_DIR$/public/queries/ddl/AliasDDL.sql" />
         <option value="$PROJECT_DIR$/public/queries/tools/insertionErrorHandler.js" />
         <option value="$PROJECT_DIR$/public/queries/tools/tableData.json" />
+        <option value="$PROJECT_DIR$/views/partials/admin/aliasTable.hbs" />
         <option value="$PROJECT_DIR$/views/adminAdd.hbs" />
-        <option value="$PROJECT_DIR$/public/queries/admin/addTuple.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/adminTable.js" />
+        <option value="$PROJECT_DIR$/views/partials/admin/header.hbs" />
+        <option value="$PROJECT_DIR$/views/layouts/navbar_layout.hbs" />
+        <option value="$PROJECT_DIR$/public/queries/admin/aliasTable.js" />
+        <option value="$PROJECT_DIR$/views/aliasTable.hbs" />
         <option value="$PROJECT_DIR$/public/routes/index.js" />
-        <option value="$PROJECT_DIR$/views/layouts/login_layout.hbs" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/public/queries/ddl/CustomerDDL.sql" />
+        <option value="$PROJECT_DIR$/public/queries/admin/addTuple.js" />
+        <option value="$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql" />
+        <option value="$PROJECT_DIR$/views/adminTable.hbs" />
       </list>
     </option>
   </component>
@@ -265,8 +304,8 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -276,6 +315,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -292,13 +332,7 @@
               <item name="AnonymousAir" type="b2602c69:ProjectViewProjectNode" />
               <item name="AnonymousAir" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnonymousAir" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnonymousAir" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnonymousAir" type="b2602c69:ProjectViewProjectNode" />
@@ -362,14 +396,18 @@
               <item name="partials" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AnonymousAir" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="modal&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.13.0" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -382,15 +420,15 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\COSC304\AnonymousAir\public\queries\ddl" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\COSC304\AnonymousAir\views" />
+      <recent name="D:\COSC304\AnonymousAir\public\js" />
       <recent name="D:\COSC304\AnonymousAir\public\queries\tools" />
       <recent name="D:\COSC304\AnonymousAir\public\queries" />
       <recent name="D:\COSC304\AnonymousAir\public\queries\admin" />
-      <recent name="D:\COSC304\AnonymousAir\views\partials\admin" />
-      <recent name="D:\COSC304\AnonymousAir\views\partials" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\COSC304\AnonymousAir\public\queries\ddl" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -423,8 +461,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.app.js" />
-        <item itemvalue="Node.js.addTuple.js" />
         <item itemvalue="Node.js.adminReset.js" />
+        <item itemvalue="Node.js.addTuple.js" />
       </list>
     </recent_temporary>
   </component>
@@ -449,7 +487,8 @@
       <workItem from="1542673745590" duration="15241000" />
       <workItem from="1542730382535" duration="6686000" />
       <workItem from="1542823205881" duration="598000" />
-      <workItem from="1542832302064" duration="3877000" />
+      <workItem from="1542832302064" duration="22297000" />
+      <workItem from="1542927274835" duration="4696000" />
     </task>
     <task id="LOCAL-00001" summary="As per Mike's request in mtg">
       <created>1542489518789</created>
@@ -469,7 +508,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94308000" />
+    <option name="totallyTimeSpent" value="117424000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,42 +521,42 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19336143" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19336143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3264642" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.2483731" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" order="0" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3264642" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.329718" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2475356" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19336143" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19336143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3264642" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2483731" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.329718" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3264642" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.329718" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2483731" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -542,12 +581,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="As per Mike's request in mtg" />
     <MESSAGE value="Updated work. Changes related to Admin views.&#10;Added /views/tools&#10;Added Jquery and 2 other stuffs to make dropdowns work to layout default" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated work. Changes related to Admin views.&#10;Added /views/tools&#10;Added Jquery and 2 other stuffs to make dropdowns work to layout default" />
+    <MESSAGE value="Merge branch 'dev' of https://github.com/littleAdler/AnonymousAir into stewart&#10;&#10;# Conflicts:&#10;#&#9;app.js&#10;#&#9;public/routes/index.js&#10;#&#9;views/layouts/login_layout.hbs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'dev' of https://github.com/littleAdler/AnonymousAir into stewart&#10;&#10;# Conflicts:&#10;#&#9;app.js&#10;#&#9;public/routes/index.js&#10;#&#9;views/layouts/login_layout.hbs" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/queries/ddl/AliasDDL.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/main_temp.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -575,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layouts/admin.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -597,20 +627,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/queries/adminAdd.js.hbs" />
-    <entry file="file://$PROJECT_DIR$/views/adminTable.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/admin/customerData.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -618,20 +634,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-446">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -639,34 +642,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="82" column="61" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/queries/contact.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="57" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminReset.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/tools/insertionErrorHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!block;n#handleError#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,20 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/adminAdd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminAdd.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="35" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -715,45 +680,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="140" column="21" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/tools/tableData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/addTuple.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/admin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/admin/header.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -764,10 +694,176 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/public/queries/adminAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/ddl/AliasDDL.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="548" lean-forward="true" selection-start-line="548" selection-end-line="548" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/insertionErrorHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="110" column="7" lean-forward="true" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#handleError#0" />
+            <element signature="n#!!block;n#getFancyName#0" />
+            <element signature="n#!!block;n#getSQLName#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/tools/tableData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="162" column="34" lean-forward="true" selection-start-line="161" selection-start-column="54" selection-end-line="162" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!block;n#customer#0;n#!!block;n#types#0;n#!!top" />
+            <element signature="e#52#326#0" />
+            <element signature="n#!!block;n#flight#0;n#!!block;n#types#0;n#!!top" />
+            <element signature="n#!!block;n#alias#0;n#!!block;n#types#0;n#!!top" />
+            <element signature="n#!!block;n#airplane#0;n#!!block;n#types#0;n#!!top" />
+            <element signature="n#!!block;n#airport#0;n#!!block;n#types#0;n#!!top" />
+            <element signature="n#!!block;n#onflight#1;n#!!block;n#types#0;n#!!top" />
+            <element signature="n#!!block;n#flightreview#0;n#!!block;n#types#0;n#!!top" />
+            <element signature="n#!!block;n#extra#0;n#!!block;n#types#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/admin/customerData.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminAdd.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="n#script#1;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/js/src/modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/admin/header.hbs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/aliasTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/navbar.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/navbar_layout.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminReset.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/aliasTable.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="113" column="81" selection-start-line="113" selection-start-column="81" selection-end-line="113" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/addTuple.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="222" selection-start-line="222" selection-end-line="222" />
+          <folding>
+            <element signature="n#!!block;n#addCustomer#0" />
+            <element signature="n#!!block;n#addFlight#0" />
+            <element signature="n#!!block;n#addAlias#0" />
+            <element signature="n#!!block;n#addAirplaneModel#0" />
+            <element signature="n#!!block;n#addAirport#0" />
+            <element signature="n#!!block;n#getPrimaryKeys#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="42" column="71" selection-start-line="42" selection-start-column="71" selection-end-line="42" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/ddl/CustomerDDL.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminTable.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="42" lean-forward="true" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
         </state>
       </provider>
     </entry>

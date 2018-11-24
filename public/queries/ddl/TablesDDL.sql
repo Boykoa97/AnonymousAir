@@ -30,6 +30,7 @@ CREATE TABLE AirplaneModel (
   manufacturer  VARCHAR(50),
   colFirstClass integer,
   colEcon       integer,
+  description   TEXT,
   PRIMARY KEY (model)
 );
 
@@ -47,6 +48,7 @@ CREATE TABLE Customer (
   cno      CHAR(5),
   username VARCHAR(50),
   password VARCHAR(50),
+  email VARCHAR(50),
   PRIMARY KEY (cno),
   UNIQUE(username)
 );
@@ -166,7 +168,7 @@ INSERT INTO Airport VALUES ('YLW','CAN','Kelowna','BC','5533 Airport Way','Kelow
 INSERT INTO Airport VALUES ('YVR','CAN','Vancouver','BC','3211 Grant McConachie Way', 'Vancouver International Airport','INTL','5');
 
 #AirplaneModel
-INSERT INTO AirplaneModel VALUES ('BO747',300,30,0,'Boeing',4,6);
+INSERT INTO AirplaneModel VALUES ('BO747',300,30,0,'Boeing',4,6,"This plane is a beautiful plane, best plane their is. 300 seats with minimal leg room, no room for standing because too much leg room");
 
 #Airplane
 INSERT INTO Airplane VALUES ('BO747','2016-05-12','00001');

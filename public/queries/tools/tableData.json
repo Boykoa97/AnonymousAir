@@ -3,6 +3,7 @@
     "customer": {
       "fieldData": [
         {
+          "hide": true,
           "sqlName": "cno",
           "fancyName": "Customer Number"
         },
@@ -17,24 +18,6 @@
       ],
       "displayText": "customer",
       "primaryKeyAttributes": ["cno"]
-    },
-    "airplane": {
-      "fieldData": [
-        {
-          "sqlName": "model",
-          "fancyName": "Model Number"
-        },
-        {
-          "sqlName": "manDate",
-          "fancyName": "Manufacture Date"
-        },
-        {
-          "sqlName": "pid",
-          "fancyName": "Plane ID No."
-        }
-      ],
-      "displayText": "airplane",
-      "primaryKeyAttributes": ["pid"]
     },
     "flight": {
       "fieldData": [
@@ -98,12 +81,13 @@
     "alias": {
       "fieldData": [
         {
+          "hide": true,
           "sqlName": "aliasId",
           "fancyName": "Alias Id"
         },
         {
           "sqlName": "cno",
-          "fancyName": "CustomerName"
+          "fancyName": "Customer Number"
         },
         {
           "sqlName": "aliasFirst",
@@ -129,11 +113,101 @@
       "displayText": "alias",
       "primaryKeyAttributes": ["aliasId"]
     },
+    "airplane": {
+
+      "fieldData": [
+
+        {
+          "sqlName": "model",
+          "fancyName": "Airplane Model Number"
+        },
+        {
+          "sqlName": "manDate",
+          "fancyName": "Manufacture Date"
+        },
+        { "hide": true,
+          "sqlName": "pid",
+          "fancyName": "Plane Id"
+        }
+      ],
+      "displayText": "airplane",
+      "primaryKeyAttributes": [
+        "pid"
+      ]
+    },
+    "airplanemodel":{
+
+      "fieldData": [
+
+        {
+          "sqlName": "model",
+          "fancyName": "Airplane Model Number"
+        },
+        { "hide": false,
+          "sqlName": "numSeats",
+          "fancyName": "Total # Seats"
+        },
+        { "sqlName": "numFirstClass",
+          "fancyName": "Num Seats F. Class"
+        },
+        {
+          "sqlName": "numStanding",
+          "fancyName": "Num Standing Passengers"
+        },
+        {"sqlName": "manufacturer",
+          "fancyName": "Manufacturer"},
+        {"sqlName": "colFirstClass",
+          "fancyName": "Num seats in \n F. Class row"},
+        {"sqlName": "colEcon",
+          "fancyName": "Num seats in \n Economy row"},
+        {"sqlName": "description",
+          "fancyName": "Model Description"}
+
+      ],
+      "displayText": "model of airplane",
+      "primaryKeyAttributes": [
+        "model"
+      ]
+    },
+    "airport":{
+
+      "fieldData": [
+
+        {
+          "sqlName": "aid",
+          "fancyName": "Airport Id"
+        },
+        {
+          "sqlName": "country",
+          "fancyName": "Country"
+        },
+        { "sqlName": "city",
+          "fancyName": "City"
+        },
+        {
+          "sqlName": "state",
+          "fancyName": "State"
+        },
+        {"sqlName": "street",
+          "fancyName": "Street Address"},
+        {"sqlName": "name",
+          "fancyName": "Airport Name"},
+        {"sqlName": "service",
+          "fancyName": "RGNL/INTL"},
+        {"sqlName": "securityLevel",
+          "fancyName": "Security Level"}
+
+      ],
+      "displayText": "airport",
+      "primaryKeyAttributes": [
+        "aid"
+      ]
+    },
     "onflight": {
       "fieldData": [
         {
           "sqlName": "fid",
-          "fancyName": "Flight No."
+          "fancyName": "Flight Id"
         },
         {
           "sqlName": "deptTime",
@@ -145,15 +219,62 @@
         },
         {
           "sqlName": "seatNo",
-          "fancyName": "Seat No."
+          "fancyName": "Seat Number"
         }
       ],
-      "displayText": "flight for customer",
-      "primaryKeyAttributes": [
-        "fid",
-        "deptTime",
-        "aliasId"
-      ]
+      "displayText": "customer on flight",
+      "primaryKeyAttributes": ["aliasId","fid","deptTime"]
+    },
+    "flightreview": {
+      "fieldData": [
+        {
+          "sqlName": "fid",
+          "fancyName": "Flight Id"
+        },
+        {
+          "sqlName": "deptTime",
+          "fancyName": "Departure Time"
+        },
+        {
+          "sqlName": "aliasId",
+          "fancyName": "Alias Id"
+        },
+        {
+          "hide": true,
+          "sqlName": "postDate",
+          "fancyName": "postDate"
+        },
+        {"sqlName": "text",
+          "fancyName": "Review"}
+      ],
+      "displayText": "flight review",
+      "primaryKeyAttributes": ["aliasId","fid","deptTime"]
+    },
+    "extra": {
+      "fieldData": [
+        {
+          "sqlName": "fid",
+          "fancyName": "Flight Id"
+        },
+        {
+          "sqlName": "deptTime",
+          "fancyName": "Departure Time"
+        },
+        {
+          "sqlName": "oid",
+          "fancyName": "Option Id"
+        },
+        {
+          "sqlName": "optionTitle",
+          "fancyName": "Option Name"
+        },
+        {"sqlName": "optionText",
+          "fancyName": "Option Description"},
+        {"sqlName": "price",
+         "fancyName": "Price"}
+      ],
+      "displayText": "in-flight option",
+      "primaryKeyAttributes": ["oid","fid","deptTime"]
     }
   }
 }

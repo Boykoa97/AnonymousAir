@@ -12,14 +12,15 @@ function handleError(data, type, elementId) {
         let errorMessage = 'Error Recieved. Consult logs';
         switch (code) {
             case 'ER_DUP_ENTRY':
-                if (sqlMessage.search('PRIMARY')) {
+                console.log(sqlMessage)
+                if (sqlMessage.search('PRIMARY') !== -1) {
                     dupeField = '';
                     dupeValue = '';
                     namingConvention.primaryKeyAttributes.forEach(e => {
                         dupeField += getFancyName(e.toString(), namingConvention.fieldData) + ", ";
                         console.log(e)
-                        console.log(data.inputParameters[e])
-                        dupeValue += data.inputParameters[e] + ", "
+                        console.log(data.inputParameters[e]);
+                        dupeValue += data.inputParameters[e.toString()] + ", "
                     });
                     dupeField = dupeField.substring(0, dupeField.lastIndexOf(','));
                     dupeValue = dupeValue.substring(0, dupeValue.lastIndexOf(','));
@@ -31,9 +32,11 @@ function handleError(data, type, elementId) {
                 } else {
                     try {
                         namingConvention.fieldData.forEach(function (e) {
-                            if (sqlMessage.search(e.sqlName) !== -1) {
+                            if (sqlMessage.search(e.sqlName.toString()) !== -1) {
                                 dupeField = e.fancyName;
-                                dupeValue = document.getElementById(e.sqlName);
+                                stringStart = sqlMessage.indexOf('\'');
+                                stringEnd = sqlMessage.indexOf('\'',stringStart+1);
+                                dupeValue = sqlMessage.substring(stringStart-1,stringEnd);
                                 throw BreakException;
                             }
                         })
@@ -76,11 +79,11 @@ function handleError(data, type, elementId) {
 
 function handleSuccess(data, type, elementId) {
     $.getJSON(tableLocation, function (json) {
-        let fieldData = json.types[type.toLowerCase()];
+        let typeData = json.types[type.toLowerCase()];
         let primaryKeyNames = '(';
 
-        fieldData.primaryKeyAttributes.forEach(function (pKey) {
-            primaryKeyNames += getFancyName(pKey, fieldData.fieldData) + ', ';
+        typeData.primaryKeyAttributes.forEach(function (pKey) {
+            primaryKeyNames += getFancyName(pKey, typeData.fieldData) + ', ';
         });
 
         primaryKeyNames = primaryKeyNames.substring(0, primaryKeyNames.lastIndexOf(',')) + ')';
@@ -96,24 +99,25 @@ function handleSuccess(data, type, elementId) {
         primaryKeyValue = primaryKeyValue.substring(0, primaryKeyValue.lastIndexOf(',')) + ')';
 
         document.getElementById(elementId).style.color = 'black'
-        document.getElementById(elementId).value = "Successfuly added " + fieldData.displayText + " with " + primaryKeyNames + ": " + primaryKeyValue;
-        document.getElementById(elementId).innerHTML = "Successfuly added " + fieldData.displayText + " with " + primaryKeyNames + ": " + primaryKeyValue;
+        document.getElementById(elementId).value = "Successfuly added " + typeData.displayText + " with " + primaryKeyNames + ": " + primaryKeyValue;
+        document.getElementById(elementId).innerHTML = "Successfuly added " + typeData.displayText + " with " + primaryKeyNames + ": " + primaryKeyValue;
 
-        fieldData.fieldData.forEach(e => {
-            document.getElementById(e.sqlName).value = '';
+        typeData.fieldData.forEach(e => {
+            if(typeof e.hide === 'undefined' || e.hide === false) {
+                document.getElementById(e.sqlName).value = '';
+            }
         })
 
     });
 
 }
 
-
 function getFancyName(sqlName, nameData) {
     nameData.forEach(function (name) {
-        if (sqlName.toString() == name.sqlName)
+        if (sqlName.toString() === name.sqlName)
             returnString = name.fancyName;
     });
-    if (typeof returnString == 'undefined') {
+    if (typeof returnString === 'undefined') {
         return "ERROR"
     }
     return returnString;
@@ -121,10 +125,10 @@ function getFancyName(sqlName, nameData) {
 
 function getSQLName(fancyName, nameData) {
     nameData.forEach(function (name) {
-        if (fancyName.toString() == name.fancyName)
+        if (fancyName.toString() === name.fancyName)
             returnString = name.sqlName;
     });
-    if (typeof returnString == 'undefined') {
+    if (typeof returnString === 'undefined') {
         return "ERROR"
     }
     return returnString;
