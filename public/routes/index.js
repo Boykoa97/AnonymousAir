@@ -31,12 +31,10 @@ router.get('/main',function(req,res,next){
   var main = require(path.join(__dirname,'../queries/main.js'));
   var promise = main(req.query).then(function(result){
   //  console.log(result);
-  console.log(req.query);
+  // console.log(req.query);
 
     res.render('main',result);
-  }).catch(function(err){
-    console.log(err);
-  });
+  })
 });
 
 //Render the accountinfo page into the handlebars file

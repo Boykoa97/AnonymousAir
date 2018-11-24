@@ -22,4 +22,3 @@ app.use('/',routes);
 
 //launch the app
 app.listen(3000)
-opn('http://localhost:3000/login', {app:'chrome'})
