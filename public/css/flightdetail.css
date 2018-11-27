@@ -31,8 +31,8 @@ body{
 #timeleft {
   padding: 10px;
   color: green;
-  position: relative;
-  left: 300px;
+  position: absolute;
+  left: 480px;
   background-color: #edeeef;
   background-blend-mode: lighten;
   border-radius: 3px;
