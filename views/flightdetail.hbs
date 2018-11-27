@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/css/flightdetail.css">
+<!--<script src="handlebars-intl/dist/handlebars-intl.min.js"></script>-->
+
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
+
+<h1>{{title}}</h1>
+<p>Need out in a hurry? Check out the flight detail page below for our most recent departures</p>
+
+  {{#*inline "partial"}}
+    <div class="box">
+
+        {{this.dept}} --> {{this.arr}}  |  {{this.fid}} <span id ="timeleft"> {{formatRelative this.deptTime units="day"}} </span>
+        <br>
+        <p>
+        Departure Time:
+
+        {{moment this.deptTime "weekday" type ="s"}}
+        {{formatDate this.deptTime day="numeric" month="long" year="numeric" }}
+        {{moment this.deptTime "hour" subtract='hour' amount='12'}}:{{moment this.deptTime "minute"}}
+
+        </p>
+
+        <button id="fld" type="button" class="btn btn-secondary" data-toggle="popover" title="Flight Description" data-content='{{this.description}}'>Flight Description</button>
+        <button id="fltick" type="button" class="btn btn-info purchase" >Purchase Ticket {{this.fid}}</button>
+
+    </div>
+  {{/inline}}
+
+  {{#each response}}
+      {{> partial}}
+  {{/each}}
+<script src="js/flightdetaillistener.js"></script>

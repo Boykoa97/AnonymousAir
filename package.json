@@ -23,6 +23,9 @@
     "cors": "^2.8.4",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.12",
+    "handlebars-intl": "^1.1.2",
+    "handlebars.moment": "^1.0.4",
     "fs": "0.0.1-security",
     "mysql": "^2.16.0",
     "opn": "^5.4.0"

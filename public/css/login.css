@@ -4,14 +4,18 @@ body, html {
     margin: 0;
 }
 
-
-
+.bg {
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/bimage.jpg");
+}
 
 #loginbutton {
     position: absolute;
     top:65%;
     left: 30%;
 }
+
 #signupbutton {
     position: absolute;
     top:80%;
@@ -25,7 +29,7 @@ body, html {
   left: 15.5%;
 }
 
-#username{
+#username,#password{
   position: relative;
   margin-bottom: 8px;
   top: 80px;
@@ -45,6 +49,17 @@ body, html {
   top: 25%;
   bottom: 50%;
   left:45%;
+
+}
+
+
+#cartimage{
+  height: 45px;
+  width: 45px;
+  position: relative;
+  top: -10px;
+  left: 425px;
+
 }
 
 .dropdown-item{

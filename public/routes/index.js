@@ -73,6 +73,30 @@ router.get('/main',function(req,res,next){
   });
 });
 
+//Render the flight detail into the handlebars file
+router.get('/flightdetail',function(req,res,next){
+  var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
+  var promise = flightdetail.flightDetailQuery().then(function(result){
+    //console.log(result);
+    res.render('flightdetail',result);
+  });
+});
+
+router.get('/queries/addtocart',function(req,res,next){
+  var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
+  var promise = flightdetail.addtocart().then(function(result){
+    res.send(result);
+  });
+});
+// router.get('/queries/adminReset',function(req,res,next){
+//   var admin = require(path.join(__dirname,'../queries/admin.js'));
+//   var promise = admin.adminReset().then(function (result) {
+//       res.send(result);
+//
+//   });
+// });
+
+
 //Render the accountinfo page into the handlebars file
 router.get('/accountinfo',function(req,res,next){
   var accountinfo = require(path.join(__dirname,'../queries/accountinfo.js'));
