@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/littleAdler/AnonymousAir#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.1.3",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",

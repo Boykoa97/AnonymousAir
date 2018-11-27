@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 
 //this is just for one query on the page, more can be added
-function admin_listCustomer(){
+module.exports = function(){
 
     //connect to database
     var connection = mysql.createConnection({
@@ -14,7 +14,7 @@ function admin_listCustomer(){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    let sql = 'SELECT * From Customer';
+    let sql = 'SELECT * From Customer ORDER BY cno';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -55,7 +55,4 @@ function admin_listCustomer(){
     });
 
     return obj;
-}
-
-//add any new query functions you make here...
-module.exports = admin_listCustomer();
+};
