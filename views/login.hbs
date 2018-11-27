@@ -3,13 +3,35 @@
      <div class='logintext'>
        <p>AnonymousAir</p>
      </div>
-     <form>
+     <form onsubmit="return checkLogin()"   method="post" action "login.js" >
 
    <div class="form-group">
-     <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username">
+     <input type="text" class="form-control" name = "username" id="username" aria-describedby="emailHelp" placeholder="Enter username">
      <span></span>
-     <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter password">
+     <input type="password" class="form-control" name = "password" id="username" aria-describedby="emailHelp" placeholder="Enter password">
    </div>
-   <button type="button" class="btn btn-outline-success" id="loginbutton">Login</button>
-   <button type = "button" class="btn btn-outline-warning" id="signupbutton">Sign-up</button>
+   <button type="submit" class="btn btn-outline-success" id="loginbutton" >Login</button>
+   <button type = "button" class="btn btn-outline-warning" id="signupbutton" onclick="window.location = '/signup';">Sign-up</button>
+    </form>
+
+
+<script>
+
+  function checkLogin() {
+     var username = document.getElementsByName("username")[0].value;
+     var password = document.getElementsByName("password")[0].value;
+
+     if ( password != null && password != "" && username != null && username != "" ) {
+       //alert ("here is username and password" + username + " " + password);
+       return true;
+      }
+      else {
+        alert("Please enter a username and a password");
+        return false;
+    }
+  }
+
+</script>
+
+
  </div>

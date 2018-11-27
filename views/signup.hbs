@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/css/signup.css">
+
+<h1>{{title}}</h1>
+<h2>Sign Up for AnonymousAir</h2>
+<form name = "signupinfo" class = "form-group" onsubmit="return validLogin()" method="post" action "userSignUpPage.js">
+  <br><br>
+  <div class="row" id="field">
+    <div class="col" >
+      <label for="staticUsername" class="col-sm col-form-label">Username</label>
+    </div>
+    <div class = "col">
+    <input type = 'text' class="form-control" name = 'newUser' placeholder="Enter username"  aria-label="Recipient's username" aria-describedby="basic-addon1" >
+    </div>
+  </div>
+  <div class="row" id="field" >
+    <div class="col">
+      <label for="staticPassword" class="col-sm col-form-label">Password</label>
+    </div>
+    <div class = "col">
+    <input type =  'password' class="form-control" name = 'password'   placeholder="Enter password">
+    </div>
+  </div>
+  <div class="row" id="field">
+    <div class="col">
+      <label for="staticPassword" class="col-sm col-form-label">Confirm Your Password</label>
+    </div>
+    <div class = "col">
+    <input type = 'password' class = "form-control" name = 'passwordConfirm'   placeholder="Confirm password">
+    </div>
+  </div>
+  <div class="row" id="field">
+    <div class="col">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    </div>
+    <div class = "col">
+    <input type = 'email' class = "form-control" name = 'Email'   placeholder="Enter Email">
+    </div>
+  </div>
+  <div class="row" id="field">
+    <div class="col">
+      <label for="staticEmail" class="col-sm col-form-label">Confirm Your Email</label>
+    </div>
+    <div class = "col">
+    <input type = 'email' class = "form-control" name = 'EmailConfirm'  placeholder="Confirm Email">
+    </div>
+  </div>
+  <br><br>
+  <div>
+    <input type = 'submit' class="btn btn-primary btn-lg" >
+    <br><br>
+  </div>
+</form>
+
+<form class = "form-control">
+<div>
+  <br><br>
+  <p>Already have an account? if so you can go back to the login page here! </p>
+  <button type = "button" class="btn btn-outline-secondary" onclick="window.location= '/login';"> Login </button>
+</div>
+</form>
+
+
+<script>
+
+function validLogin() {
+  var passMatch = document.signupinfo.password.value == document.signupinfo.passwordConfirm.value && ( document.signupinfo.password.value != null && document.signupinfo.password.value != "");
+  var emailMatch = document.signupinfo.Email.value == document.signupinfo.EmailConfirm.value && ( document.signupinfo.Email.value != null && document.signupinfo.Email.value != "" );
+  //need to add in the check if the username is available
+  if (passMatch && emailMatch) {
+    return true;
+  }
+  else {
+    alert("Make sure passwords match and emails match");
+    return false;
+  }
+}
+
+
+
+</script>

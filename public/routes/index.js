@@ -29,15 +29,40 @@ router.get('/admin/customerTable', function(req,res,next){
     });
 });
 
-//Render the login page into the handlebars file
+
+//Render the the sign up page into the handlebars file
 router.get('/login',function(req,res,next){
+
+  obj= Object.assign({},res,{layout: 'login_layout.hbs'})
+  res.render('login',obj);
+
+});
+
+//Render the login page into the handlebars file
+router.post('/login',function(req,res,next){
+  //console.log("I hit the post request");
   var login = require(path.join(__dirname,'../queries/login.js'));
-  var promise = login.then(function(result){
-    console.log(result);
-    obj= Object.assign({},result,{layout: 'login_layout.hbs'})
-    res.render('login',obj);
+  //var promise = login.validateLogin(req.body).then(function(result){
+  var promise = login.validateLogin(req.body).then(function(result){
+    //success is boolean where true is a successful login.
+    if ( result.success){
+      res.redirect('/main');
+    }
+    else {
+      res.send("Log in information is incorrect, try again");
+    }
   });
 });
+
+//this is for rendering main page after login
+router.post('/main', function(req,res,next) {
+  var main = require(path.join(__dirname,'../queries/main.js'));
+  var promise = main.then(function(result){
+    console.log(result);
+    res.render('main',result);
+  });
+});
+
 
 //Render the main page into the handlebars file
 router.get('/main',function(req,res,next){
@@ -102,6 +127,26 @@ router.get('/travelinfo',function(req,res,next){
   });
 });
 
+
+//Render the the sign up page into the handlebars file
+router.get('/signup',function(req,res,next){
+
+res.render('signup')
+
+});
+
+
+router.post('/signup',function(req,res,next){
+
+  var signup = require(path.join(__dirname,'../queries/userSignUpPage.js'));
+  var promise = signup.addUser(req.body).then(function(result){
+    console.log(req.query);
+    // res.render('signup',result);
+  });
+});
+
+
+
 router.get('/admin/add',function(req,res,next){
 
     var adminAdd = require(path.join(__dirname,'../queries/adminAdd.js'));
@@ -136,5 +181,6 @@ fs.readdir(getDir,function(err,files){
 });
 
 router.get('/view');
+
 
 module.exports = router;
