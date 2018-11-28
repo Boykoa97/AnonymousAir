@@ -67,10 +67,13 @@ router.post('/main', function(req,res,next) {
 //Render the main page into the handlebars file
 router.get('/main',function(req,res,next){
   var main = require(path.join(__dirname,'../queries/main.js'));
-  var promise = main.then(function(result){
-    console.log(result);
+  var promise = main(req.query).then(function(result){
+  //  console.log(result);
+  // console.log(req.query);
+
     res.render('main',result);
-  });
+  })
+
 });
 
 //Render the flight detail into the handlebars file
