@@ -58,7 +58,7 @@ router.post('/login',function(req,res,next){
 router.post('/main', function(req,res,next) {
   var main = require(path.join(__dirname,'../queries/main.js'));
   var promise = main.then(function(result){
-    console.log(result);
+    //console.log(result);
     res.render('main',result);
   });
 });
@@ -86,8 +86,9 @@ router.get('/flightdetail',function(req,res,next){
 });
 
 router.get('/queries/addtocart',function(req,res,next){
+  console.log(req.query);
   var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
-  var promise = flightdetail.addtocart().then(function(result){
+  var promise = flightdetail.addtocart(req.query).then(function(result){
     res.send(result);
   });
 });
@@ -139,7 +140,7 @@ router.get('/contact',function(req,res,next){
 //Render the shoppingcart page into the handlebars file
 router.get('/shoppingcart',function(req,res,next){
   var shoppingcart = require(path.join(__dirname,'../queries/shoppingcart.js'));
-  var promise = shoppingcart.then(function(result){
+  var promise = shoppingcart.cart().then(function(result){
     console.log(result);
     res.render('shoppingcart',result);
   });

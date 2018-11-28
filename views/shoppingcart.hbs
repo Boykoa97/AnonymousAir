@@ -1,3 +1,18 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<p>{{response}}</p>
+
+<table class="table table-dark">
+  <thead>
+    <th scope="col">Flight ID</th>
+    <th scope="col">Deptarture Time</th>
+    <th scope="col">Route</th>
+    <th scope="col">Extras</th>
+  </thead>
+  {{#each response}}
+  <tbody>
+    <tr>
+      <td>{{this.fid}}</td>
+      <td>{{this.deptTime}}</td>
+      <td>{{this.dept}}-->{{this.arr}}</td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
