@@ -137,7 +137,7 @@ router.get('/contact',function(req,res,next){
 //Render the shoppingcart page into the handlebars file
 router.get('/shoppingcart',function(req,res,next){
   var shoppingcart = require(path.join(__dirname,'../queries/shoppingcart.js'));
-  var promise = shoppingcart.then(function(result){
+  var promise = shoppingcart.cart().then(function(result){
     console.log(result);
     res.render('shoppingcart',result);
   });
