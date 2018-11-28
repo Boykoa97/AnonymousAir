@@ -10,8 +10,8 @@ body {
 }
 
 .split {
-    height: 70%;
-    width: 50%;
+    height: 85%;
+    width: 33%;
     position: fixed;
     z-index: 1;
     bottom: 0;
@@ -25,10 +25,13 @@ body {
 }
 
 .right {
-    right: 0;
+    left: 66%;
     background-color: white;
 }
-
+.middle {
+    left: 33%;
+    background-color: white;
+}
 .centered {
     position: absolute;
     top: 50%;
@@ -45,7 +48,7 @@ body {
 <div class = "split left">
   <div class = "centered">
     <body>
-      <h2> Destination Known? </h2>
+      <h2> Browse Flights by Trip: </h2>
 <form name = "getFlightInfo"; border-radius: 25px > Departing from:<br>
 <input type = "text" name = "desiredDepartureLocation">
 <p> Traveling to: </p>
@@ -67,7 +70,6 @@ body {
             uiLibrary: 'bootstrap4'
         });
     </script>
-</body>
 <input type = "button" onclick= "getLocation(document.getFlightInfo.desiredDepartureLocation.value,document.getFlightInfo.desiredArrivalLocation.value,document.getFlightInfo.datepicker.value)" value= "Search">
 </form>
 <script >
@@ -75,29 +77,62 @@ function getLocation(departure, arrival, date){
   window.location = "main?departure=" + departure + "&arrival=" + arrival + "&date=" + date;
 }
 </script>
-<p> The available flights are: </p>
-<p>{{response}}</p>
 </body>
 </div>
 </div>
 
-<div class = "split right">
+<div class = "split middle">
   <div class = "centered">
-    <h2> Destination Unknown? </h2>
+    <h2> Browse Flights by Desired Features: </h2>
     <p> Departing from: </p>
     <form name = unknownDest>
-    <input type = "text" name = "desiredDepartureLocation">
+    <input type = "text" name = "desiredDepartureLocation" onchange = "findFlights">
+    <p> Desired date of departure: </p>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap 4 DatePicker</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <input id="datepicker3" width="276" />
+        <script>
+            $('#datepicker3').datepicker({
+                uiLibrary: 'bootstrap4'
+            });
+        </script>
+      </body>
     <p> On Flight Extras Required: </p>
       <input type = "checkbox" name = "frSurgery" value = "facRec"> Facial Reconstruction Surgery<br>
       <input type = "checkbox" name = "secBypass" value = "secBy"> Security Bypass (Carry On Luggage) <br>
       <input type = "checkbox" name = "ofMeals" value = "meals"> On Flight Meals <br>
       <input type = "checkbox" name = "curEx" value = "currencyEx"> Currency Exchange <br>
       <input type = "checkbox" name = "feaxId" value = "fakeId"> Identification Fabrication <br>
-      <input type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked)" value = "Search">
+      <input type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked, document.unknownDest.datepicker3.value)" value = "Search">
     </form>
 <script>
-    function findFlights(departure, facRec, secBypass,onFlightMeals,currEx, fakeId){
+    function findFlights(departure, facRec, secBypass,onFlightMeals,currEx, fakeId, date){
 
-      window.location = "main?departure="+departure + "&facRec=" + facRec + "&secBypass=" +secBypass + "&onFlightMeals=" + onFlightMeals + "&currEx=" + currEx + "&fakeId=" + fakeId;
+      window.location = "main?departure="+departure + "&facRec=" + facRec + "&secBypass=" +secBypass + "&onFlightMeals=" + onFlightMeals + "&currEx=" + currEx + "&fakeId=" + fakeId + "&date=" + date;
+
     }
 </script>
+</div>
+</div>
+<div class = "split right">
+  <div class = "centered">
+    <body>
+      <h2> Available Flights:  </h2>
+      <div class="entry">
+ <ul>
+ <li style="list-style: none">{{#response}}</li>
+ <li>{{this}}</li>
+ <li style="list-style: none">{{/response}}</li>
+ </ul>
+</div>
+    </body>
+  </div>
+</div>
