@@ -7,20 +7,39 @@ const opn = require('opn');
 var mysql = require('mysql');
 var hbs = require("express-handlebars");
 
+var handlebars = require("handlebars");
+var handlebarsIntl = require("handlebars-intl")
+
+var bodyParser = require('body-parser')
+
+
 var routes = require('./public/routes/index');
+var momentHandler = require("handlebars.moment");
+
+
+
 
 //handlebars setup
-
-app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'navbar_layout', layoutDir: __dirname + "/public/views/layouts"}));
-app.set('views',path.join(__dirname,'views'))
+app.set('views',path.join(__dirname,'views'));
+app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'navbar_layout', layoutDir: __dirname + "/public/views/layout"}));
 
 app.set('view engine','hbs');
+
+handlebarsIntl.registerWith(handlebars);
+momentHandler.registerHelpers(handlebars);
+
+//app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'login_layout', layoutDir: __dirname + "public/views/layout"}));
 
 
 //set static content folder location (i.e. where to locate css files, javascript files, and images)
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 //set up the routes to get referenced in the index.js file
 app.use('/',routes);
+
 //register partials for HandleBars
 //launch the app
 app.listen(3000)
