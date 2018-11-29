@@ -8,14 +8,15 @@
             <td>{{{this.username}}}</td>
             <td>{{{this.password}}}</td>
             <td>{{{this.email}}}</td>
-            <td><input type = "button" class = "btn btn-secondary" id="rowButton{{this.cno}}" onclick="loadAliasData('{{this.cno}}')" value="View Alias"></td>
+            <td><input type ="button" class="btn btn-secondary" onclick="showUpdateCustomerInfo('{{this.cno}}')" value="Change Info."></td>
+            <td><input type = "button" class = "btn btn-secondary" onclick="loadAliasData('{{this.cno}}')" value="View Alias"></td>
         </tr>
         {{/each}}
     </table>
 </div>
 
 <div class = "modal" id ="aliasModal">
-    <div class = "modal-dialog">
+    <div class = "modal-dialog" style="max-width: max-content">
         <div class = "modal-content">
             <div class = "modal-header">
                 <div id = "aliasContent"></div>
@@ -24,17 +25,4 @@
     </div>
 </div>
 
-<script>
-    function loadAliasData(customerNumber){
-        console.log(customerNumber);
-
-        $("#aliasContent").load(
-            '/admin/aliasTable',
-                {cno: customerNumber},
-                function () {
-                    $('#aliasModal').modal()
-                }
-        )
-        $('#aliasModal').modal()
-    }
-</script>
+<script src = '/js/customerTable.js'></script>

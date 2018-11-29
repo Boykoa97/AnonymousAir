@@ -107,6 +107,7 @@ CREATE TABLE OnFlight (
   deptTime DATETIME,
   aliasId  integer,
   seatNo   integer,
+  extras   CHAR(10),
   PRIMARY KEY (fid, deptTime, aliasId),
   FOREIGN KEY (fid, deptTime) REFERENCES Flight (fid, deptTime)
     ON UPDATE CASCADE

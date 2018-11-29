@@ -12,22 +12,29 @@
             <th>Updated Arr. Time</th>
         </tr>
         {{#each flight}}
+
             <tr>
                 <td>{{this.fid}}</td>
                 <td>{{this.dept}}</td>
                 <td>{{this.arr}}</td>
                 <td>{{this.deptTime}}</td>
                 <td>{{this.arrTime}}</td>
-                <td>{{this.actDeptTime}}</td>
-                <td>{{this.actArrTime}}</td>
+                {{#if actDeptTime}}
+                    <td>{{this.actDeptTime}}</td>
+                    <td>{{this.actArrTime}}</td>
+                {{else}}
+                    <td style="color: red;">Cancelled</td>
+                    <td style="color: red;">Cancelled</td>
+                {{/if}}
                 <td><button class = "btn btn-secondary" onclick="displayFlightManifest('{{{this.fid}}}','{{{this.deptTime}}}')">See Manifest</button></td>
+                <td><button class = "btn btn-secondary" onclick="displayUpdateFlightPage('{{{this.fid}}}','{{{this.deptTime}}}')">Update Times</button></td>
             </tr>
         {{/each}}
 
     </table>
 </div>
 <div class = "modal" id ="manifestModal">
-    <div class = "modal-dialog"style="max-width: max-content">
+    <div class = "modal-dialog" style="max-width: max-content">
         <div class = "modal-content">
             <div class = "modal-header">
                 <div id = "manifestContent">

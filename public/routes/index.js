@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-//var mysql = require("mysql");
 var path = require("path");
 var fs = require("fs");
 
@@ -261,6 +260,20 @@ router.get('/signup',function(req,res,next){
 
 router.post('/admin/changeSeatModal',(req,res,next)=>{
     res.render('adminManifestChangeSeat',{param: req.body,layout: false})
+});
+
+router.post('/admin/updateCustomer',(req,res,next)=>{
+    var customerData = require(path.join(__dirname,'../queries/admin/singleCustomerData.js'));
+    var prom = customerData(req.body).then(result=>{
+        res.render('adminUpdateCustomer',{param: result, layout: false});
+    })
+});
+
+router.post('/admin/updateFlight',(req,res,next)=>{
+    var flightData = require(path.join(__dirname,'../queries/admin/singleFlightData.js'));
+    var prom = flightData(req.body).then(result=>{
+        res.render('adminUpdateFlight',{param: result, layout: false});
+    })
 })
 
 router.get('/view');

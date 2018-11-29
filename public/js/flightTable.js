@@ -64,9 +64,15 @@ function confirmSeatChange(fid,deptTime,aliasId){
             }
         }
     )
+}
 
-
-
-
+function displayUpdateFlightPage(fid,deptTime){
+    $("#manifestContent").load(
+        '/admin/updateFlight',
+        {fid: fid, deptTime: deptTime},
+        function () {
+            $('#manifestModal').modal()
+        }
+    )
 }
 
