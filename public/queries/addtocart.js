@@ -1,20 +1,21 @@
 var mysql = require("mysql");
 
+flightdetail_query1();
 //this is just for one query on the page, more can be added
-function shoppingcart_query1(){
+function flightdetail_query1(){
 
   //connect to database
   var connection = mysql.createConnection({
     host : 'cosc304.ok.ubc.ca',
     user : 'mspouge',
     password : '13792149',
-    database : 'db_mspouge'
+    database : 'WorksOn'
   });
 
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * FROM Cart natural join Flight WHERE cno="C0001"';  // NOTE: In the future this will take the cookie value as the cno
+let sql = 'Create table test1 (attribute1 int) ';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -34,7 +35,7 @@ var promise = new Promise(function(resolve,reject){
 var obj = promise.then(function(result_set){ //Runs if the promise was successful
 
   //Log the result set from the database
-  console.log(result_set);
+  //console.log(result_set);
   connection.end();
 
   //return the variables you want to see on the HTML page
@@ -43,7 +44,7 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
   //can add data manipulation here (i.e. for-loops, calculations,
   // or anything you need to format after obtaining the data from the db)
 
-  return {title:'The Shopping Cart Page', response: result_set};
+  return {title:'The Flight Detail Page', response: result_set};
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,4 +59,4 @@ return obj;
 }
 
 //add any new query functions you make here...
-module.exports.cart = shoppingcart_query1;
+module.exports = flightdetail_query1();

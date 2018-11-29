@@ -3,10 +3,6 @@ var mysql = require("mysql");
 //this is just for one query on the page, more can be added
 function addUser(param){
 
-//Check param
-
-
-
   //connect to database
   var connection = mysql.createConnection({
     host : 'cosc304.ok.ubc.ca',
@@ -26,15 +22,6 @@ let sql = 'SELECT * From Customer';
 //Create a promise so we can close the connection synchronously
 
 var promise = new Promise(function(resolve,reject){
-  //
-
-  let isEmpty = true;
-  for(var key in param) {
-      if(param.hasOwnProperty(key))
-          isEmpty = false;
-  }
-  if(isEmpty)
-    resolve( {title: "test"});
 
   //send the sql query to the database
   connection.query(sql,(err,result_set)=>{
@@ -43,8 +30,7 @@ var promise = new Promise(function(resolve,reject){
         var idNumb = 1;
         for (i = 0; i < result_set.length; i++ ) {
           idNumb = Number(idNumb) + 1;
-          var usernameAtRowI = String(result_set[i].username).toLowerCase()
-          if (String(param.newUser).toLowerCase() == usernameAtRowI ) {
+          if (param.newUser == result_set[i].username ) {
             console.log("username found a match")
             idNumb = -1; //username already exists so don't insert
             break;
@@ -75,12 +61,10 @@ var promise = new Promise(function(resolve,reject){
 
         if (idNumb != -1 && idNumbString != "" ) {
           //INSERT INTO Customer VALUES ('00018','CulturalFuneral','Zzts9XTYT7BFheaA');
-          let sql2 = 'Insert into Customer Values (\''+ idNumbString + '\' , ?, ?, ?);';
-          var sql2Prepared = mysql.format(sql2, [param.newUser, param.password, param.Email]);
-          connection.query(sql2Prepared,  (err,result_set)=>{
+          let sql2 = 'Insert into Customer Values (\''+ idNumbString + '\' , \''  + param.newUser + '\', \'' + param.password + '\');';
+          connection.query(sql2,(err,result_set)=>{
               if(err == null){ //if the query is successful)
-
-                console.log(sql2Prepared);
+                console.log(sql2)
               }
               else{ //if the query throws any type of error
               reject(err);

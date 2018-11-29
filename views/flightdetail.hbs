@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/css/flightdetail.css">
-<script src="handlebars-intl/dist/handlebars-intl.min.js"></script>
+<!--<script src="handlebars-intl/dist/handlebars-intl.min.js"></script>-->
+
 <script>
   $(function () {
     $('[data-toggle="popover"]').popover()
@@ -24,7 +25,7 @@
         </p>
 
         <button id="fld" type="button" class="btn btn-secondary" data-toggle="popover" title="Flight Description" data-content='{{this.description}}'>Flight Description</button>
-        <button id="fld" type="button" class="btn btn-info" >Purchase Ticket</button>
+        <button id="fltick" type="button" class="btn btn-info purchase" fid='{{this.fid}}' deptTime='{{this.deptTime}}' >Purchase Ticket {{this.fid}}</button>
 
     </div>
   {{/inline}}
@@ -32,3 +33,4 @@
   {{#each response}}
       {{> partial}}
   {{/each}}
+<script src="js/flightdetaillistener.js"></script>
