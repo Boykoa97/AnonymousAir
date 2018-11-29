@@ -29,15 +29,7 @@
         console.log(customerNumber);
         id = "#rowButton" + customerNumber;
         $(id).prop('value', 'Working...');
-        /*$.post(
-            '/admin/aliasTable',
-                {cno: customerNumber},
-                result =>{
-                    $('#aliasModal').modal();
-                    $('#aliasModal').html(result);
-                    $(id).prop('value', 'View Alias');
-                }
-        )*/
+
         $("#aliasContent").load(
             '/admin/aliasTable',
                 {cno: customerNumber},
