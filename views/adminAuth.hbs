@@ -1,0 +1,37 @@
+<h1>Admin Authorization</h1>
+
+<div >
+    Username: <br>
+    <input type="text" id = "uname"><br><br>
+    Password: <br>
+    <input type="text" id = "pass"><br><br>
+    <input class = "btn btn-primary" value = "login" onclick = "validateUser()">
+</div>
+<div>
+    <p id="response"></p>
+</div>
+
+<script>
+    function validateUser(){
+        $.post(
+            '/admin/auth',
+                {username: document.getElementById("uname").value,
+                    password: document.getElementById("pass").value},
+                (data) =>{
+                console.log(data)
+                    if(data.success === true) {
+                        document.cookie = "token=" + data.token;
+                        window.location.href = "/admin";
+                    }else
+                        document.getElementById("response").innerHTML = '<b>Username or password unknown</b>'
+
+                }
+        )
+
+
+
+
+
+
+    }
+</script>
