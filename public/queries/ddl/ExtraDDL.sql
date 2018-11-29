@@ -1,0 +1,5 @@
+INSERT INTO Extra VALUES (1,"Facial Reconstruction","Enjoy a new face with your new destination. Get facial reconstruction to hide from authorities. ", 10000.00);
+INSERT INTO Extra VALUES (2,"Security Bypass","Got fun stuff in your bag? Don't worry, our guys will make sure it stays in it through the flight!",3000.00);
+INSERT INTO Extra VALUES (3,"In Flight Meals", "Enjoy excellent entrees ensuring enjoyable flights. Free doggie bag with purchase. Food ranges from home-style prison food to fresh seafood and caviar",20.00);
+INSERT INTO Extra VALUES (4,"Currency Exchange","Need some local cash? Need it now? We got you covered! (Note: Exchange rates will be estimated for our benefit)",5.00);
+INSERT INTO Extra VALUES (5,"Identity Document","Do the authorities have your ID? Brand new one on the fly!", 1000.00);

@@ -14,7 +14,7 @@ function shoppingcart_query1(){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * From Passenger';
+let sql = 'SELECT * FROM Cart natural join Flight WHERE cno="C0001"';  // NOTE: In the future this will take the cookie value as the cno
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -43,7 +43,7 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
   //can add data manipulation here (i.e. for-loops, calculations,
   // or anything you need to format after obtaining the data from the db)
 
-  return {title:'The Shopping Cart Page', response: result_set[0].fname};
+  return {title:'The Shopping Cart Page', response: result_set};
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,4 +58,4 @@ return obj;
 }
 
 //add any new query functions you make here...
-module.exports = shoppingcart_query1();
+module.exports.cart = shoppingcart_query1;

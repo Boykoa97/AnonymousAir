@@ -1,0 +1,59 @@
+<style>
+    .table-manifest{
+        width: available;
+        max-width: 100%;
+        margin: 0px;
+    }
+    .td-manifest{
+        padding: 10px
+    }
+</style>
+
+
+<div class ="flightData">
+    <div class = "table-dark table-manifest">
+    <table>
+        <tr><th style="text-align:right" >Flight Id:</th><td>{{param.fid}}</td></tr>
+        <tr><th style="text-align:right" >Deptarture Time:</th><td>{{param.deptTime}}</td></tr>
+        <tr><th style="text-align:right" >Total Revenue:</th><td>{{param.total}}</td></tr>
+    </table>
+    </div>
+</div>
+
+<div class = "table-striped table-manifest">
+
+    <table>
+        <tr>
+            <th class="td-manifest">First Name</th>
+            <th class="td-manifest">Middle</th>
+            <th class="td-manifest">Last Name</th>
+            <th class="td-manifest">Seat Number</th>
+            <th class="td-manifest">Type</th>
+            <th class="td-manifest">Ticket Price</th>
+        </tr>
+        {{#each param.manifest}}
+            <tr id = "row{{this.aid}}">
+                <td class="td-manifest">{{this.aliasFirst}}</td>
+                <td class="td-manifest">{{this.aliasMid}}</td>
+                <td class="td-manifest">{{this.aliasLast}}</td>
+                <td class="td-manifest">{{this.seatNo}}</td>
+                <td class="td-manifest">{{this.type}}</td>
+                <td class="td-manifest">{{this.price}}</td>
+                <td class="td-manifest"><input type="button" class="btn btn-secondary" onclick="removeFromFlight('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}')"
+                                               id="rem{{this.aid}}" value = "Remove"></td>
+                <td class="td-manifest"><input type="button" class="btn btn-secondary" onclick="changeSeat('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}')"
+                                               id="seat{{this.aid}}" value = "Not finished"></td>
+            </tr>
+        {{/each}}
+
+
+    </table>
+
+
+</div>
+
+<script>
+
+
+
+</script>

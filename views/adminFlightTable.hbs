@@ -1,0 +1,41 @@
+{{>admin/header}}
+
+<div class = "table">
+    <table>
+        <tr>
+            <th>Flight Id</th>
+            <th>Departure Airport</th>
+            <th>Arrival Airport</th>
+            <th>Dept. Time</th>
+            <th>Arr. Time</th>
+            <th>Updated Dept. Time</th>
+            <th>Updated Arr. Time</th>
+        </tr>
+        {{#each flight}}
+            <tr>
+                <td>{{this.fid}}</td>
+                <td>{{this.dept}}</td>
+                <td>{{this.arr}}</td>
+                <td>{{this.deptTime}}</td>
+                <td>{{this.arrTime}}</td>
+                <td>{{this.actDeptTime}}</td>
+                <td>{{this.actArrTime}}</td>
+                <td><button class = "btn btn-secondary" onclick="displayFlightManifest('{{this.fid}}','{{this.deptTime}}')">See Manifest</button></td>
+            </tr>
+        {{/each}}
+
+    </table>
+</div>
+<div class = "modal" id ="manifestModal">
+    <div class = "modal-dialog"style="max-width: max-content">
+        <div class = "modal-content">
+            <div class = "modal-header">
+                <div id = "manifestContent">
+                    TESTING
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src = "/js/flightTable.js"></script>
