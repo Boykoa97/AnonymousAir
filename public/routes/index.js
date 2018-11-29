@@ -3,39 +3,7 @@ var router = express.Router();
 //var mysql = require("mysql");
 var path = require("path");
 var fs = require("fs");
-var querystring = require('querystring');
-var jwt = require('jsonwebtoken')
-var security = require('../queries/tools/security.js');
 
-//Security for admin pages and others soon
-router.use((req, res, next) => {
-    //Check if it is an admin page
-    if (req.url.startsWith('/admin') && !(req.url === '/admin/auth')) {
-    // Get the cookie token
-    var token = req.cookies.token;
-
-    //Verify if the token is okay
-    if (token) {
-        jwt.verify(token, security.adminSecret, (err, decoded) => {
-            if (err){
-                //If expired or other error, send them back to login
-                res.redirect(401,'/admin/auth')
-            } else {
-                //Proceed
-                req.decoded = decoded;
-                next();
-            }
-
-        })
-    } else {
-        //If there is no token pass to admin/auth
-        res.redirect(401,'/admin/auth')
-    }
-    }else{
-        //proceed if not the admin page
-        next();
-    }
-});
 
 //Render the admin page into the handlebars file
 router.get('/admin', function (req, res, next) {
@@ -196,13 +164,21 @@ router.get('/admin/flightTable', (req, res, next) =>{
     var flightData = require(path.join(__dirname, '../queries/admin/flightTable.js'));
     flightData().then(result => {
 
+
         res.render('adminFlightTable', {flight: result});
     })
 
 });
 
 
-
+//Render the the sign up page into the handlebars file
+router.get('/signup',function(req,res,next){
+    var signup = require(path.join(__dirname,'../queries/userSignUpPage.js'));
+    var promise = signup(req.query).then(function(result){
+        console.log(req.query);
+        res.render('signup',result);
+    });
+});
 
 router.get('/view');
 
