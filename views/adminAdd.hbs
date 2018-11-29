@@ -31,13 +31,17 @@
 
 <script>
     function addItem(){
-
+        //Generate all the types of data to send
         dataToSend = {type: '{{type}}' , data: {}};
+        //assign the sqlNames for each input form (data names)
         parameter = {data: [ {{#each nameConvention}} {{#unless this.hide}} { sqlName: "{{this.sqlName}}" },{{/unless}}{{/each}} ] };
+        //Parse all the input boxes and compile for query
         parameter.data.forEach(function(element){
             dataToSend.data[element.sqlName] = document.getElementById(element.sqlName).value;
         });
-        $.get(
+        //Post the query
+        $.post(
+
             '/queries/admin/addTuple',
                 dataToSend,
                 function(dataRecieved){
