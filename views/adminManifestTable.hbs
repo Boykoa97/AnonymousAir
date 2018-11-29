@@ -14,7 +14,7 @@
     <div class = "table-dark table-manifest">
     <table>
         <tr><th style="text-align:right" >Flight Id:</th><td>{{param.fid}}</td></tr>
-        <tr><th style="text-align:right" >Deptarture Time:</th><td>{{param.deptTime}}</td></tr>
+        <tr><th style="text-align:right" >Departure Time:</th><td>{{param.deptTime}}</td></tr>
         <tr><th style="text-align:right" >Total Revenue:</th><td>{{param.total}}</td></tr>
     </table>
     </div>
@@ -41,8 +41,8 @@
                 <td class="td-manifest">{{this.price}}</td>
                 <td class="td-manifest"><input type="button" class="btn btn-secondary" onclick="removeFromFlight('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}')"
                                                id="rem{{this.aid}}" value = "Remove"></td>
-                <td class="td-manifest"><input type="button" class="btn btn-secondary" onclick="changeSeat('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}')"
-                                               id="seat{{this.aid}}" value = "Not finished"></td>
+                <td class="td-manifest"><input type="button" class="btn btn-secondary" onclick="changeSeatModal('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}','{{this.aliasFirst}}','{{this.aliasMid}}','{{this.aliasLast}}','{{this.seatNo}}')"
+                                               id="seat{{this.aid}}" value = "Change Seat"></td>
             </tr>
         {{/each}}
 

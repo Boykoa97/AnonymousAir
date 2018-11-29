@@ -25,7 +25,7 @@ router.get('/admin/customerTable', function (req, res, next) {
     var promise = admin().then(function (result) {
         //console.log(result)
         //send the data into the handlebars file
-        res.render('adminTable', result);
+        res.render('adminCustomerTable', result);
     });
 });
 
@@ -34,7 +34,7 @@ router.get('/login', function (req, res, next) {
     var login = require(path.join(__dirname, '../queries/login.js'));
     var promise = login.then(function (result) {
         console.log(result);
-        obj = Object.assign({}, result, {layout: 'login_layout.hbs'})
+        obj = Object.assign({}, result, {layout: 'login_layout.hbs'});
         res.render('login', obj);
     });
 });
@@ -123,7 +123,7 @@ router.post('/admin/aliasTable', function (req, res, next) {
     var aliasData = require(path.join(__dirname, '../queries/admin/aliasTable.js'));
     aliasData(req.body.cno).then(result => {
 
-        res.render('aliasTable', {alias: result, layout: false});
+        res.render('adminAliasTable', {alias: result, layout: false});
     })
 })
 
@@ -131,7 +131,7 @@ router.post('/admin/manifestTable',  function (req, res, next) {
     var manifest = require(path.join(__dirname, '../queries/admin/flightManifest.js'));
     var obj = manifest(req.body).then(result => {
 
-        res.render('manifestTable', {param: result, layout: false});
+        res.render('adminManifestTable', {param: result, layout: false});
 
     })
 })
@@ -188,6 +188,10 @@ router.get('/signup',function(req,res,next){
         res.render('signup',result);
     });
 });
+
+router.post('/admin/changeSeatModal',(req,res,next)=>{
+    res.render('adminManifestChangeSeat',{param: req.body,layout: false})
+})
 
 router.get('/view');
 

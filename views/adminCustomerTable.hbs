@@ -27,15 +27,12 @@
 <script>
     function loadAliasData(customerNumber){
         console.log(customerNumber);
-        id = "#rowButton" + customerNumber;
-        $(id).prop('value', 'Working...');
 
         $("#aliasContent").load(
             '/admin/aliasTable',
                 {cno: customerNumber},
                 function () {
                     $('#aliasModal').modal()
-                    $(id).prop('value', 'View Alias')
                 }
         )
         $('#aliasModal').modal()
