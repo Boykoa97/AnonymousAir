@@ -1,0 +1,14 @@
+h2, h1, form {
+  text-align: center;
+
+}
+input {
+  margin: auto;
+}
+
+#field {
+  margin: auto;
+  align-items: center;
+  max-width: 40%;
+  padding-bottom: 10px;
+}

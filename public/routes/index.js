@@ -61,24 +61,80 @@ router.get('/admin/customerTable', function (req, res, next) {
     });
 });
 
-//Render the login page into the handlebars file
-router.get('/login', function (req, res, next) {
-    var login = require(path.join(__dirname, '../queries/login.js'));
-    var promise = login.then(function (result) {
-        console.log(result);
-        obj = Object.assign({}, result, {layout: 'login_layout.hbs'})
-        res.render('login', obj);
-    });
+
+//Render the the sign up page into the handlebars file
+router.get('/login',function(req,res,next){
+
+  obj= Object.assign({},res,{layout: 'login_layout.hbs'})
+  res.render('login',obj);
+
 });
 
-//Render the main page into the handlebars file
-router.get('/main', function (req, res, next) {
-    var main = require(path.join(__dirname, '../queries/main.js'));
-    var promise = main.then(function (result) {
-        console.log(result);
-        res.render('main', result);
-    });
+//Render the login page into the handlebars file
+router.post('/login',function(req,res,next){
+  //console.log("I hit the post request");
+  var login = require(path.join(__dirname,'../queries/login.js'));
+  //var promise = login.validateLogin(req.body).then(function(result){
+  var promise = login.validateLogin(req.body).then(function(result){
+    //success is boolean where true is a successful login.
+    if ( result.success){
+      res.redirect('/main');
+    }
+    else {
+      res.send("Log in information is incorrect, try again");
+    }
+  });
 });
+
+//this is for rendering main page after login
+router.post('/main', function(req,res,next) {
+  var main = require(path.join(__dirname,'../queries/main.js'));
+  var promise = main.then(function(result){
+    //console.log(result);
+    res.render('main',result);
+  });
+
+});
+
+
+//Render the main page into the handlebars file
+
+router.get('/main',function(req,res,next){
+  var main = require(path.join(__dirname,'../queries/main.js'));
+  var promise = main(req.query).then(function(result){
+  //  console.log(result);
+  // console.log(req.query);
+
+    res.render('main',result);
+  })
+
+});
+
+//Render the flight detail into the handlebars file
+router.get('/flightdetail',function(req,res,next){
+  var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
+  var promise = flightdetail.flightDetailQuery().then(function(result){
+    //console.log(result);
+    res.render('flightdetail',result);
+  });
+});
+
+router.get('/queries/addtocart',function(req,res,next){
+  console.log(req.query);
+  var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
+  var promise = flightdetail.addtocart(req.query).then(function(result){
+    res.send(result);
+  });
+
+});
+// router.get('/queries/adminReset',function(req,res,next){
+//   var admin = require(path.join(__dirname,'../queries/admin.js'));
+//   var promise = admin.adminReset().then(function (result) {
+//       res.send(result);
+//
+//   });
+// });
+
 
 //Render the accountinfo page into the handlebars file
 router.get('/accountinfo', function (req, res, next) {
@@ -117,12 +173,14 @@ router.get('/contact', function (req, res, next) {
 });
 
 //Render the shoppingcart page into the handlebars file
-router.get('/shoppingcart', function (req, res, next) {
-    var shoppingcart = require(path.join(__dirname, '../queries/shoppingcart.js'));
-    var promise = shoppingcart.then(function (result) {
-        console.log(result);
-        res.render('shoppingcart', result);
-    });
+
+router.get('/shoppingcart',function(req,res,next){
+  var shoppingcart = require(path.join(__dirname,'../queries/shoppingcart.js'));
+  var promise = shoppingcart.cart().then(function(result){
+    console.log(result);
+    res.render('shoppingcart',result);
+  });
+
 });
 
 //Render the travelinfo page into the handlebars file
@@ -134,7 +192,28 @@ router.get('/travelinfo', function (req, res, next) {
     });
 });
 
-router.get('/admin/add', function (req, res, next) {
+
+//Render the the sign up page into the handlebars file
+router.get('/signup',function(req,res,next){
+
+res.render('signup')
+
+});
+
+
+router.post('/signup',function(req,res,next){
+
+  var signup = require(path.join(__dirname,'../queries/userSignUpPage.js'));
+  var promise = signup.addUser(req.body).then(function(result){
+    console.log(req.query);
+    // res.render('signup',result);
+  });
+});
+
+
+
+router.get('/admin/add',function(req,res,next){
+
 
     var adminAdd = require(path.join(__dirname, '../queries/adminAdd.js'));
 
@@ -205,5 +284,6 @@ router.get('/admin/flightTable', (req, res, next) =>{
 
 
 router.get('/view');
+
 
 module.exports = router;
