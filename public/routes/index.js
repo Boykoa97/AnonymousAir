@@ -185,9 +185,9 @@ router.get('/accountinfo', function (req, res, next) {
 });
 
 router.post('/accountinfo', function (req, res, next) {
-    var accountinfo = require(path.join(__dirname, '../queries/accountinfo.js'));
-    var promise = accountinfo.then(function (result) {
-        console.log(result);
+    var accountinfo = require(path.join(__dirname, '../queries/createAlias.js'));
+    var promise = accountinfo.addAlias(req.body,req.decoded.cno).then(function (result) {
+        console.log("This is the post request: " + result);
         res.render('accountinfo', result);
     });
 });

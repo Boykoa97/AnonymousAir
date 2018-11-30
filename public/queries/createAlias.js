@@ -1,7 +1,9 @@
 var mysql = require("mysql");
+var jwt = require('jsonwebtoken');
+var security = require('./tools/security.js');
 
 //this is just for one query on the page, more can be added
-function addAlias(param){
+ function addAlias(param,cno){
 
   //connect to database
   var connection = mysql.createConnection({
@@ -41,11 +43,15 @@ var promise = new Promise(function(resolve,reject){
 
         if (idNumb != -1  ) {
           //INSERT INTO Customer VALUES ('00018','CulturalFuneral','Zzts9XTYT7BFheaA');
-          let sql2 = 'Insert into Alias Values (\''+ idNumb + '\' , \''  + param.cno + '\', \'' + param.newFirst + '\',' +
-                    '\''  + param.newMiddle + '\', \'' + param.newLast  + '\', \'' + param.countryChar'\', \'' + param.passportNum + '\'  );';
-          connection.query(sql2,(err,result_set)=>{
+          // let sql2 = 'Insert into Alias Values (\''+ idNumb + '\' , \''  + jwt.cno + '\', \'' + param.newFirst + '\',' +
+          //           '\''  + param.newMiddle + '\', \'' + param.newLast  + '\', \'' + param.countryChar'\', \'' + param.passportNum + '\'  );';
+          let sql2 = 'Insert into Alias Values (\''+ idNumb + '\' , ?, ?, ?, ?, ?, ?);';
+          var sql2Prepared = mysql.format(sql2, [cno, param.newFirst, param.newMiddle, param.newLast, param.countryChar, param.passportNum ]);
+
+          console.log(sql2Prepared)
+          connection.query(sql2Prepared,(err,result_set)=>{
               if(err == null){ //if the query is successful)
-                console.log(sql2)
+                console.log(sql2Prepared)
               }
               else{ //if the query throws any type of error
               reject(err);
