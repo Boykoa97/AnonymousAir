@@ -112,7 +112,7 @@ router.post('/main', function(req,res,next) {
 
 router.get('/main',function(req,res,next){
   var main = require(path.join(__dirname,'../queries/main.js'));
-  var promise = main(req.query).then(function(result){
+  var promise = main.main(req.query).then(function(result){
   //  console.log(result);
   // console.log(req.query);
 
@@ -121,10 +121,42 @@ router.get('/main',function(req,res,next){
 
 });
 
+
+router.get('/main/recommend',function(req,res,next){
+  var rec = require(path.join(__dirname,'../queries/recommend.js'));
+  console.log(rec);
+  console.log("i am in the index right now");
+  var obj =rec.recommend().then(result=>{
+    //console.log(result);
+    res.render('recommend',{params:result,layout:false});
+  })
+
+
+});
+
+router.get('/main/flightDescription',function(req,res,next){
+  var flightDescription = require(path.join(__dirname,'../queries/flightDescription.js'));
+  var promise = flightDescription.flightDescriptionQuery(req.query).then(function(result){
+    res.render('flightDescription',result);
+  })
+})
+
+router.get('/main/recommendforyou',function(req,res,next){
+  var rec = require(path.join(__dirname,'../queries/recommendforyou.js'));
+  console.log(rec);
+  console.log("i am in the index right now");
+  var obj =rec.recommendforyou(req.decoded.cno).then(result=>{
+    //console.log(result);
+    res.render('recommendforyou',{params:result,layout:false});
+  })
+
+
+});
+
 //Render the flight detail into the handlebars file
 router.get('/flightdetail',function(req,res,next){
   var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
-  var promise = flightdetail.flightDetailQuery().then(function(result){
+  var promise = flightdetail.flightDetailQuery(req.query).then(function(result){
     //console.log(result);
     res.render('flightdetail',result);
   });
