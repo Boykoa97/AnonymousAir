@@ -58,4 +58,4 @@ return obj;
 }
 
 //add any new query functions you make here...
-module.exports = contact_query1();
+module.exports.checkout = contact_query1;

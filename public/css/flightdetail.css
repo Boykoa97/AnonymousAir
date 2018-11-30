@@ -1,6 +1,12 @@
 body{
-  background: #fff;
+  background: #dcdfe5;
 }
+
+#titlepage{
+  position: relative;
+  text-align: center;
+}
+
 .box {
   display: inline;
   position: relative;
@@ -14,12 +20,15 @@ body{
   float: left;
   padding-left: 20px;
   padding-top: 20px;
-
+  background-image: url(/images/flightdetail1.jpg);
+  background-image: cover;
 
 }
 .box:hover {
-  box-shadow: 0 0 11px rgba(33,33,33,.5);
+  box-shadow: 0 0 11px rgba(33,33,33,.8);
 }
+
+
 
 #fld {
 
