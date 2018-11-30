@@ -57,7 +57,7 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
 return obj;
 }
 
-function addtocart(params){
+function addtocart(params,cno){
 
   //connect to database
   var connection = mysql.createConnection({
@@ -76,7 +76,7 @@ console.log(deptTime);
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //let sql = 'INSERT INTO OnFlightExtra(oid,fid,deptTime) VALUES (1,"AN1037"," 2019-02-13 03:20:00 PM")';
-let sql = 'INSERT INTO Cart(cno,fid,deptTime,oid) VALUES ("C0001","'+params.fid+'","'+deptTime +'",0)';
+let sql = 'INSERT INTO Cart(cno,fid,deptTime,oid) VALUES ("'+cno+'","'+params.fid+'","'+deptTime +'",0)';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
