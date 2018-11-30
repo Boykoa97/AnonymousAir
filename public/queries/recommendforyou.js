@@ -14,9 +14,31 @@ function query1(cno){
 //write an sql statement for querying the database
 var today = new Date();
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var year = today.getFullYear();
+var month = today.getMonth();
+if (month.length < 2){
+  month = "0" + month;
+}
+var day = today.getDate();
+if (day.length < 2){
+  day = "0" + day;
+}
+var hours = today.getHours();
+if (hours.length < 2){
+hours = "0" + hours;
+}
+var minutes = today.getMinutes();
+if(minutes.length <2){
+mintues = "0" + minutes
+}
+var seconds = today.getSeconds();
+if (seconds.length <2){
+seconds = "0" + seconds;
+}
+var currentTime = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
 var sql = mysql.format('SELECT \
 fid,\
-  deptTime \
+  Flight.deptTime \
 FROM\
   Flight \
 WHERE \
@@ -90,8 +112,8 @@ WHERE \
               1 OFFSET 1 \
           ) AS W \
       )\
-  )\
-',[cno,cno,today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' ' +today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()]);
+  ) AND Flight.deptTime > ?\
+',[cno,cno,currentTime]);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously

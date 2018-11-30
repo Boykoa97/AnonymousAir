@@ -31,6 +31,9 @@ body {
   background-color: rgba(211,211,211, 0.4);
   border-radius:25px;
   overflow: scroll;
+  display:inline;
+  float: left;
+  position: relative;
 }
 .split {
     height: 84%;
@@ -49,8 +52,8 @@ body {
 .upper {
   height: 3em;
   width: 3em;
-  position: fixed;
-  bottom: 8em;
+  position: relative;
+  top: 0px;
 }
 .right {
     left: 66%;
@@ -70,10 +73,11 @@ body {
 
 }
 .tiny2 {
-  position:absolute;
+  position:relative;
   background-image: url({{return2}});
   background-size: contain;
   left: 1.5em;
+
 }
 .tiny3 {
   position:absolute;
@@ -253,22 +257,31 @@ function getLocation(departure, arrival, date){
 </div>
 </div>
 <div class = "split right">
+
   <div class = "centered">
+    <div class = "upper tiny1"> </div>
+    <div class = "upper tiny2"> </div>
+    <div class = "upper tiny3"> </div>
+    <div class = "upper tiny4"> </div>
+    <div class = "upper tiny5"> </div>
     <body >
-      <div class = "upper tiny1"> </div>
-      <div class = "upper tiny2"> </div>
-      <div class = "upper tiny3"> </div>
-      <div class = "upper tiny4"> </div>
-      <div class = "upper tiny5"> </div>
+
 
 
       <div class="entry">
+
         <h2> Available Flights:  </h2>
  <ul>
- <li style="list-style: none">{{#response}}</li>
- <li><a href = "/main/flightDescription">{{this}}</a></li>
- <li style="list-style: none">{{/response}}</li>
+ <li style="list-style: none">{{#response}} </li>
+ <li><a href = "/main/flightDescription">{{this}} </a></li>
+ <li style="list-style: none">{{/response}} </li>
+</ul>
+<ul>
+ <li style="list-style-type: none">{{#time}} </li>
+ <li>{{this}} </a></li>
+ <li style="list-style-type: none">{{/time}} </li>
  </ul>
+
     </body>
   </div>
 </div>
