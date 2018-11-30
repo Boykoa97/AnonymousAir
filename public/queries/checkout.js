@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 
 //this is just for one query on the page, more can be added
-function contact_query1(){
+function contact_query1(cno){
 
   //connect to database
   var connection = mysql.createConnection({
@@ -14,7 +14,7 @@ function contact_query1(){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * From Cart natural join Flight Where cno="C0001"';
+let sql = 'SELECT * From Cart natural join Flight Where cno="'+cno+'"';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously

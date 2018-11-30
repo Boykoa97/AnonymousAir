@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 
 //this is just for one query on the page, more can be added
-function shoppingcart_query1(){
+function shoppingcart_query1(cno){
 
   //connect to database
   var connection = mysql.createConnection({
@@ -14,7 +14,7 @@ function shoppingcart_query1(){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * FROM Cart natural join Flight WHERE cno="C0001"';  // NOTE: In the future this will take the cookie value as the cno
+let sql = 'SELECT * FROM Cart natural join Flight WHERE cno="'+cno+'"';  // NOTE: In the future this will take the cookie value as the cno
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
