@@ -1,3 +1,43 @@
+<style>
+
+body {
+    font-family: Arial;
+    color: black;
+    text-align: middle;
+    text-align: center;
+
+}
+</style>
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<p> Please enter your payment information as follows below: </p>
+<body>
+  <form name = "accountInfo">
+    Customer Id:
+<input type = "text" name = "customerId"> <br>
+    Card Number:
+<input type = "text" name = "creditCardNo"> <br>
+    Card Expiration Date(MM-YY):
+<input type = "text" name = "creditCardEx"> <br>
+    Card CCV:
+<input type = "text" name = "creditCardCCV"> <br>
+    Billing Address:
+<input type = "text" name = "billingAddress" > <br>
+    Billing State:
+<input type = "text" name = "billingState"> <br>
+    Billing Country:
+<input type = "text" name = "billingCountry"> <br>
+    Billing ZIP/Postal Code:
+<input type = "text" name = "billingZIP"> <br>
+<input type = "button" onclick = "insertPaymentInfo(document.accountInfo.customerId.value, document.accountInfo.creditCardNo.value, document.accountInfo.creditCardEx.value \
+document.accountInfo.creditCardCCV.value, document.accountInfo.billingAddress.value,document.accountInfo.billingState.value, \
+document.accountInfo.billingCountry.value, document.accountInfo.billingZIP)"
+
+  </form>
+<script>
+  function insertPaymentInfo(custId, creditNo, creditEx, creditCCV, billA,billS,billC,billZ){
+    window.location = "main?customerId=" + custId + "&creditCardNo=" + creditNo + "&creditCardEx=" + creditEx + "&creditCardCCV="creditCCV + "&billingAddress=" +billA + "&billingState=" + billS + "&billingCountry="+billC + "&billingZIP=" + billZ;
+  }
 <p>{{response}}</p>
+<p> If at any point you need to change your payment information, please complete the entire form with new information and re-submit! <br>  Thank you! - The Anonymous Airlines Team </p>
+</body>
