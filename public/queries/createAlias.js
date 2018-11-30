@@ -14,7 +14,7 @@ function addAlias(param){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * From Customer'
+let sql = 'SELECT * From Alias'
 //let sql = 'SELECT * From Customer where username = ?';
 //var sqlPrepared = mysql.format(sql, [param.cno])
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;
@@ -34,11 +34,6 @@ var promise = new Promise(function(resolve,reject){
           if (param.passportNum == result_set[i].passportNum && param.countryChar == result_set[i].country ) {
             console.log("Passport Already Registered")
             idNumb = -1; //username already exists so don't insert
-            break;
-          }
-          if (param.newUser == "undefined" || param.password == "undefined") {
-            console.log("username and or password field was sent with empty data");
-            idNumb = -1; //got sent bad user data
             break;
           }
         }
