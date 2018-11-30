@@ -44,10 +44,16 @@ module.exports = function(){
         // or anything you need to format after obtaining the data from the db)
         dates = ['deptTime','arrTime','actArrTime','actDeptTime']
         result_set.forEach(e=>{
-            dates.forEach(s=>{
+            console.log(e.actArrTime)
+            dates.forEach(s=> {
+                if (e[s] != '0000-00-00 00:00:00' && e[s] != 'null' && e[s]) {
+
                 let paramDate = new Date(e[s])
-                let tzOffest = new Date().getTimezoneOffset()*60000
-                e[s] = new Date(paramDate - tzOffest).toISOString().replace('T',' ').replace('Z','');
+                let tzOffest = new Date().getTimezoneOffset() * 60000
+                e[s] = new Date(paramDate - tzOffest).toISOString().replace('T', ' ').replace('Z', '');
+            }else{
+                    e[s] = null;
+                }
             })
 
         })

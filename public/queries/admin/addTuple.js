@@ -7,9 +7,7 @@ module.exports = function (parameters) {
 
     switch (parameters.type.toLowerCase()) {
         case 'customer':
-            return addCustomer(parameters,json.types[parameters.type.toLowerCase()]).then(function (result) {
-                return result;
-            });
+            return addCustomer(parameters,json.types[parameters.type.toLowerCase()]).then(result=> {return result});
         case 'flight':
             return addFlight(parameters,json.types[parameters.type.toLowerCase()]).then(result =>{return result});
         case 'alias':
@@ -35,7 +33,7 @@ module.exports = function (parameters) {
 //TODO BRING UP TO SPEED WITH TABLEDATA
 function addCustomer(parameters, tableData) {
     console.log("Inserting new entry into customer!");
-    sql = "INSERT INTO Customer VALUES (?,?,?);";
+    sql = "INSERT INTO Customer VALUES (?,?,?,?);";
 
     //TODO - CHECK VALIDITY OF INPUT
 
@@ -49,9 +47,9 @@ function addCustomer(parameters, tableData) {
             max = 0;
             //Find maximum Value
             result.data.forEach(function (val) {
-                    console.log(parseInt(val.cno));
-                if (parseInt(val.cno) > max)
-                    max = parseInt(val.cno);
+                    console.log(parseInt(val.cno.substring(1)));
+                if (parseInt(val.cno.substring(1)) > max)
+                    max = parseInt(val.cno.substring(1));
             });
             max++;
             //Force to CHAR(5) size
@@ -64,7 +62,7 @@ function addCustomer(parameters, tableData) {
             parameters['cno'] = cnoString;
 
 
-        let insertionValues = [parameters.cno, parameters.username, parameters.password];
+        let insertionValues = [parameters.cno, parameters.data.username, parameters.data.password, parameters.data.email];
         return query(mysql.format(sql, insertionValues)).then(function (result) {
 
             return {success: result.success, err: result.err, data: result.data, primaryKeyValue: [parameters.cno], inputParameters: parameters}
@@ -87,9 +85,6 @@ function addCustomer(parameters, tableData) {
 }
 
 function addFlight(parameters, tableData) {
-
-    //TODO: CHECK VALUES FOR DATES (NO ERROR THROWN FROM SQL)
-
 
     console.log("Inserting new entry into Flight!");
     sql = "INSERT INTO Flight VALUES (?,?,?,?,?,?,?,?,?,?,?);";
@@ -139,7 +134,6 @@ function addAlias(parameters, tableData){
         //make sure query didn't fail
         if (result.success === false)
             return {success: false, err: result.err};
-        //TODO: Max this better. Check against regex
 
         max = 0;
         //Find maximum Value
@@ -190,7 +184,6 @@ function addAirplane(parameters, tableData){
         //make sure query didn't fail
         if (result.success === false)
             return {success: false, err: result.err};
-        //TODO: Max this better. Check against regex
 
         max = 0;
         //Find maximum Value

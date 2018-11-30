@@ -21,6 +21,7 @@ module.exports = async function(req){
         'FlightDDL.sql',
         'AliasDDL.sql',
         'ExtraDDL.sql',
+        'OnFlightExtraDDL.sql',
         'OnFlightDDL0.sql',
         'OnFlightDDL1.sql',
         'OnFlightDDL2.sql',

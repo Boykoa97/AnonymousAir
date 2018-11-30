@@ -44,14 +44,20 @@
       </li>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/login">Login Page</a>
+      <a class="nav-link" href="/flightdetail">Flight Detail</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="flightdetail">Flight Detail</a>
+      <a class="nav-link" href="/shoppingcart"><img id="cartimage" src="/images/cart.png"></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="shoppingcart"><img id="cartimage" src="images/cart.png"></a>
-    </li>
+        <li style="color: #cccccc">
+
+            Username: {{this.decodedToken.username}}<br>
+            Customer Number: {{this.decodedToken.cno}}<br>
+
+        </li>
+        <li>
+            <button class="btn btn-danger" href="/logout">Logout</button>
+        </li>
     </ul>
   </div>
 </nav>
