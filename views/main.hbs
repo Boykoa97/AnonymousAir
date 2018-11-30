@@ -1,16 +1,39 @@
 
-
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 <style>
+
 body {
     font-family: Arial;
     color: white;
+
     border-radius: 25px
 }
+#recom{
+  position: relative;
+  bottom: -10px;
+}
+#recommendation{
+  position: absolute;
+  left:0px;
+  top:400px;
+}
+#recomforyou{
+  position:relative;
+  top: 20px;
+  bottom: -10px;
+}
+#recommendedforyou{
+  position:relative;
+  top:20px;
+  bottom:-10px;
+}
 
+.entry {
+  background-color: rgba(211,211,211, 0.4);
+  border-radius:25px;
+  overflow: scroll;
+}
 .split {
-    height: 85%;
+    height: 84%;
     width: 33%;
     position: fixed;
     z-index: 1;
@@ -23,10 +46,53 @@ body {
     left: 0;
     background-color: white;
 }
-
+.upper {
+  height: 3em;
+  width: 3em;
+  position: fixed;
+  bottom: 8em;
+}
 .right {
     left: 66%;
+
     background-color: white;
+    background-image: url({{backgroundImg}});
+    background-size: cover;
+    border-radius:25px;
+
+
+}
+.tiny1 {
+  position:absolute;
+  background-image: url({{return1}});
+  background-size: contain;
+  left: -2em;
+
+}
+.tiny2 {
+  position:absolute;
+  background-image: url({{return2}});
+  background-size: contain;
+  left: 1.5em;
+}
+.tiny3 {
+  position:absolute;
+  background-image: url({{return3}});
+  background-size: contain;
+  left: 5em;
+}
+.tiny4 {
+  position:absolute;
+  background-image: url({{return4}});
+  background-size: contain;
+  left: 8.5em;
+  }
+.tiny5 {
+  position:absolute;
+  background-image: url({{return5}});
+  background-size: contain;
+  left:12em;
+
 }
 .middle {
     left: 33%;
@@ -72,6 +138,54 @@ body {
     </script>
 <input type = "button" onclick= "getLocation(document.getFlightInfo.desiredDepartureLocation.value,document.getFlightInfo.desiredArrivalLocation.value,document.getFlightInfo.datepicker.value)" value= "Search">
 </form>
+
+<button id="recom" class = 'btn btn-warning' onclick="recommendFlights(), disappear()">
+Popular Now!
+</button>
+<script>
+function disappear(){
+  var x = document.getElementById("recommendation");
+   if (x.style.display === "none") {
+       x.style.display = "block";
+   } else {
+       x.style.display = "none";
+   }
+}
+</script>
+
+<div id="recommendation">
+
+</div>
+
+<script>
+function recommendFlights(){
+  console.log("I work");
+$("#recommendation").load('/main/recommend')
+}
+</script>
+<button id= "recomforyou" class = 'btn btn-warning' onclick= "recommendFlightsforYou(), disappear2()">
+  Recommended for you!
+</button>
+
+<div id= "recommendedforyou">
+
+</div>
+<script>
+function disappear2(){
+  var x = document.getElementById("recommendedforyou");
+   if (x.style.display === "none") {
+       x.style.display = "block";
+   } else {
+       x.style.display = "none";
+   }
+}
+</script>
+<script>
+function recommendFlightsforYou(){
+  console.log("Recommend4U Works");
+  $("#recommendedforyou").load('main/recommendforyou')
+  }
+</script>
 <script >
 function getLocation(departure, arrival, date){
   window.location = "main?departure=" + departure + "&arrival=" + arrival + "&date=" + date;
@@ -85,8 +199,8 @@ function getLocation(departure, arrival, date){
   <div class = "centered">
     <h2> Browse Flights by Desired Features: </h2>
     <p> Departing from: </p>
-    <form name = unknownDest>
-    <input type = "text" name = "desiredDepartureLocation" onchange = "findFlights">
+    <form name = "unknownDest" action="#" method="get" onsubmit="return unesi()">
+    <input type = "text" name = "desiredDepartureLocation" >
     <p> Desired date of departure: </p>
     <head>
         <meta charset="utf-8">
@@ -111,7 +225,7 @@ function getLocation(departure, arrival, date){
       <input type = "checkbox" name = "ofMeals" value = "meals"> On Flight Meals <br>
       <input type = "checkbox" name = "curEx" value = "currencyEx"> Currency Exchange <br>
       <input type = "checkbox" name = "feaxId" value = "fakeId"> Identification Fabrication <br>
-      <input type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked, document.unknownDest.datepicker3.value)" value = "Search">
+      <input type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked, document.unknownDest.datepicker3.value), getPhotos(document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked)" value = "Search">
     </form>
 <script>
     function findFlights(departure, facRec, secBypass,onFlightMeals,currEx, fakeId, date){
@@ -120,19 +234,41 @@ function getLocation(departure, arrival, date){
 
     }
 </script>
+<script>
+  function getPhotos(facRec, secBypass, onFlightMeals, currEx, fakeId){
+    if (facRec == true){
+    //  var image1 = document.createElement("img");
+    //  img.src = "/images/facRec.jpg"
+    document.getElementById('featureResults').innerHTML += '<img src=\"/images/facRec.jpg\"></img>';
+
+    }
+  }
+  function unesi(){
+    var userInput = document.getElementById('userInput').value;
+    document.getElementById('ispis').innerHTML = userInput;
+    return false;
+}
+  </script>
+
 </div>
 </div>
 <div class = "split right">
   <div class = "centered">
-    <body>
-      <h2> Available Flights:  </h2>
+    <body >
+      <div class = "upper tiny1"> </div>
+      <div class = "upper tiny2"> </div>
+      <div class = "upper tiny3"> </div>
+      <div class = "upper tiny4"> </div>
+      <div class = "upper tiny5"> </div>
+
+
       <div class="entry">
+        <h2> Available Flights:  </h2>
  <ul>
  <li style="list-style: none">{{#response}}</li>
- <li>{{this}}</li>
+ <li><a href = "/main/flightDescription">{{this}}</a></li>
  <li style="list-style: none">{{/response}}</li>
  </ul>
-</div>
     </body>
   </div>
 </div>

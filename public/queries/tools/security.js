@@ -1,3 +1,4 @@
 module.exports = {
-    adminSecret : "superSecretSuperSecuritySaying"
+    adminSecret : "superSecretSuperSecuritySaying",
+    customerSecret: "slightlyLessSecretSuperSecuritySaying"
 }
