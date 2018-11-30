@@ -5,7 +5,7 @@ module.exports = function(){
 
     //connect to database
     var connection = mysql.createConnection({
-        host : 'cosc304.ok.ubc.ca',
+        host : '178.128.237.49',
         user : 'mspouge',
         password : '13792149',
         database : 'db_mspouge'

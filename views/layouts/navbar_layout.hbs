@@ -49,18 +49,27 @@
     <li class="nav-item">
       <a class="nav-link" href="/shoppingcart"><img id="cartimage" src="/images/cart.png"></a>
     </li>
-        <li style="color: #cccccc">
-
-            Username: {{this.decodedToken.username}}<br>
-            Customer Number: {{this.decodedToken.cno}}<br>
+        <li style="color: #cccccc" class="nav-item">
+            <table>
+                <tr><td>Username:</td><td>{{this.decodedToken.username}}</td></tr>
+                <tr><td>Customer:</td><td>{{this.decodedToken.cno}}</td></tr>
+            </table>
 
         </li>
-        <li>
-            <button class="btn btn-danger" href="/logout">Logout</button>
+        <li class="nav-item">
+            <button class="btn-xs btn-danger" onclick="logoutPage()">Logout</button>
         </li>
     </ul>
   </div>
 </nav>
+
+
     {{{ body }}}
   </body>
 </html>
+
+<script>
+    function logoutPage(){
+        window.location.href = '/logout?redirect='+location.pathname;
+    }
+</script>

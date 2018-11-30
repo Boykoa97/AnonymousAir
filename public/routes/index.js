@@ -45,9 +45,13 @@ router.use((req, res, next) => {
                 }
 
             })
+        }else{
+            res.render('accDenied',{redirect: '/login', layout: false});
         }
-    }else
+    }else{
         next();
+    }
+
 });
 
 //Render the admin page into the handlebars file
@@ -317,6 +321,15 @@ router.post('/admin/updateFlight',(req,res,next)=>{
         res.render('adminUpdateFlight',{param: result, layout: false});
     })
 })
+
+router.get('/logout',(req,res,next)=>{
+   res.render('logoutPage',{redirect:req.query.redirect,layout:false})
+});
+
+router.get('/admin/logout',(req,res,next)=>{
+    res.render('logoutPage',{redirect:req.query.redirect,layout:false})
+});
+
 
 router.get('/view');
 
