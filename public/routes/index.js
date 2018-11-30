@@ -138,6 +138,10 @@ router.get('/queries/addtocart',function(req,res,next){
 
 //Render the accountinfo page into the handlebars file
 router.get('/accountinfo', function (req, res, next) {
+        res.render('accountinfo');
+});
+
+router.post('/accountinfo', function (req, res, next) {
     var accountinfo = require(path.join(__dirname, '../queries/accountinfo.js'));
     var promise = accountinfo.then(function (result) {
         console.log(result);
