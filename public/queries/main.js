@@ -87,8 +87,9 @@ var sql1 = mysql.format('SELECT fid,price FROM Flight WHERE dept IN (SELECT aid 
 LOWER(city) = LOWER(?)) AND arr IN (SELECT aid FROM Airport WHERE LOWER(city) = LOWER(?)) AND Month(deptTime) = Month(?) AND Year(deptTime) = Year(?) AND Day(deptTime) = Day(?)',[dept,arr,ddlDate,ddlDate,ddlDate]);
 var sql3 = mysql.format("SELECT fid FROM Flight NATURAL JOIN OnFlightExtra WHERE dept IN (SELECT aid FROM Airport WHERE \
 LOWER(city) = LOWER(?)) AND Month(deptTime) = ? AND Day(deptTime) = ? AND Year(deptTime) = ? \
-GROUP BY fid HAVING COUNT(oid) = ? AND SUM(oid) = ?",[dept2, parseInt(dateNew[0],10), parseInt(dateNew[1],10), dateNew[2], group.length, group.reduce((a, b) => a + b, 0)]);
+GROUP BY fid HAVING COUNT(oid) = ? AND SUM(oid) = ? OR (COUNT(oid) > ? AND SUM(oid) > ?)",[dept2, parseInt(dateNew[0],10), parseInt(dateNew[1],10), dateNew[2], group.length + 1, group.reduce((a, b) => a + b, 0), group.length + 1,group.reduce((a, b) => a + b, 0)] );
 var sql2 =  mysql.format('SELECT Month(deptTime), Day(deptTime), Year(deptTime) FROM OnFlightExtra NATURAL JOIN Flight');
+
 //var sql3 = "INSERT INTO OnFlightExtra VALUES ('3','WS0314','2019-01-01 14:55:00')";
 //var flightLoc = param.desiredLocation;
 //console.log(window.location.href);
@@ -119,23 +120,142 @@ var obj = promise.then(function(res2){
   console.log(res2);
   console.log()
   connection.end();
-  if (isEmpty(res2)){
-    var spit = ('Sorry, no flights available!');
-  }
   if (dept == null){
     console.log("this is a whole bunch of nothing");
     var spit = "";
+  }
+  else if (isEmpty(res2)){
+    var spit = [];
+    spit[0] = "Sorry, no flights available!";
+    console.log(spit);
+
   }
   else{
     var spit = [];
     for(var i in res2){
       spit[i] = res2[i].fid
     }
+      if (sql == sql1){
+        console.log("using sql1");
+        var photo = arr;
 
-  }
+        switch (photo) {
+            case "Calgary":
+                var photoReturn = "/images/calgary.jpg";
+                break;
+            case "Vancouver":
+                var photoReturn = "/images/vancouver.jpg";
+                break;
+            case "Kelowna":
+                var photoReturn = "/images/kelowna.jpg";
+                break;
+            case "Winnipeg":
+                    var photoReturn = "/images/winnipeg.jpg";
+                    break;
+            case "Copenhagen":
+                var photoReturn = "/images/copenhagen.jpg";
+                break;
+            case "Tamuin":
+                var photoReturn = "/images/tamuin.JPG";
+                break;
+            case "Rennes":
+                var photoReturn = "/images/rennes.jpg";
+                break;
+            case "Pretoria":
+                var photoReturn = "/images/pretoria.jpg";
+                break;
+            case "Sandy Lake":
+                var photoReturn = "/images/sandylake.jpg";
+                break;
+            case "Kolding":
+                var photoReturn = "/images/kolding.jpg";
+                break;
+            case "Soyo":
+                var photoReturn = "/images/soyo.jpg";
+                break;
+            case "Mandalay":
+                var photoReturn = "/images/mandalay.jpg";
+                break;
+            case "Seoul":
+                var photoReturn = "/images/seoul.jpg";
+                break;
+            case "Galcaio":
+                var photoReturn = "/images/galcaio.jpg";
+                break;
+            case "Vesivehmaa":
+                var photoReturn = "/images/vesivehmaa.jpg";
+                break;
+            case "Sulawesi Tenggara":
+                var photoReturn = "/images/sulawesi.jpg";
+                break;
+            case "Massena":
+                var photoReturn = "/images/massena.jpg";
+                break;
+            case "Korla":
+                var photoReturn = "/images/korla.jpg";
+                break;
+            case "Cape Town":
+                var photoReturn = "/images/capetown.jpg";
+                break;
+            case "Ottawa":
+                var photoReturn = "/images/ottawa.jpg";
+                break;
+            case "Ponta Pora":
+                var photoReturn = "/images/pontapora.jpg";
+                break;
+            case "Varginha":
+                var photoReturn = "/images/Varginha.jpg";
+                break;
+            case "Honuu":
+                var photoReturn = "/images/honuu.jpg";
+                break;
+            case "Hana":
+                var photoReturn = "/images/hana.jpg";
+                break;
+            case "Matsuyama":
+                var photoReturn = "/images/matsuyama.jpg";
+                break;
+            case "Mpanda":
+                var photoReturn = "/images/mpanda.jpg";
+                break;
+            case "Terre Haute":
+                var photoReturn = "/images/terrehaute.jpg";
+                break;
+            default:
+                var photoReturn = "/images/bimage.jpg";
+                break;
+
+}
+      }
+      if (sql == sql3){
+        var photoReturn1 = "/images/facRec.jpg";
+        var  photoReturn2 = "/images/secBypass.jpg";
+        var  photoReturn3 = "/images/onFlightMeals.jpg";
+        var  photoReturn4 = "/images/currEx.jpg";
+        var  photoReturn5 = "/images/fakeId.jpg";
+        console.log("using sql3");
+        if(!group.includes(1)){
+        var  photoReturn1 = "/images/empty.jpg";
+      }
+        if (!group.includes(2)){
+        var  photoReturn2 = "/images/empty.jpg";
+        }
+        if (!group.includes(3)){
+        var  photoReturn3 = "/images/empty.jpg";
+        }
+        if (!group.includes(4)){
+        var  photoReturn4 = "/images/empty.jpg";
+        }
+        if (!group.includes(5)){
+        var  photoReturn5 = "/images/empty.jpg";
+      }
+        }
+      }
+
+
 
   //returns the variables to the index.js file, which renders the variables in this object to the main.hbs file (notice how in the main.hbs file in curly brackets the variables have the same name as these)
-  return {title:'The Main Page', response: spit};
+  return {title:'The Main Page', response: spit, backgroundImg: photoReturn, return1: photoReturn1, return2: photoReturn2, return3: photoReturn3, return4: photoReturn4, return5: photoReturn5};
 //  while(res2.next)
 
 
@@ -150,4 +270,4 @@ return obj;
 
 
 }
-module.exports = function(param){return main_query1(param);}
+module.exports.main = function(param){return main_query1(param);}

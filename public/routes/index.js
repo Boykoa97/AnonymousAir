@@ -42,12 +42,36 @@ router.get('/login',function(req,res,next){
 //Render the main page into the handlebars file
 router.get('/main',function(req,res,next){
   var main = require(path.join(__dirname,'../queries/main.js'));
-  var promise = main(req.query).then(function(result){
+  var promise = main.main(req.query).then(function(result){
   //  console.log(result);
   // console.log(req.query);
 
     res.render('main',result);
   })
+
+});
+
+router.get('/main/recommend',function(req,res,next){
+  var rec = require(path.join(__dirname,'../queries/recommend.js'));
+  console.log(rec);
+  console.log("i am in the index right now");
+  var obj =rec.recommend().then(result=>{
+    //console.log(result);
+    res.render('recommend',{params:result,layout:false});
+  })
+
+
+});
+
+router.get('/main/recommendforyou',function(req,res,next){
+  var rec = require(path.join(__dirname,'../queries/recommendforyou.js'));
+  console.log(rec);
+  console.log("i am in the index right now");
+  var obj =rec.recommendforyou().then(result=>{
+    //console.log(result);
+    res.render('recommendforyou',{params:result,layout:false});
+  })
+
 
 });
 
