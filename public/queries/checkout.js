@@ -1,11 +1,11 @@
 var mysql = require("mysql");
 
 //this is just for one query on the page, more can be added
-function bookflight_query1(){
+function contact_query1(){
 
   //connect to database
   var connection = mysql.createConnection({
-    host : '178.128.237.49',
+    host : 'cosc304.ok.ubc.ca',
     user : 'mspouge',
     password : '13792149',
     database : 'db_mspouge'
@@ -14,7 +14,7 @@ function bookflight_query1(){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * From Flight limit 6';
+let sql = 'SELECT * From Cart natural join Flight Where cno="C0001"';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -43,7 +43,7 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
   //can add data manipulation here (i.e. for-loops, calculations,
   // or anything you need to format after obtaining the data from the db)
 
-  return {title:'The Bookflight Page', response: result_set[0].fname};
+  return {title:'Checkout', response: result_set};
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,4 +58,4 @@ return obj;
 }
 
 //add any new query functions you make here...
-module.exports = bookflight_query1();
+module.exports = contact_query1();

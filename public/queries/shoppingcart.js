@@ -54,8 +54,13 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
   connection.end();
 });
 
+let sql2 = 'SELECT optionTitle,fid FROM Extra natural join OnFlightExtra WHERE Extra.oid=OnFlightExtra.oid';  // NOTE: In the future this will take the cookie value as the cno
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 return obj;
 }
+
 
 //add any new query functions you make here...
 module.exports.cart = shoppingcart_query1;
