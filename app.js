@@ -30,7 +30,9 @@ app.set('Secret',security.adminSecret);
 
 handlebarsIntl.registerWith(handlebars);
 momentHandler.registerHelpers(handlebars);
-
+handlebars.registerHelper("divideMyThings", function(thing1, thing2, thing3) {
+  return thing1 / thing2 / thing3;
+});
 //app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'login_layout', layoutDir: __dirname + "public/views/layout"}));
 
 

@@ -172,14 +172,27 @@ router.get('/contact', function (req, res, next) {
     });
 });
 
+//Render the contact page into the handlebars file
+router.get('/checkout', function (req, res, next) {
+    var checkout = require(path.join(__dirname, '../queries/checkout.js'));
+    var promise = checkout.then(function (result) {
+        console.log(result);
+        res.render('checkout', result);
+    });
+});
+
+
 //Render the shoppingcart page into the handlebars file
 
 router.get('/shoppingcart',function(req,res,next){
   var shoppingcart = require(path.join(__dirname,'../queries/shoppingcart.js'));
+  //console.log(shoppingcart);
   var promise = shoppingcart.cart().then(function(result){
-    console.log(result);
+    //console.log(result);
+
     res.render('shoppingcart',result);
   });
+
 
 });
 
