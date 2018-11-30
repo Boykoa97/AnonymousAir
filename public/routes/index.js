@@ -74,7 +74,7 @@ router.get('/admin/customerTable', function (req, res, next) {
     var promise = admin().then(function (result) {
         //console.log(result)
         //send the data into the handlebars file
-        res.render('adminCustomerTable', {result :result, layout:'admin.hbs'});
+        res.render('adminCustomerTable', {response :result, layout:'admin.hbs'});
     });
 });
 
