@@ -1,0 +1,29 @@
+<div>
+    <h3>Seat Change</h3>
+    <table>
+        <tr>
+            <th>Flight Number: </th>
+            <td>{{param.fid}}</td>
+        </tr>
+        <tr>
+            <th>Departure Time: </th>
+            <td>{{param.deptTime}}</td>
+        </tr>
+        <tr>
+            <th>Alias: </th>
+            <td>{{param.aliasName}}</td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <th>Current Seat</th><th>Desired Seat</th>
+        </tr>
+        <tr>
+            <td>{{param.seatNo}}</td>
+            <td><input type="form" id="changedSeatNo"></td>
+            <td><input type="button" class="btn btn-secondary" value="Submit" onclick="confirmSeatChange('{{param.fid}}','{{param.deptTime}}','{{param.aliasId}}')"> </td>
+        </tr>
+        <p id="changeSeatResult"></p>
+
+    </table>
+</div>

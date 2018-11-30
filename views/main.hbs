@@ -18,8 +18,13 @@ body {
 }
 #recomforyou{
   position:relative;
-  top: 20px; 
+  top: 20px;
   bottom: -10px;
+}
+#recommendedforyou{
+  position:relative;
+  top:20px;
+  bottom:-10px;
 }
 
 .entry {
@@ -134,10 +139,19 @@ body {
 <input type = "button" onclick= "getLocation(document.getFlightInfo.desiredDepartureLocation.value,document.getFlightInfo.desiredArrivalLocation.value,document.getFlightInfo.datepicker.value)" value= "Search">
 </form>
 
-<button id="recom" class = 'btn btn-warning' onclick="recommendFlights()">
+<button id="recom" class = 'btn btn-warning' onclick="recommendFlights(), disappear()">
 Popular Now!
 </button>
-
+<script>
+function disappear(){
+  var x = document.getElementById("recommendation");
+   if (x.style.display === "none") {
+       x.style.display = "block";
+   } else {
+       x.style.display = "none";
+   }
+}
+</script>
 
 <div id="recommendation">
 
@@ -149,13 +163,23 @@ function recommendFlights(){
 $("#recommendation").load('/main/recommend')
 }
 </script>
-<button id = "recomforyou" class = 'btn btn-warning' onclick= "recommendFlightsforYou()">
+<button id= "recomforyou" class = 'btn btn-warning' onclick= "recommendFlightsforYou(), disappear2()">
   Recommended for you!
 </button>
 
-<div id = "recommendedforyou">
-</div>
+<div id= "recommendedforyou">
 
+</div>
+<script>
+function disappear2(){
+  var x = document.getElementById("recommendedforyou");
+   if (x.style.display === "none") {
+       x.style.display = "block";
+   } else {
+       x.style.display = "none";
+   }
+}
+</script>
 <script>
 function recommendFlightsforYou(){
   console.log("Recommend4U Works");
@@ -242,7 +266,7 @@ function getLocation(departure, arrival, date){
         <h2> Available Flights:  </h2>
  <ul>
  <li style="list-style: none">{{#response}}</li>
- <li>{{this}}</li>
+ <li><a href = "/main/flightDescription">{{this}}</a></li>
  <li style="list-style: none">{{/response}}</li>
  </ul>
     </body>

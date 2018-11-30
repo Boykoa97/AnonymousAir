@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS Cart;
+DROP TABLE IF EXISTS OnFlightExtra;
 DROP TABLE IF EXISTS Extra;
 DROP TABLE IF EXISTS FlightReview;
 DROP TABLE IF EXISTS OnFlight;
@@ -106,6 +107,7 @@ CREATE TABLE OnFlight (
   deptTime DATETIME,
   aliasId  integer,
   seatNo   integer,
+  extras   CHAR(10),
   PRIMARY KEY (fid, deptTime, aliasId),
   FOREIGN KEY (fid, deptTime) REFERENCES Flight (fid, deptTime)
     ON UPDATE CASCADE
@@ -132,16 +134,22 @@ CREATE TABLE FlightReview (
 );
 
 CREATE TABLE Extra (
-  fid         CHAR(6),
-  deptTime    DATETIME,
   oid    integer,
   optionTitle VARCHAR(50),
-  optionText  VARCHAR(120),
+  optionText  TEXT,
   price       DECIMAL(10, 2),
-  PRIMARY KEY (fid, deptTime, oid),
-  FOREIGN Key (fid, deptTime) REFERENCES Flight (fid, deptTime)
-    on DELETE CASCADE
-    on UPDATE CASCADE
+  PRIMARY KEY (oid)
+);
+
+Create TABLE OnFlightExtra(
+    oid integer,
+    fid CHAR(6),
+    deptTime DATETIME,
+    PRIMARY KEY (fid, deptTime, oid),
+    FOREIGN Key (fid, deptTime) REFERENCES Flight (fid, deptTime)
+        on DELETE CASCADE
+        on UPDATE CASCADE,
+    FOREIGN Key (oid) REFERENCES Extra(oid)
 );
 
 
@@ -158,7 +166,7 @@ CREATE TABLE Cart (
   FOREIGN KEY (fid, deptTime) REFERENCES Flight (fid, deptTime)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  FOREIGN KEY (fid, deptTime, oid) REFERENCES Extra (fid, deptTime, oid)
+  FOREIGN KEY (fid, deptTime, oid) REFERENCES OnFlightExtra (fid, deptTime, oid)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -174,3 +182,4 @@ INSERT INTO AirplaneModel VALUES ('BO747',300,30,0,'Boeing',4,6,"This plane is a
 INSERT INTO Airplane VALUES ('BO747','2016-05-12','00001');
 
 INSERT INTO Flight VALUES ('WS0314','YVR','YLW','2019-01-01 14:55:00','2019-01-01 16:00:00','2019-01-01 14:55:00','2019-01-01 16:00:00',500.00,800.00,0.00,'00001');
+INSERT INTO Flight VALUES ('WS0317','YVR','YLW','2019-01-01 14:00:00','2019-01-01 16:00:00','2019-01-01 14:55:00','2019-01-01 16:00:00',500.00,800.00,0.00,'00001');

@@ -1,64 +1,93 @@
-
 <h1>Anonymous Air - Admin Portal</h1>
-<p>Tools</p>
+
 <div class="nav">
+    <table>
+        <tr>
+            <td>
+                <div class="nav-item">
+                    <button class="btn btn-primary" onclick=" location.href= '/admin/customerTable';">Customer Data
+                    </button>
+                </div>
+            </td>
+            <td>
+                <div class="nav-item">
+                    <input class="btn btn-primary" onclick="confirmReset(true)" type="button"
+                                             value="Reset Table"
+                                             id="resetButton">
+                </div>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Add
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href='/admin/add?type=Customer'>Add new Customer</a>
+                        <a class="dropdown-item" href='/admin/add?type=Flight'>Add new Flight</a>
+                        <a class="dropdown-item" href='/admin/add?type=Alias'>Add new Alias</a>
+                        <a class="dropdown-item" href='/admin/add?type=Airplane'>Add new Airplane</a>
+                        <a class="dropdown-item" href='/admin/add?type=AirplaneModel'>Add new Airplane Model</a>
+                        <a class="dropdown-item" href='/admin/add?type=OnFlight'>Add a new flight for Customer</a>
+                        <a class="dropdown-item" href='/admin/add?type=FlightReview'>Add flight review</a>
+                        <a class="dropdown-item" href='/admin/add?type=Extra'>Add new in-flight Extra</a>
+                        <a class="dropdown-item" href='/admin/add?type=OnFlightExtra'>Add extra to flight</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <button class = "btn btn-primary" onclick="location.href = '/admin/flightTable'">Flight Data</button>
+            </td>
+        </tr>
+    </table>
 
-    <div class="nav-item">
-        <button class="btn btn-primary" onclick=" location.href= '/admin/customerTable';">Customer Data</button>
-    </div>
+</div>
+<div class = "modal" id ="resetModal">
+    <div class = "modal-dialog"style="max-width: max-content">
+        <div class = "modal-content">
+            <div class = "modal-header">
+                <div>
+                    <p id="resetModal-content">
+                    Are you sure you wish to reset?<br>
+                    <input class="btn btn-primary" onclick="doReset()" type="button"
+                           value="Yes"
+                           id="resetButton">
 
-    <div class="nav-item"><input class="btn btn-primary" onclick="confirmReset()" type="button" value="Reset Table"
-                                 id="resetButton"></div>
-    <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-           Add
-        </button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href='/admin/add?type=Customer'>Add new Customer</a>
-            <a class="dropdown-item" href='/admin/add?type=Flight'>Add new Flight</a>
-            <a class="dropdown-item" href='/admin/add?type=Alias'>Add new Alias</a>
-            <a class="dropdown-item" href='/admin/add?type=Airplane'>Add new Airplane</a>
-            <a class="dropdown-item" href='/admin/add?type=AirplaneModel'>Add new Airplane Model</a>
-            <a class="dropdown-item" href='/admin/add?type=OnFlight'>Add a new flight for Customer</a>
-            <a class="dropdown-item" href='/admin/add?type=FlightReview'>Add flight review</a>
-            <a class="dropdown-item" href='/admin/add?type=Extra'>Add new in-flight Extra</a>
+                    <input class="btn btn-danger" onclick="confirmReset(false)" type="button"
+                           value="No"
+                           id="resetButton">
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
 <p></p>
 <script>
-    function confirmReset() {
+    function doReset() {
 
-        if (confirm("Are you sure you want to reset the server?")) {
-
-            let url = "/queries/admin/adminReset";
-            document.getElementById("resetButton").value = "Working...";
-            $.get(
+            let url = "/admin/queries/adminReset";
+        $('#resetModal-content').text("Working.....")
+            $.post(
                     url,
-                    {secure: false},
                     function (data) {
                         if (data.resetSuccess == true) {
-                            document.getElementById("resetButton").value = "Complete";
+                            $('#resetModal-content').text("Complete!")
                         } else {
-                            document.getElementById("resetButton").value = "Failed";
+                            $('#resetModal-content').text("Failed!")
                         }
                         window.setTimeout(function () {
-                            document.getElementById("resetButton").value = "Reset Table"
-                        }, 750);
+                            $('#resetModal').modal('toggle')}, 750);
 
                     }
             ).fail(function () {
                 document.getElementById("resetButton").value = "Failed";
             });
-            window.setTimeout(function () {
-                document.getElementById("resetButton").value = "Reset Table"
-            }, 750);
-
-        }
     }
 
-    function getRoot(){
-        return window.location.protocol +'//' + window.location.host;
+    function confirmReset(bool){
+        if(bool)
+        $('#resetModal').modal({show: bool, backdrop: 'static', keyboard: false});
+        else
+            $('#resetModal').modal('toggle');
     }
 </script>

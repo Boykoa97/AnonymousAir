@@ -1,0 +1,31 @@
+<div>
+    <p id="updateFlightTimeErr"></p>
+    <table >
+        <tr>
+            <th></th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+        </tr>
+        <tr>
+            <td>Current:</td>
+            <td>{{param.deptTime}}</td>
+            <td>{{param.arrTime}}</td>
+        </tr>
+        <tr>
+            <th> Updated:</th>
+            <td><input type="text" id="changeFlight-Dept" value ="{{param.actDeptTime}}"></td>
+            <td><input type="text" id="changeFlight-Arr" value ="{{param.actArrTime}}"></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="alignment: center"><input type="button" class="btn btn-secondary" onclick="updateFlightTime('{{param.fid}}','{{param.deptTime}}')" value="Confirm Changes" ></td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button class="btn btn-danger" onclick="cancelFlight('{{param.fid}}','{{param.deptTime}}')">Cancel Flight</button>
+            </td>
+        </tr>
+    </table>
+</div>

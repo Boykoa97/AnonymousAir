@@ -137,88 +137,88 @@ var obj = promise.then(function(res2){
     }
       if (sql == sql1){
         console.log("using sql1");
-        var photo = arr;
+        var photo = arr.toLowerCase();
 
         switch (photo) {
-            case "Calgary":
+            case "calgary":
                 var photoReturn = "/images/calgary.jpg";
                 break;
-            case "Vancouver":
+            case "cancouver":
                 var photoReturn = "/images/vancouver.jpg";
                 break;
-            case "Kelowna":
+            case "kelowna":
                 var photoReturn = "/images/kelowna.jpg";
                 break;
-            case "Winnipeg":
+            case "winnipeg":
                     var photoReturn = "/images/winnipeg.jpg";
                     break;
-            case "Copenhagen":
+            case "copenhagen":
                 var photoReturn = "/images/copenhagen.jpg";
                 break;
-            case "Tamuin":
+            case "tamuin":
                 var photoReturn = "/images/tamuin.JPG";
                 break;
-            case "Rennes":
+            case "rennes":
                 var photoReturn = "/images/rennes.jpg";
                 break;
-            case "Pretoria":
+            case "pretoria":
                 var photoReturn = "/images/pretoria.jpg";
                 break;
-            case "Sandy Lake":
+            case "sandy lake":
                 var photoReturn = "/images/sandylake.jpg";
                 break;
-            case "Kolding":
+            case "kolding":
                 var photoReturn = "/images/kolding.jpg";
                 break;
-            case "Soyo":
+            case "soyo":
                 var photoReturn = "/images/soyo.jpg";
                 break;
-            case "Mandalay":
+            case "mandalay":
                 var photoReturn = "/images/mandalay.jpg";
                 break;
-            case "Seoul":
+            case "seoul":
                 var photoReturn = "/images/seoul.jpg";
                 break;
-            case "Galcaio":
+            case "galcaio":
                 var photoReturn = "/images/galcaio.jpg";
                 break;
-            case "Vesivehmaa":
+            case "vesivehmaa":
                 var photoReturn = "/images/vesivehmaa.jpg";
                 break;
-            case "Sulawesi Tenggara":
+            case "sulawesi tenggara":
                 var photoReturn = "/images/sulawesi.jpg";
                 break;
-            case "Massena":
+            case "massena":
                 var photoReturn = "/images/massena.jpg";
                 break;
-            case "Korla":
+            case "korla":
                 var photoReturn = "/images/korla.jpg";
                 break;
-            case "Cape Town":
+            case "cape town":
                 var photoReturn = "/images/capetown.jpg";
                 break;
-            case "Ottawa":
+            case "ottawa":
                 var photoReturn = "/images/ottawa.jpg";
                 break;
-            case "Ponta Pora":
+            case "ponta pora":
                 var photoReturn = "/images/pontapora.jpg";
                 break;
-            case "Varginha":
+            case "varginha":
                 var photoReturn = "/images/Varginha.jpg";
                 break;
-            case "Honuu":
+            case "honuu":
                 var photoReturn = "/images/honuu.jpg";
                 break;
-            case "Hana":
+            case "hana":
                 var photoReturn = "/images/hana.jpg";
                 break;
-            case "Matsuyama":
+            case "matsuyama":
                 var photoReturn = "/images/matsuyama.jpg";
                 break;
-            case "Mpanda":
+            case "mpanda":
                 var photoReturn = "/images/mpanda.jpg";
                 break;
-            case "Terre Haute":
+            case "terre haute":
                 var photoReturn = "/images/terrehaute.jpg";
                 break;
             default:

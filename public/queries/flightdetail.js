@@ -57,20 +57,26 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
 return obj;
 }
 
-function addtocart(){
+function addtocart(params){
 
   //connect to database
   var connection = mysql.createConnection({
     host : 'cosc304.ok.ubc.ca',
     user : 'mspouge',
     password : '13792149',
-    database : 'WorksOn'
+    database : 'db_mspouge'
   });
 
 //write an sql statement for querying the database
+var dept_time = new Date(params.deptTime.replace(/-/g,"/"));
+deptTime = dept_time.toISOString().replace(/T/g," ");
+deptTime = deptTime.replace(/Z/g,"");
+console.log(deptTime);
+
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'Create table test1 (attribute1 int) ';
+//let sql = 'INSERT INTO OnFlightExtra(oid,fid,deptTime) VALUES (1,"AN1037"," 2019-02-13 03:20:00 PM")';
+let sql = 'INSERT INTO Cart(cno,fid,deptTime,oid) VALUES ("C0001","'+params.fid+'","'+deptTime +'",0)';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously

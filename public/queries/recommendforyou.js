@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 
 //this is just for one query on the page, more can be added
-function bookflight_query1(){
+function query1(cno){
 
   //connect to database
   var connection = mysql.createConnection({
@@ -12,9 +12,86 @@ function bookflight_query1(){
   });
 
 //write an sql statement for querying the database
-
+var today = new Date();
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-var sql = 'SELECT * FROM Airport LIMIT 3';
+var sql = mysql.format('SELECT \
+fid,\
+  deptTime \
+FROM\
+  Flight \
+WHERE \
+  dept IN (\
+    SELECT \
+      aid \
+    FROM \
+      Airport \
+    WHERE \
+      LOWER(city) IN ( \
+        SELECT \
+          city \
+        FROM \
+          ( \
+            SELECT \
+              city, \
+              Flight.deptTime, \
+              COUNT(seatNo) \
+            FROM \
+              OnFlight \
+              JOIN Flight \
+              JOIN Airport \
+              JOIN Alias \
+            WHERE \
+              OnFlight.fid = Flight.fid \
+              AND Airport.aid = Flight.dept \
+              AND OnFlight.aliasId = Alias.aliasId \
+              AND Alias.cno = ? \
+            GROUP BY \
+              city, \
+              Flight.deptTime \
+            ORDER BY \
+              COUNT(seatNo) DESC, \
+              Flight.deptTime ASC \
+            LIMIT \
+              1 \
+          ) as x \
+      ) \
+  ) \
+  AND arr IN ( \
+    SELECT \
+      aid \
+    FROM \
+      Airport \
+    WHERE \
+      LOWER(city) IN ( \
+        SELECT \
+          LOWER(city) \
+        FROM \
+          ( \
+            SELECT \
+              LOWER(city), \
+              COUNT(seatNo),Flight.deptTime \
+            FROM \
+              OnFlight \
+              JOIN Flight \
+              JOIN Airport \
+              JOIN Alias \
+            WHERE \
+              OnFlight.fid = Flight.fid \
+              AND Airport.aid = Flight.arr \
+              AND OnFlight.aliasId = Alias.aliasId \
+              AND Alias.cno = ? \
+            GROUP BY \
+              city, \
+              Flight.deptTime \
+            ORDER BY \
+              COUNT(seatNo) DESC, \
+              Flight.deptTime ASC \
+            LIMIT \
+              1 OFFSET 1 \
+          ) AS W \
+      )\
+  )\
+',[cno,cno,today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' ' +today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()]);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -32,13 +109,15 @@ var promise = new Promise(function(resolve,reject){
 
 //render the result of the query into the html page and close the connection
 var obj = promise.then(function(result_set){ //Runs if the promise was successful
-  var cities = [];
+  var recomFlights = [];
   for (var i in result_set){
-    cities[i] = result_set[i].city;
+    recomFlights[i] = result_set[i].fid;
   }
-
+if (recomFlights.length === 0) {
+  recomFlights[0] = "Hmm, looks like you haven't travelled anywhere with us yet! Why not check out what's popular? ";
+}
   //Log the result set from the database
-  console.log(result_set);
+  console.log(recomFlights);
   connection.end();
 
   //return the variables you want to see on the HTML page
@@ -47,7 +126,7 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
   //can add data manipulation here (i.e. for-loops, calculations,
   // or anything you need to format after obtaining the data from the db)
 
-  return {title:'Recommend Page', response: cities};
+  return {title:'Recommend Page', response: recomFlights};
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,4 +141,4 @@ return obj;
 }
 
 //add any new query functions you make here...
-module.exports.recommendforyou = bookflight_query1;
+module.exports.recommendforyou = function(cno){return query1(cno)};
