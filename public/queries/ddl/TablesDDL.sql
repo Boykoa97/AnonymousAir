@@ -1,4 +1,6 @@
+DROP TRIGGER IF EXISTS ofeDefault;
 DROP TABLE IF EXISTS Cart;
+DROP TABLE IF EXISTS Reservations;
 DROP TABLE IF EXISTS OnFlightExtra;
 DROP TABLE IF EXISTS Extra;
 DROP TABLE IF EXISTS FlightReview;
@@ -107,7 +109,6 @@ CREATE TABLE OnFlight (
   deptTime DATETIME,
   aliasId  integer,
   seatNo   integer,
-  extras   CHAR(10),
   PRIMARY KEY (fid, deptTime, aliasId),
   FOREIGN KEY (fid, deptTime) REFERENCES Flight (fid, deptTime)
     ON UPDATE CASCADE
@@ -152,6 +153,20 @@ Create TABLE OnFlightExtra(
     FOREIGN Key (oid) REFERENCES Extra(oid)
 );
 
+CREATE TABLE Reservations(
+    fid         CHAR(6),
+    deptTime    DATETIME,
+    aliasId     INTEGER,
+    oid         INTEGER,
+    PRIMARY KEY (fid,deptTime,aliasId),
+    FOREIGN KEY (fid,deptTime,aliasId) REFERENCES  OnFlight (fid,deptTime,aliasId)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (fid,deptTime,oid)     REFERENCES  OnFlightExtra (fid,deptTime,oid)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
 
 CREATE TABLE Cart (
   cno        CHAR(5),
@@ -171,15 +186,29 @@ CREATE TABLE Cart (
     ON UPDATE CASCADE
 );
 
+CREATE TRIGGER ofeDefault
+    AFTER INSERT ON Flight
+    FOR EACH ROW
+    INSERT INTO OnFlightExtra VALUE (0,NEW.fid,NEW.deptTime);
 
+INSERT INTO Extra VALUES (0,null,null,null );
 INSERT INTO Airport VALUES ('YLW','CAN','Kelowna','BC','5533 Airport Way','Kelowna International Airport','INTL','1');
 INSERT INTO Airport VALUES ('YVR','CAN','Vancouver','BC','3211 Grant McConachie Way', 'Vancouver International Airport','INTL','5');
 
 #AirplaneModel
 INSERT INTO AirplaneModel VALUES ('BO747',300,30,0,'Boeing',4,6,"This plane is a beautiful plane, best plane their is. 300 seats with minimal leg room, no room for standing because too much leg room");
+INSERT INTO AirplaneModel VALUES ('E0001',0,0,100,'Planes R Us',0,0,'You can fit 100 people standing on this plane. That is all. Flies 50% of the time!');
+INSERT INTO AirplaneModel VALUES ('BO787', 500, 80,0, 'Boeing', 10,4,'Carbon fibre hull, fanciest material. Best plane in fleet by far. Flies 100% of the time!');
 
 #Airplane
 INSERT INTO Airplane VALUES ('BO747','2016-05-12','00001');
+INSERT INTO Airplane VALUES ('BO747','2006-06-06','00002');
+
+INSERT INTO Airplane VALUES ('BO787','2018-05-12','00003');
+INSERT INTO Airplane VALUES ('BO787','2018-06-06','00004');
+
+INSERT INTO Airplane VALUES ('E0001','2017-05-12','00005');
+INSERT INTO Airplane VALUES ('E0001','2017-05-13','00006');
 
 INSERT INTO Flight VALUES ('WS0314','YVR','YLW','2019-01-01 14:55:00','2019-01-01 16:00:00','2019-01-01 14:55:00','2019-01-01 16:00:00',500.00,800.00,0.00,'00001');
 INSERT INTO Flight VALUES ('WS0317','YVR','YLW','2019-01-01 14:00:00','2019-01-01 16:00:00','2019-01-01 14:55:00','2019-01-01 16:00:00',500.00,800.00,0.00,'00001');
