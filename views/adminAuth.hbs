@@ -1,10 +1,28 @@
+<!DOCTYPE html>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>AnonymousAir</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/login.css">
+
+</head>
+<body>
 <h1>Admin Authorization</h1>
 
 <div >
     Username: <br>
     <input type="text" id = "uname"><br><br>
     Password: <br>
-    <input type="text" id = "pass"><br><br>
+    <input type="password" id = "pass"><br><br>
     <input class = "btn btn-primary" value = "login" onclick = "validateUser()">
 </div>
 <div>
@@ -19,8 +37,8 @@
                     password: document.getElementById("pass").value},
                 (data) =>{
                 console.log(data)
-                    if(data.success === true) {
-                        document.cookie = "token=" + data.token;
+                    if(data.success) {
+                        document.cookie = "adminToken=" + data.token;
                         window.location.href = "/admin";
                     }else
                         document.getElementById("response").innerHTML = '<b>Username or password unknown</b>'
@@ -35,3 +53,4 @@
 
     }
 </script>
+</body>

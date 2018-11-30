@@ -14,6 +14,10 @@
         {
           "sqlName": "password",
           "fancyName": "Password"
+        },
+        {
+          "sqlName": "email",
+          "fancyName": "Email"
         }
       ],
       "displayText": "customer",
@@ -252,15 +256,9 @@
     },
     "extra": {
       "fieldData": [
+
         {
-          "sqlName": "fid",
-          "fancyName": "Flight Id"
-        },
-        {
-          "sqlName": "deptTime",
-          "fancyName": "Departure Time"
-        },
-        {
+          "hide": true,
           "sqlName": "oid",
           "fancyName": "Option Id"
         },
@@ -273,7 +271,26 @@
         {"sqlName": "price",
          "fancyName": "Price"}
       ],
-      "displayText": "in-flight option",
+      "displayText": "in-flight option type",
+      "primaryKeyAttributes": ["oid"]
+    },
+    "onflightextra": {
+      "fieldData": [
+        {
+          "sqlName": "oid",
+          "fancyName": "Option Id"
+        },
+        {
+          "sqlName": "fid",
+          "fancyName": "Flight Id"
+        },
+        {
+          "sqlName": "deptTime",
+          "fancyName": "Departure Time"
+        }
+
+      ],
+      "displayText": "extra to flight",
       "primaryKeyAttributes": ["oid","fid","deptTime"]
     }
   }
