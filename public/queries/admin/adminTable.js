@@ -43,7 +43,7 @@ module.exports = function(){
         //can add data manipulation here (i.e. for-loops, calculations,
         // or anything you need to format after obtaining the data from the db)
 
-        return {title:'The Admin Page', response: result_set};
+        return result_set;
 
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -74,7 +74,7 @@ router.get('/admin/customerTable', function (req, res, next) {
     var promise = admin().then(function (result) {
         console.log(result)
         //send the data into the handlebars file
-        res.render('adminCustomerTable', {result :result, layout:'admin.hbs'});
+        res.render('adminCustomerTable', {response :result, layout:'admin.hbs'});
     });
 });
 
@@ -181,6 +181,10 @@ router.get('/queries/addtocart',function(req,res,next){
 
 //Render the accountinfo page into the handlebars file
 router.get('/accountinfo', function (req, res, next) {
+        res.render('accountinfo');
+});
+
+router.post('/accountinfo', function (req, res, next) {
     var accountinfo = require(path.join(__dirname, '../queries/accountinfo.js'));
     var promise = accountinfo.then(function (result) {
         console.log(result);

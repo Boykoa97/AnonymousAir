@@ -1,3 +1,156 @@
+<link rel="stylesheet" href="/css/accountPage.css">
+
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<p>{{response}}</p>
+<form name= "newAlias" id = "newAlias" class = "form-group" onsubmit="return validAlias()" method="post" action "createAlias.js">
+  <h2 name = "formTitle">Create an Alias</h2>
+  <br><br>
+  <div class="row" id="alias">
+    <div class="col" >
+      <label for="staticUsername" class="col-sm col-form-label">First Name</label>
+    </div>
+    <div class = "col-md-12" id="input">
+    <input type = 'text' class="form-control" name = 'newFirst' placeholder="Enter your First Name"  aria-label="Recipient's username" aria-describedby="basic-addon1" >
+    </div>
+  </div>
+  <div class="row" id="alias" >
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">Middle Name</label>
+    </div>
+    <div class = "col-md-12" id="input">
+    <input type =  'text' class="form-control" name = 'newMiddle'   placeholder="Enter Your Middle Name">
+    </div>
+  </div>
+  <div class="row" id="alias">
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">Last Name</label>
+    </div>
+    <div class = "col-md-12" id="input">
+    <input type = 'text' class = "form-control" name = 'newLast'   placeholder="Enter Your Last Name">
+    </div>
+  </div>
+  <div class="row" id="alias">
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">Country Code</label>
+    </div>
+    <div class = "col-md-12" id="input">
+    <input type = 'text' class = "form-control" name = 'countryChar'   placeholder="Enter Your 3 digit Country Code">
+    </div>
+  </div>
+  <div class="row" id="alias">
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">Passport Number</label>
+    </div>
+    <div class = "col-md-12" id="input">
+    <input type = 'number' class = "form-control" name = 'passportNum'  placeholder="Enter your Passport Number" min = "0" max = "9999999999">
+    </div>
+  </div>
+  <br><br>
+  <div>
+    <input type = 'submit' class="btn btn-primary btn-lg" id = "AddAlias" value = "Add Alias" >
+    <br><br>
+  </div>
+</form>
+
+<form id = "addPaymentOption" class = "form-group" onsubmit="return validPayment()" method="post" action "createPaymentOption.js">
+  <h2 name = "formTitle">Add a Payment Option</h2>
+  <br><br>
+  <div class="row" id="payment">
+    <div class="col" >
+      <label for="staticUsername" class="col-sm col-form-label">Please Enter Your Credit Card Number</label>
+    </div>
+    <div class = "col-md-12">
+    <input type = 'number' class="form-control" name = 'newCardNumb' max = "9999999999999999" min = "0" aria-label="Recipient's username" aria-describedby="basic-addon1" >
+    </div>
+  </div>
+  <div class="row" id="payment" >
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">Expiry Date</label>
+    </div>
+    <div class = "col-md-12">
+    <input type =  'number' class="form-control" name = 'newExpYear' placeholder="Year"  min = "18" max = "99">
+    </div>
+    <div class = "col-md-12">
+    <input type =  'number' class="form-control" name = 'newExpMonth'   placeholder="Month" min = "0" max = "12">
+    </div>
+  </div>
+  <div class="row" id="payment">
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">CCV</label>
+    </div>
+    <div class = "col-md-12">
+    <input type = 'number' class = "form-control" name = 'newCardCCV'  placeholder="Enter your Credit Card CCV" min = "0" max = "999">
+    </div>
+  </div>
+  <div class="row" id="payment">
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">Billing Address</label>
+    </div>
+    <div class = "col-md-12">
+    <input type = 'text' class = "form-control" name = 'newBillingAdress'   placeholder="Enter Your Billing Address">
+    </div>
+  </div>
+  <div class="row" id="payment">
+    <div class="col">
+      <label for="staticUsername" class="col-sm-2 col-form-label">State/Province</label>
+    </div>
+    <div class = "col-md-12">
+    <input type = 'text' class = "form-control" name = 'billingState'   placeholder="Enter Your State or Province">
+    </div>
+  </div>
+  <div class="row" id="payment">
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">Country Code</label>
+    </div>
+    <div class = "col-md-12">
+    <input type = 'text' class = "form-control" name = 'countryChar'  placeholder="Enter your 3 digit Country Code">
+    </div>
+  </div>
+  <div class="row" id="payment">
+    <div class="col">
+      <label for="staticUsername" class="col-sm col-form-label">ZipCode</label>
+    </div>
+    <div class = "col-md-12">
+    <input type = 'text' class = "form-control" name = 'zipCode'  placeholder="Enter your ZipCode">
+    </div>
+  </div>
+  <br><br>
+  <div>
+    <input type = 'submit' class="btn btn-primary btn-lg" id = "AddPayment" value = "Add Payment Option">
+    <br><br>
+  </div>
+</form>
+
+
+
+<script>
+
+function validAlias() {
+  var validCountryChar = document.newAlias.countryChar.value.length == 3;
+  var checkFirstName = document.newAlias.newFirst.value != "" && document.newAlias.newFirst.value != null;
+  var checkMiddleName = document.newAlias.newMiddle.value != "" && document.newAlias.newMiddle.value != null;
+  var checkLastName = document.newAlias.newLast.value != "" && document.newAlias.newMiddle.value != null;
+  if (validCountryChar && checkFirstName && checkMiddleName && checkLastName) {
+    return true;
+  }
+  else {
+    alert("Enter a 3 digit country code along with a 10 digit passport number and make sure no fields are blank");
+    return false;
+  }
+}
+
+
+function validPayment() {
+  var checkBillingAddress = document.addPaymentOption.newBillingAdress.value != "" && document.newAlias.newBillingAdress.value != null;
+  var validStateOrProv = document.addPaymentOption.billingState.value.length == 2;
+  var validCountryChar = document.addPaymentOption.countryChar.value.length == 3;
+  var validZipCode = document.addPaymentOption.zipCode.value.length == 6;
+  if (validCountryChar && checkBillingAddress && validStateOrProv  && validZipCode) {
+    return true;
+  }
+  else {
+    alert("Enter a valid Zipcode, Country Code, Billing Address, State or Province code");
+    return false;
+  }
+}
+
+</script>
