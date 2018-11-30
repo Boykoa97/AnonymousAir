@@ -55,8 +55,15 @@ module.exports = function(){
                     e[s] = null;
                 }
             })
+            if(new Date(e.actDeptTime) > new Date(e.deptTime))
+                e.deptLate = true
+            if(new Date(e.actArrTime) > new Date(e.arrTime))
+                e.arrLate = true
+
 
         })
+
+
 
         return result_set;
 

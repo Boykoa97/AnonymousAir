@@ -20,8 +20,10 @@
                 <td>{{this.deptTime}}</td>
                 <td>{{this.arrTime}}</td>
                 {{#if actDeptTime}}
-                    <td>{{this.actDeptTime}}</td>
-                    <td>{{this.actArrTime}}</td>
+                    <td {{#if deptLate}}style="color: red" {{/if}}>
+                    {{this.actDeptTime}}</td>
+                    <td {{#if arrLate}}style="color: red" {{/if}}>
+                    {{this.actArrTime}}</td>
                 {{else}}
                     <td style="color: red;">Cancelled</td>
                     <td style="color: red;">Cancelled</td>
