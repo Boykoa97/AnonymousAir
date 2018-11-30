@@ -1,4 +1,4 @@
-var tableLocation = getRoot() + '/queries/tools/tableData.json'
+var tableLocation =  '../queries/tools/tableData.json'
 var BreakException = {};
 var dbName = 'db_mspouge';
 

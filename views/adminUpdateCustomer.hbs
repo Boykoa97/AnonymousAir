@@ -1,0 +1,19 @@
+<div>
+    <p id="changeUserErr"></p>
+    <table >
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        <tr>
+
+            <td><input type="text" id="changeUser-Username" value ="{{param.username}}"></td>
+            <td><input type="text" id="changeUser-Password" value ="{{param.password}}"></td>
+            <td><input type="text" id="changeUser-Email" value ="{{param.email}}"></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="alignment: center"><input type="button" class="btn btn-secondary" onclick="updateCustomerInfo('{{param.cno}}')" value="Confirm Changes" ></td>
+        </tr>
+    </table>
+</div>

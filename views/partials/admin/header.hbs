@@ -10,9 +10,11 @@
                 </div>
             </td>
             <td>
-                <div class="nav-item"><input class="btn btn-primary" onclick="confirmReset()" type="button"
+                <div class="nav-item">
+                    <input class="btn btn-primary" onclick="confirmReset(true)" type="button"
                                              value="Reset Table"
-                                             id="resetButton"></div>
+                                             id="resetButton">
+                </div>
             </td>
             <td>
                 <div class="dropdown">
@@ -39,36 +41,53 @@
     </table>
 
 </div>
+<div class = "modal" id ="resetModal">
+    <div class = "modal-dialog"style="max-width: max-content">
+        <div class = "modal-content">
+            <div class = "modal-header">
+                <div>
+                    <p id="resetModal-content">
+                    Are you sure you wish to reset?<br>
+                    <input class="btn btn-primary" onclick="doReset()" type="button"
+                           value="Yes"
+                           id="resetButton">
+
+                    <input class="btn btn-danger" onclick="confirmReset(false)" type="button"
+                           value="No"
+                           id="resetButton">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <p></p>
 <script>
-    function confirmReset() {
-
-        if (confirm("Are you sure you want to reset the server?")) {
+    function doReset() {
 
             let url = "/admin/queries/adminReset";
-            document.getElementById("resetButton").value = "Working...";
+        $('#resetModal-content').text("Working.....")
             $.post(
                     url,
                     function (data) {
                         if (data.resetSuccess == true) {
-                            document.getElementById("resetButton").value = "Complete";
+                            $('#resetModal-content').text("Complete!")
                         } else {
-                            document.getElementById("resetButton").value = "Failed";
+                            $('#resetModal-content').text("Failed!")
                         }
                         window.setTimeout(function () {
-                            document.getElementById("resetButton").value = "Reset Table"
-                        }, 1000);
+                            $('#resetModal').modal('toggle')}, 750);
 
                     }
             ).fail(function () {
                 document.getElementById("resetButton").value = "Failed";
             });
-
-
-        }
     }
 
-    function getRoot() {
-        return window.location.protocol + '//' + window.location.host;
+    function confirmReset(bool){
+        if(bool)
+        $('#resetModal').modal({show: bool, backdrop: 'static', keyboard: false});
+        else
+            $('#resetModal').modal('toggle');
     }
 </script>

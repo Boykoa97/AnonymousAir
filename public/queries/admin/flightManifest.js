@@ -92,8 +92,8 @@ function getFormattedSeatNo(seatData,seatNo){
 
     }else if (seatNo <= seatData.numSeats){
         rowF = Math.ceil(seatData.numFirstClass/seatData.colFirstClass);
-        row = Math.floor((seatNo-seatData.numFirstClass)/seatData.colEcon);
-        letter = String.fromCharCode((seatNo - row*seatData.colEcon -seatData.numFirstClass)+65);
+        row = Math.ceil((seatNo-seatData.numFirstClass)/seatData.colEcon);
+        letter = String.fromCharCode((seatNo - (row-1)*seatData.colEcon -seatData.numFirstClass)+64);
 
         response.seatNo = (rowF+row)+letter;
         response.type = "ECON";

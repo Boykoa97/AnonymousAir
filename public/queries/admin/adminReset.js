@@ -21,6 +21,7 @@ module.exports = async function(req){
         'FlightDDL.sql',
         'AliasDDL.sql',
         'ExtraDDL.sql',
+        'OnFlightExtraDDL.sql',
         'OnFlightDDL0.sql',
         'OnFlightDDL1.sql',
         'OnFlightDDL2.sql',
@@ -72,40 +73,6 @@ module.exports = async function(req){
     return obj;
 };
 
-function promiseChain(index,sqlFiles){
-
-    if(index === sqlFiles.length-1)
-        return true;
-
-    var connection = mysql.createConnection({
-        host : 'cosc304.ok.ubc.ca',
-        user : 'mspouge',
-        password : '13792149',
-        database : 'db_mspouge',
-        multipleStatements: true
-    });
-    sqlString = fs.readFileSync(sqlFiles[index]).toString();
-    var promise = new Promise((resolve, reject) =>{
-
-        connection.query(sqlString,(err,res)=>{
-          if(err==null){
-              resolve(index+1)
-          }else{
-              reject(err)
-          }
-        })
-
-    })
-
-    return promise.then(i =>{
-        connection.end()
-        return promiseChain(i,sqlFiles);
-    }).catch(err=>{
-        console.log(err);
-        connection.end()
-        return err;
-    })
-}
 
 async function recursiveRun(index,sqlFiles){
     file = sqlFiles[index];
