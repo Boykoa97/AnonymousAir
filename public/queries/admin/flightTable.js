@@ -5,7 +5,7 @@ module.exports = function(){
 
     //connect to database
     var connection = mysql.createConnection({
-        host : '178.128.237.49',
+        host : 'cosc304.ok.ubc.ca',
         user : 'mspouge',
         password : '13792149',
         database : 'db_mspouge'
@@ -55,8 +55,15 @@ module.exports = function(){
                     e[s] = null;
                 }
             })
+            if(new Date(e.actDeptTime) > new Date(e.deptTime))
+                e.deptLate = true
+            if(new Date(e.actArrTime) > new Date(e.arrTime))
+                e.arrLate = true
+
 
         })
+
+
 
         return result_set;
 
