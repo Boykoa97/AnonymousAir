@@ -22,8 +22,6 @@ module.exports = function(parameters){
                 response.passMatch = true;
                 //Give the privileges to admin, not as customer
                 const payload = {
-
-                    user: false,
                     admin: true
                 }
                 //Create token w/ super secret code

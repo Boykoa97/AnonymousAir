@@ -11,12 +11,15 @@ module.exports = function(param){
     });
 
     let sql = "UPDATE Flight SET actArrTime = ?, actDeptTime =? WHERE fid = ? AND deptTime = ?";
-
+    if(param.actArrTime == '')
+        param.actArrTime = null;
+    if(param.actDeptTime == '')
+        param.actDeptTime = null;
 
     var promise = new Promise((resolve,reject)=>{
 
 
-        connection.query(mysql.format(sql,[param.actDeptTime,param.actArrTime,param.fid,param.deptTime]),(err,res)=>{
+        connection.query(mysql.format(sql,[param.actArrTime,param.actDeptTime,param.fid,param.deptTime]),(err,res)=>{
             if(err == null)
                 resolve(res);
             else

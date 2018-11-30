@@ -2,7 +2,53 @@ var express = require('express');
 var router = express.Router();
 var path = require("path");
 var fs = require("fs");
+var jwt = require('jsonwebtoken')
+var security = require('../queries/tools/security.js');
 
+//Security for admin pages and others soon
+router.use((req, res, next) => {
+
+    //Check if it is an admin page
+    if (req.url.startsWith('/admin')&& !(req.url === '/admin/auth')) {
+        // Get the cookie token
+        var token = req.cookies.adminToken;
+
+        //Verify if the token is okay
+        if (token) {
+            jwt.verify(token, security.adminSecret, (err, decoded) => {
+                if (err){
+                    //If expired or other error, send them back to login
+                    res.render('accDenied',{redirect: '/admin/auth', layout: false});
+                } else {
+                    //Proceed
+                    req.decoded = decoded;
+                    next();
+                }
+
+            })
+        } else {
+            //If there is no token pass to admin/auth
+            res.render('accDenied',{redirect: '/admin/auth', layout: false});
+        }
+    }else if(!(req.url ==='/login') && !(req.url === '/admin/auth')){
+        var token = req.cookies.token;
+        if (token) {
+            jwt.verify(token, security.customerSecret, (err, decoded) => {
+                if (err) {
+                    //If expired or other error, send them back to login
+                    res.render('accDenied',{redirect: '/login', layout: false});
+                } else {
+                    //Proceed
+                    req.decoded = decoded;
+                    res.locals.decodedToken = decoded;
+                    next();
+                }
+
+            })
+        }
+    }else
+        next();
+});
 
 //Render the admin page into the handlebars file
 router.get('/admin', function (req, res, next) {
@@ -12,7 +58,7 @@ router.get('/admin', function (req, res, next) {
     var promise = admin.listCustomer().then(function (result) {
         //console.log(result)
         //send the data into the handlebars file
-        res.render('admin', result);
+        res.render('admin',{result: result, layout:'admin.hbs'});
     });
 });
 
@@ -24,7 +70,7 @@ router.get('/admin/customerTable', function (req, res, next) {
     var promise = admin().then(function (result) {
         //console.log(result)
         //send the data into the handlebars file
-        res.render('adminCustomerTable', result);
+        res.render('adminCustomerTable', {result :result, layout:'admin.hbs'});
     });
 });
 
@@ -42,14 +88,8 @@ router.post('/login',function(req,res,next){
   //console.log("I hit the post request");
   var login = require(path.join(__dirname,'../queries/login.js'));
   //var promise = login.validateLogin(req.body).then(function(result){
-  var promise = login.validateLogin(req.body).then(function(result){
-    //success is boolean where true is a successful login.
-    if ( result.success){
-      res.redirect('/main');
-    }
-    else {
-      res.send("Log in information is incorrect, try again");
-    }
+  var promise = login(req.body).then(function(result){
+      res.send(result);
   });
 });
 
@@ -183,8 +223,10 @@ router.get('/admin/add',function(req,res,next){
 
 
     var adminAdd = require(path.join(__dirname, '../queries/adminAdd.js'));
+    result = adminAdd(req.query)
+        res.render('adminAdd',{data: result,layout: 'admin.hbs'});
 
-    res.render('adminAdd', adminAdd(req.query));
+
 
 });
 
@@ -212,7 +254,7 @@ router.post('/admin/auth', (req,res,next) => {
 });
 
 router.get('/admin/auth', (req,res,next) => {
-    res.render('adminAuth')
+    res.render('adminAuth',{layout: false})
 });
 
 
@@ -243,7 +285,7 @@ router.get('/admin/flightTable', (req, res, next) =>{
     flightData().then(result => {
 
 
-        res.render('adminFlightTable', {flight: result});
+        res.render('adminFlightTable', {flight: result, layout:'admin.hbs'});
     })
 
 });

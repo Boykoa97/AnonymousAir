@@ -76,3 +76,33 @@ function displayUpdateFlightPage(fid,deptTime){
     )
 }
 
+function updateFlightTime(fid,deptTime){
+    actArrTime = $('#manifestContent #changeFlight-Arr').val();
+    actDeptTime = $('#manifestContent #changeFlight-Dept').val();
+    $.post(
+        '/admin/queries/updateFlightTime',
+        {fid: fid, deptTime: deptTime, actArrTime: actArrTime, actDeptTime: actDeptTime},
+        res =>{
+          if(res.success){
+              window.location.reload();
+          }else{
+              $('#updateFlightTimeErr').text('Error!')
+          }
+        })
+}
+
+function cancelFlight(fid,deptTime){
+    actArrTime = null;
+    actDeptTime = null;
+    $.post(
+        '/admin/queries/updateFlightTime',
+        {fid: fid, deptTime: deptTime, actArrTime: actArrTime, actDeptTime: actDeptTime},
+        res =>{
+            if(res.success){
+                window.location.reload();
+            }else{
+                $('#updateFlightTimeErr').text('Error!')
+            }
+        });
+}
+

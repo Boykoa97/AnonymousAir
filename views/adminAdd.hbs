@@ -1,20 +1,19 @@
-{{>admin/header}}
 
 <script src = "../js/insertionErrorHandler.js";></script>
 
-<h2>Add new {{displayText}}</h2>
+<h2>Add new {{data.displayText}}</h2>
 
 <div class ="table-striped">
     <table>
         <tr>
-            {{#each nameConvention}}
+            {{#each data.nameConvention}}
                 {{#unless this.hide}}
                 <td>{{this.fancyName}}</td>
                 {{/unless}}
             {{/each}}
         </tr>
         <tr>
-            {{#each nameConvention}}
+            {{#each data.nameConvention}}
                 {{#unless this.hide}}
                 <td><input type = "text" id = "{{this.sqlName}}" value=""></td>
                 {{/unless}}
@@ -32,9 +31,9 @@
 <script>
     function addItem(){
         //Generate all the types of data to send
-        dataToSend = {type: '{{type}}' , data: {}};
+        dataToSend = {type: '{{data.type}}' , data: {}};
         //assign the sqlNames for each input form (data names)
-        parameter = {data: [ {{#each nameConvention}} {{#unless this.hide}} { sqlName: "{{this.sqlName}}" },{{/unless}}{{/each}} ] };
+        parameter = {data: [ {{#each data.nameConvention}} {{#unless this.hide}} { sqlName: "{{this.sqlName}}" },{{/unless}}{{/each}} ] };
         //Parse all the input boxes and compile for query
         parameter.data.forEach(function(element){
             dataToSend.data[element.sqlName] = document.getElementById(element.sqlName).value;
@@ -42,13 +41,13 @@
         //Post the query
         $.post(
 
-            '/queries/admin/addTuple',
+            '/admin/queries/addTuple',
                 dataToSend,
                 function(dataRecieved){
-                    if(dataRecieved.success == false){
-                        handleError(dataRecieved,'{{type}}',"errorText");
+                    if(dataRecieved.success === false){
+                        handleError(dataRecieved,'{{data.type}}',"errorText");
                     }else{
-                        handleSuccess(dataRecieved,'{{type}}',"errorText");
+                        handleSuccess(dataRecieved,'{{data.type}}',"errorText");
                     }
                 }
         )
