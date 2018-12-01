@@ -330,6 +330,13 @@ router.get('/admin/logout',(req,res,next)=>{
     res.render('logoutPage',{redirect:req.query.redirect,layout:false})
 });
 
+router.post('/admin/showExtras',(req,res,next)=>{
+    var extraData = require(path.join(__dirname,'../queries/admin/showExtra.js'));
+    extraData(req.body).then(extras=>{
+        res.render('showExtra',{extras:extras,req: req.body,layout: false});
+    })
+})
+
 
 router.get('/view');
 

@@ -1,0 +1,25 @@
+<div>
+    <table>
+        <tr>
+            <td>Passenger: </td>
+            <td>{{req.aliasName}}</td>
+        </tr>
+        <tr>
+            <th>Flight: </th><td>{{req.fid}}</td>
+            <th>Departure:</th><td>{{req.deptTime}}</td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <th>Option</th>
+            <th>Price</th>
+        </tr>
+        {{#each extras}}
+            <tr>
+            <td>{{this.optionTitle}}</td>
+            <td>$ {{this.price}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    <button class="btn btn-secondary" onclick="displayFlightManifest('{{req.fid}}','{{req.deptTime}}')">Back</button>
+</div>

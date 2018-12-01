@@ -106,3 +106,15 @@ function cancelFlight(fid,deptTime){
         });
 }
 
+function showExtras(fid,deptTime,aliasFirst, aliasMid, aliasLast, extras){
+    $("#manifestContent").load(
+        '/admin/showExtras',
+        {fid: fid, deptTime: deptTime,
+            aliasName: aliasLast +', ' + aliasFirst +' ' + aliasMid.substring(0,1) +'.',
+            extras: extras},
+        function () {
+            $('#manifestModal').modal()
+        }
+    )
+}
+

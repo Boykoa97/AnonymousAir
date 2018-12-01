@@ -1,6 +1,8 @@
 var mysql = require('mysql');
 var json = require('../tools/tableData.json');
 
+const host = require('../tools/host.json');
+
 //TODO: Security stuff
 
 module.exports = function (parameters) {
@@ -428,12 +430,7 @@ function addExtra(parameters, tableData){
 }
 
 function getPrimaryKeys(type, keyName) {
-    var connection = mysql.createConnection({
-        host: 'cosc304.ok.ubc.ca',
-        user: 'mspouge',
-        password: '13792149',
-        database: 'db_mspouge'
-    });
+    var connection = mysql.createConnection(host);
 
 //write an sql statement for querying the database
 
