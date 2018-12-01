@@ -21,6 +21,7 @@ function addUser(param){
 //let sql = 'SELECT * From Customer where username = ?';
 let sql = 'SELECT * From Customer';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~;
+let success = false; //response to index for if signup was successful
 //paramaters = qs.parse(param);
 //param.newUser
 //Create a promise so we can close the connection synchronously
@@ -35,6 +36,8 @@ var promise = new Promise(function(resolve,reject){
   }
   if(isEmpty)
     resolve( {title: "test"});
+
+
 
   //send the sql query to the database
   connection.query(sql,(err,result_set)=>{
@@ -79,10 +82,12 @@ var promise = new Promise(function(resolve,reject){
           var sql2Prepared = mysql.format(sql2, [param.newUser, param.password, param.Email]);
           connection.query(sql2Prepared,  (err,result_set)=>{
               if(err == null){ //if the query is successful)
-
+                success = true;
+                resolve(true);
                 console.log(sql2Prepared);
               }
               else{ //if the query throws any type of error
+              resolve(false);
               reject(err);
             }
         //resolve(result_set);
@@ -107,7 +112,7 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
   //can add data manipulation here (i.e. for-loops, calculations,
   // or anything you need to format after obtaining the data from the db)
 
-  return {title:'Sign Up Here', response: true};
+  return {title:'Sign Up Here', response: true, success: success};
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
