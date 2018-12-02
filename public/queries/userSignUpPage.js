@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-
+const host = require("./tools/host.json");
 //this is just for one query on the page, more can be added
 function addUser(param){
 
@@ -8,12 +8,7 @@ function addUser(param){
 
 
   //connect to database
-  var connection = mysql.createConnection({
-    host : 'cosc304.ok.ubc.ca',
-    user : 'mspouge',
-    password : '13792149',
-    database : 'db_mspouge'
-  });
+  var connection = mysql.createConnection(host);
 
 //write an sql statement for querying the database
 

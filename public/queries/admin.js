@@ -1,16 +1,11 @@
 var mysql = require("mysql");
 var fs = require('fs')
-
+var host = require('./tools/host.json');
 //this is just for one query on the page, more can be added
 function admin_listCustomer(){
 
   //connect to database
-  var connection = mysql.createConnection({
-    host : '178.128.237.49',
-    user : 'mspouge',
-    password : '13792149',
-    database : 'db_mspouge'
-  });
+  var connection = mysql.createConnection(host);
 
 //write an sql statement for querying the database
 
@@ -62,13 +57,7 @@ return obj;
 
 function admin_add(){
     //connect to database
-    var connection = mysql.createConnection({
-        host : '178.128.237.49',
-        user : 'mspouge',
-        password : '13792149',
-        database : 'db_mspouge',
-        multipleStatements: true
-    });
+    var connection = mysql.createConnection(host);
 
 //write an sql statement for querying the database
 

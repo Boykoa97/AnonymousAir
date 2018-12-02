@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-
+var host = require('./tools/host.json');
 function isEmpty(obj) {
     for(var key in obj) {
         if(obj.hasOwnProperty(key))
@@ -11,12 +11,7 @@ function isEmpty(obj) {
 //just one query on the main page, more can be added
 function main_query1(param){
   //Beacuse this function gets recalled we don't need to create a connection every time the promise is run
-  var connection = mysql.createConnection({
-    host : 'cosc304.ok.ubc.ca',
-    user : 'mspouge',
-    password : '13792149',
-    database : 'db_mspouge'
-  });
+  var connection = mysql.createConnection(host);
 var dept = param.departure;
 var arr = param.arrival;
 var date = param.date;

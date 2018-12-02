@@ -4,13 +4,8 @@ const host = require('../tools/host.json');
 module.exports = function(param){
 
     console.log(param)
-    var connection = mysql.createConnection({
-        host : 'cosc304.ok.ubc.ca',
-        user : 'mspouge',
-        password : '13792149',
-        database : 'db_mspouge'
-    });
-host
+    var connection = mysql.createConnection(host);
+
     let sql = "UPDATE Customer SET username = ?, password =?, email = ? WHERE cno =?";
 
 

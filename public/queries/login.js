@@ -1,23 +1,12 @@
 var mysql = require("mysql");
 var jwt = require('jsonwebtoken');
 var security = require('./tools/security.js');
-var fs =require('fs')
+var host = require('./tools/host.json');
 
 //this is just for one query on the page, more can be added
 module.exports = function (param) {
-console.log('Trying to Connect');
+//console.log('Trying to Connect');
     //connect to database
-    /*
-    var host = $.ajax({
-      url: "/queries/tools/host.json",
-      dataType: "json",
-      success: function(response){
-        console.log(response);
-      }
-    });
-    */
-    var host = JSON.parse(fs.readFileSync('public/queries/tools/host.json','utf8'));
-    console.log(host);
 
     var connection = mysql.createConnection(
         host

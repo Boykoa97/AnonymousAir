@@ -1,16 +1,11 @@
 var mysql = require("mysql");
-
+var host = require('./tools/host.json');
 flightdetail_query1();
 //this is just for one query on the page, more can be added
 function flightdetail_query1(){
 
   //connect to database
-  var connection = mysql.createConnection({
-    host : 'cosc304.ok.ubc.ca',
-    user : 'mspouge',
-    password : '13792149',
-    database : 'WorksOn'
-  });
+  var connection = mysql.createConnection(host);
 
 //write an sql statement for querying the database
 

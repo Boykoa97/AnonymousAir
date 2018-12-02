@@ -1,15 +1,10 @@
 var mysql = require("mysql");
-
+var host = require('./tools/host.json');
 //this is just for one query on the page, more can be added
 function bookflight_query1(){
 
   //connect to database
-  var connection = mysql.createConnection({
-    host : '178.128.237.49',
-    user : 'mspouge',
-    password : '13792149',
-    database : 'db_mspouge'
-  });
+  var connection = mysql.createConnection(host);
 
 //write an sql statement for querying the database
 
