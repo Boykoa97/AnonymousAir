@@ -185,11 +185,20 @@ router.get('/accountinfo', function (req, res, next) {
 });
 
 router.post('/accountinfo', function (req, res, next) {
+  if(req.body.passportNum != null && req.body.passportNum != 0){ //if this is not null they clicked the add alias button
     var accountinfo = require(path.join(__dirname, '../queries/createAlias.js'));
     var promise = accountinfo.addAlias(req.body,req.decoded.cno).then(function (result) {
         console.log("This is the post request: " + result);
         res.render('accountinfo', result);
     });
+  }
+  else if (req.body.newCardNumb != null && req.body.newCardNumb != 0){
+    var accountinfo = require(path.join(__dirname, '../queries/createPaymentOption.js'));
+    var promise = accountinfo.addPaymentOption(req.body,req.decoded.cno).then(function (result) {
+        console.log("This is the post request: " + result);
+        res.render('accountinfo', result);
+      });
+  }
 });
 
 //Render the bookflight page into the handlebars file
@@ -222,7 +231,9 @@ router.get('/contact', function (req, res, next) {
 //Render the contact page into the handlebars file
 router.get('/checkout', function (req, res, next) {
     var checkout = require(path.join(__dirname, '../queries/checkout.js'));
+
     var promise = checkout.checkout(req.decoded.cno).then(function (result) {
+
         console.log(result);
         res.render('checkout', result);
     });
@@ -266,6 +277,14 @@ router.post('/signup',function(req,res,next){
   var signup = require(path.join(__dirname,'../queries/userSignUpPage.js'));
   var promise = signup.addUser(req.body).then(function(result){
     console.log(req.query);
+    if(result.success) {
+      res.send("<h1>You have successfully signed-up, go back to login and login!</h1> " +
+      "<form class = \"form-control\"><div><br><br><button type = \"button\""
+      + "onclick=\"window.location= '/login';\"> Login </button></div></form>")
+    }
+    else {
+      res.send("Uh-oh unsuccessfully sign-up, go back to sign-up page and try again!")
+    }
     // res.render('signup',result);
   });
 });
