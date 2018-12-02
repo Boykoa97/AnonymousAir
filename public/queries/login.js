@@ -4,7 +4,7 @@ var security = require('./tools/security.js');
 
 //this is just for one query on the page, more can be added
 module.exports = function (param) {
-
+console.log('Trying to Connect');
     //connect to database
     var connection = mysql.createConnection({
         host: '178.128.237.49',
