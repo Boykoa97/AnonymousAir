@@ -30,7 +30,7 @@ router.use((req, res, next) => {
             //If there is no token pass to admin/auth
             res.render('accDenied',{redirect: '/admin/auth', layout: false});
         }
-    }else if(!(req.url ==='/login') && !(req.url === '/admin/auth')){
+    }else if(!(req.url ==='/login') &&!(req.url ==='/signup') && !(req.url === '/admin/auth')){
         var token = req.cookies.token;
         if (token) {
             jwt.verify(token, security.customerSecret, (err, decoded) => {
@@ -185,9 +185,9 @@ router.get('/accountinfo', function (req, res, next) {
 });
 
 router.post('/accountinfo', function (req, res, next) {
-    var accountinfo = require(path.join(__dirname, '../queries/accountinfo.js'));
-    var promise = accountinfo.then(function (result) {
-        console.log(result);
+    var accountinfo = require(path.join(__dirname, '../queries/createAlias.js'));
+    var promise = accountinfo.addAlias(req.body,req.decoded.cno).then(function (result) {
+        console.log("This is the post request: " + result);
         res.render('accountinfo', result);
     });
 });
