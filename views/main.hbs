@@ -48,36 +48,66 @@ body {
 
 .tiny1 {
   position:absolute;
-  background-image: url({{return1}});
-  background-size: contain;
-  left: -2em;
+  background-image: url({{r.return1}});
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  bottom: 150px;
+  border-radius: 40px;
+
 
 }
 .tiny2 {
-  position:relative;
-  background-image: url({{return2}});
-  background-size: contain;
-  left: 1.5em;
+  position:absolute;
+  background-image: url({{r.return2}});
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  bottom: 150px;
+  left: 120px;
+  border-radius: 40px;
 
 }
 .tiny3 {
   position:absolute;
-  background-image: url({{return3}});
-  background-size: contain;
-  left: 5em;
+  background-image: url({{r.return3}});
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  bottom: 150px;
+  left: 240px;
+  border-radius: 40px;
 }
 .tiny4 {
   position:absolute;
-  background-image: url({{return4}});
-  background-size: contain;
-  left: 8.5em;
+  background-image: url({{r.return4}});
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  bottom: 150px;
+  left: 380px;
+  border-radius: 40px;
   }
 .tiny5 {
   position:absolute;
-  background-image: url({{return5}});
-  background-size: contain;
-  left:12em;
+  background-image: url({{r.return5}});
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  bottom: 150px;
+  left: 500px;
+  border-radius: 40px;
 
+}
+.bgsearch{
+  background-image: url({{r.backgroundImg}});
+  background-size: cover;
+  border-radius: 100px;
+  position: absolute;
+  left: 0px;
+  bottom: -150px;
+  width: 700px;
+  height: 500px;
 }
 
 .centered {
@@ -224,8 +254,9 @@ function getLocation(departure, arrival, date){
       <input type = "checkbox" name = "ofMeals" value = "meals"> On Flight Meals <br>
       <input type = "checkbox" name = "curEx" value = "currencyEx"> Currency Exchange <br>
       <input type = "checkbox" name = "feaxId" value = "fakeId"> Identification Fabrication <br>
-      <a href="#bottom"><input class='btn btn-primary'type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked, document.unknownDest.datepicker3.value), getPhotos(document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked)" value = "Search"> </a>
+      <input class='btn btn-primary'type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked, document.unknownDest.datepicker3.value), getPhotos(document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked)" value = "Search">
     </form>
+
 <script>
     function findFlights(departure, facRec, secBypass,onFlightMeals,currEx, fakeId, date){
 
@@ -234,10 +265,12 @@ function getLocation(departure, arrival, date){
     }
 </script>
 <script>
+
   function getPhotos(facRec, secBypass, onFlightMeals, currEx, fakeId){
     if (facRec == true){
     //  var image1 = document.createElement("img");
     //  img.src = "/images/facRec.jpg"
+    //console.log("run");
     document.getElementById('featureResults').innerHTML += '<img src=\"/images/facRec.jpg\"></img>';
 
     }
@@ -253,14 +286,21 @@ function getLocation(departure, arrival, date){
 </div>
 <div class = "split right">
 
+
   <div class = "centered">
+
     <div class = "upper tiny1"> </div>
     <div class = "upper tiny2"> </div>
     <div class = "upper tiny3"> </div>
     <div class = "upper tiny4"> </div>
     <div class = "upper tiny5"> </div>
-    <body >
 
+
+
+
+
+
+        <div class='bgsearch'></div>
 
 
       <div class="entry">
@@ -305,6 +345,7 @@ Times
 
 <script>
 
+/*
 $("a[href='#bottom']").click(function() {
   $("html, body").animate({ scrollTop: $(document).height() }, "fast");
   var location = document.location;
@@ -315,8 +356,12 @@ $("a[href='#bottom']").click(function() {
   setTimeout(function(){locationSet();},3000);
   return false;
 });
+*/
+</script>
+<script>
+  console.log("Hello");
+  console.log({{title}});
 </script>
 
-    </body>
   </div>
 </div>

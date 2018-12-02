@@ -101,7 +101,7 @@ router.post('/login',function(req,res,next){
 router.post('/main', function(req,res,next) {
   var main = require(path.join(__dirname,'../queries/main.js'));
   var promise = main.then(function(result){
-    //console.log(result);
+    console.log(result);
 
     res.render('main',result);
   });
