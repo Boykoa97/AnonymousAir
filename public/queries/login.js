@@ -23,6 +23,7 @@ console.log('Trying to Connect');
     var promise = new Promise(function (resolve, reject) {
 
         connection.query(mysql.format(sql, [param.username.toLowerCase(), param.password]), (err, res) => {
+            console.log('connected')
             if (err == null) {
                 resolve(res);
             } else { //if the query throws any type of error
