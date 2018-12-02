@@ -106,6 +106,7 @@ function cancelFlight(fid,deptTime){
         });
 }
 
+
 function showExtras(fid,deptTime,aliasFirst, aliasMid, aliasLast, extras){
     $("#manifestContent").load(
         '/admin/showExtras',
@@ -117,4 +118,5 @@ function showExtras(fid,deptTime,aliasFirst, aliasMid, aliasLast, extras){
         }
     )
 }
+
 

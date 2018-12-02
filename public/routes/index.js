@@ -30,7 +30,7 @@ router.use((req, res, next) => {
             //If there is no token pass to admin/auth
             res.render('accDenied',{redirect: '/admin/auth', layout: false});
         }
-    }else if(!(req.url ==='/login') && !(req.url === '/admin/auth')){
+    }else if(!(req.url ==='/login') &&!(req.url ==='/signup') && !(req.url === '/admin/auth')){
         var token = req.cookies.token;
         if (token) {
             jwt.verify(token, security.customerSecret, (err, decoded) => {
@@ -72,7 +72,7 @@ router.get('/admin/customerTable', function (req, res, next) {
     var admin = require(path.join(__dirname, '../queries/admin/adminTable.js'));
     //a promise is returned so this formats the data into a result set
     var promise = admin().then(function (result) {
-        //console.log(result)
+        console.log(result)
         //send the data into the handlebars file
         res.render('adminCustomerTable', {response :result, layout:'admin.hbs'});
     });
@@ -112,7 +112,7 @@ router.post('/main', function(req,res,next) {
 
 router.get('/main',function(req,res,next){
   var main = require(path.join(__dirname,'../queries/main.js'));
-  var promise = main(req.query).then(function(result){
+  var promise = main.main(req.query).then(function(result){
   //  console.log(result);
   // console.log(req.query);
 
@@ -121,10 +121,42 @@ router.get('/main',function(req,res,next){
 
 });
 
+
+router.get('/main/recommend',function(req,res,next){
+  var rec = require(path.join(__dirname,'../queries/recommend.js'));
+  console.log(rec);
+  console.log("i am in the index right now");
+  var obj =rec.recommend().then(result=>{
+    //console.log(result);
+    res.render('recommend',{params:result,layout:false});
+  })
+
+
+});
+
+router.get('/main/flightDescription',function(req,res,next){
+  var flightDescription = require(path.join(__dirname,'../queries/flightDescription.js'));
+  var promise = flightDescription.flightDescriptionQuery(req.query).then(function(result){
+    res.render('flightDescription',result);
+  })
+})
+
+router.get('/main/recommendforyou',function(req,res,next){
+  var rec = require(path.join(__dirname,'../queries/recommendforyou.js'));
+  console.log(rec);
+  console.log("i am in the index right now");
+  var obj =rec.recommendforyou(req.decoded.cno).then(result=>{
+    //console.log(result);
+    res.render('recommendforyou',{params:result,layout:false});
+  })
+
+
+});
+
 //Render the flight detail into the handlebars file
 router.get('/flightdetail',function(req,res,next){
   var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
-  var promise = flightdetail.flightDetailQuery().then(function(result){
+  var promise = flightdetail.flightDetailQuery(req.query).then(function(result){
     //console.log(result);
     res.render('flightdetail',result);
   });
@@ -133,7 +165,7 @@ router.get('/flightdetail',function(req,res,next){
 router.get('/queries/addtocart',function(req,res,next){
   console.log(req.query);
   var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
-  var promise = flightdetail.addtocart(req.query).then(function(result){
+  var promise = flightdetail.addtocart(req.query,req.decoded.cno).then(function(result){
     res.send(result);
   });
 
@@ -149,9 +181,13 @@ router.get('/queries/addtocart',function(req,res,next){
 
 //Render the accountinfo page into the handlebars file
 router.get('/accountinfo', function (req, res, next) {
-    var accountinfo = require(path.join(__dirname, '../queries/accountinfo.js'));
-    var promise = accountinfo.then(function (result) {
-        console.log(result);
+        res.render('accountinfo');
+});
+
+router.post('/accountinfo', function (req, res, next) {
+    var accountinfo = require(path.join(__dirname, '../queries/createAlias.js'));
+    var promise = accountinfo.addAlias(req.body,req.decoded.cno).then(function (result) {
+        console.log("This is the post request: " + result);
         res.render('accountinfo', result);
     });
 });
@@ -183,14 +219,27 @@ router.get('/contact', function (req, res, next) {
     });
 });
 
+//Render the contact page into the handlebars file
+router.get('/checkout', function (req, res, next) {
+    var checkout = require(path.join(__dirname, '../queries/checkout.js'));
+    var promise = checkout.checkout(req.decoded.cno).then(function (result) {
+        console.log(result);
+        res.render('checkout', result);
+    });
+});
+
+
 //Render the shoppingcart page into the handlebars file
 
 router.get('/shoppingcart',function(req,res,next){
   var shoppingcart = require(path.join(__dirname,'../queries/shoppingcart.js'));
-  var promise = shoppingcart.cart().then(function(result){
-    console.log(result);
+  //console.log(shoppingcart);
+  var promise = shoppingcart.cart(req.decoded.cno).then(function(result){
+    //console.log(result);
+
     res.render('shoppingcart',result);
   });
+
 
 });
 
