@@ -1,0 +1,94 @@
+<link rel='stylesheet' href="/css/checkout.css">
+
+<div class='bgcheck'>
+<h1 id='title'>{{title}}</h1>
+<table class="table table-dark">
+  <thead>
+    <th scope="col">Flight ID</th>
+    <th scope="col">Dept/Arr</th>
+    <th scope="col">Extras</th>
+    <th scope="col">Coach</th>
+    <th scope="col">First Class</th>
+    <th scope="col">Standing</th>
+  </thead>
+  {{#each response}}
+  <tbody>
+    <tr>
+      <td id='fid'>{{this.fid}}</td>
+      <td>{{this.dept}}-->{{this.arr}}</td>
+      <td></td>
+
+      <td class='price' value={{this.price}}><div class="form-check form-check-inline">
+  <input name = '{{this.price}}' class="radio" value = "1" type="checkbox" name="inlineRadioOptions" id="inlineRadio1">
+  <label class="form-check-label" for="inlineRadio1"></label>
+</div> ${{this.price}}</td>
+<td class='price' value={{this.priceFirstClass}}><div class="form-check form-check-inline">
+<input name = '{{this.priceFirstClass}}' class="radio" value = "1" type="checkbox" name="inlineRadioOptions" id="inlineRadio1">
+<label class="form-check-label" for="inlineRadio1"></label>
+</div> ${{this.priceFirstClass}}</td>
+<td class='price' value={{this.priceStanding}}><div class="form-check form-check-inline">
+<input name = '{{this.priceStanding}}' class="radio" value = "1" type="checkbox" name="inlineRadioOptions" id="inlineRadio1">
+<label class="form-check-label" for="inlineRadio1"></label>
+</div> ${{this.priceStanding}}</td>
+
+
+    </tr>
+  </tbody>
+  {{/each}}
+  <tbody>
+    <tr>
+      <td>Total</td>
+      <td id='totalPrice'></td>
+      <td>Tax(1.25%)<td>
+      <td id='totalTax'></td>
+    </tr>
+  </tbody>
+
+</table>
+<form method="get" action="/checkout">
+<button type ='submit' class='btn btn-outline-light' href="">Purchase</button>
+</form>
+<!--
+<script type="text/javascript">
+var total = 0;
+  $('.price').each(function(){
+    total = total + parseFloat(this.getAttribute('value'),10);
+  });
+  document.getElementById('totalPrice').innerHTML ='$'+total;
+
+</script>
+-->
+<script>
+total=0;
+tax=1.25;
+$("input:checkbox").on('click', function() {
+
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("test") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    console.log(this)
+    total = total + parseFloat(this.getAttribute('name'),10);
+    totalTax= total*tax;
+    console.log(total);
+
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+    document.getElementById('totalPrice').innerHTML ='$'+total.toFixed(2);
+    document.getElementById('totalTax').innerHTML ='$'+totalTax.toFixed(2);
+
+  } else {
+    total = total - parseFloat(this.getAttribute('name'),10);
+    totalTax= total*tax;
+    $box.prop("checked", false);
+    document.getElementById('totalPrice').innerHTML ='$'+total.toFixed(2);
+    document.getElementById('totalTax').innerHTML ='$'+totalTax.toFixed(2);
+  }
+});
+</script>
+
+</div>

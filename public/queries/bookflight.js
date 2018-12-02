@@ -5,7 +5,7 @@ function bookflight_query1(){
 
   //connect to database
   var connection = mysql.createConnection({
-    host : 'cosc304.ok.ubc.ca',
+    host : '178.128.237.49',
     user : 'mspouge',
     password : '13792149',
     database : 'db_mspouge'
@@ -14,7 +14,7 @@ function bookflight_query1(){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * From Passenger';
+let sql = 'SELECT * From Flight limit 6';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously

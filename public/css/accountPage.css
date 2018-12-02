@@ -1,0 +1,43 @@
+h1,h2  {
+  text-align: center;
+
+}
+input  {
+  margin: auto;
+}
+
+#AddAlias {
+  align-self: auto;
+  margin-left: 35%;
+
+}
+
+#AddPayment {
+  align-self: auto;
+  margin-left: 25%;
+
+}
+
+#alias  {
+  margin: auto;
+  padding-bottom: 10px;
+}
+
+
+#payment {
+  margin: auto;
+  padding-bottom: 10px;
+
+}
+
+#newAlias {
+  padding-left: 10%;
+  max-width: 40%;
+  float: left;
+}
+
+#addPaymentOption {
+  max-width:  40%;
+  padding-right: 10%;
+  float: right;
+}
