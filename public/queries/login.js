@@ -19,7 +19,7 @@ console.log('Trying to Connect');
     var host = JSON.parse(fs.readFileSync('public/queries/tools/host.json','utf8'));
     console.log(host);
 
-    var connection = mysql.createConnection({
+    var connection = mysql.createConnection(
         host
         /*
         host: '178.128.237.49',
@@ -27,7 +27,7 @@ console.log('Trying to Connect');
         password: '13792149',
         database: 'db_mspouge'
         */
-    });
+    );
 
 //write an sql statement for querying the database
 
