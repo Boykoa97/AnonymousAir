@@ -1,14 +1,10 @@
 var mysql = require('mysql');
+const host = require('../tools/host.json');
 
 module.exports = function(req){
     console.log(req)
     console.log('Request to removeFromFlight Made');
-    let connection = mysql.createConnection({
-        host : 'cosc304.ok.ubc.ca',
-        user : 'mspouge',
-        password : '13792149',
-        database : 'db_mspouge'
-    })
+    let connection = mysql.createConnection(host)
 
     let sql = "DELETE FROM OnFlight WHERE aliasId = ? AND fid = ? AND deptTime = ?"
 

@@ -30,6 +30,10 @@
             <th class="td-manifest">Seat Number</th>
             <th class="td-manifest">Type</th>
             <th class="td-manifest">Ticket Price</th>
+            <th class="td-manifest">Extras?</th>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         {{#each param.manifest}}
             <tr id = "row{{this.aid}}">
@@ -39,10 +43,19 @@
                 <td class="td-manifest">{{this.seatNo}}</td>
                 <td class="td-manifest">{{this.type}}</td>
                 <td class="td-manifest">{{this.price}}</td>
-                <td class="td-manifest"><input type="button" class="btn btn-secondary" onclick="removeFromFlight('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}')"
-                                               id="rem{{this.aid}}" value = "Remove"></td>
-                <td class="td-manifest"><input type="button" class="btn btn-secondary" onclick="changeSeatModal('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}','{{this.aliasFirst}}','{{this.aliasMid}}','{{this.aliasLast}}','{{this.seatNo}}')"
-                                               id="seat{{this.aid}}" value = "Change Seat"></td>
+            <td class="td-manifest">{{#if this.extras}} Y {{else}} N {{/if}}</td>
+                <td class="td-manifest"><button type="button" class="btn btn-secondary" onclick="removeFromFlight('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}')"
+                                                id="rem{{this.aid}}" >Remove</button></td>
+                <td class="td-manifest"><button class="btn btn-secondary" onclick="changeSeatModal('{{this.aid}}','{{{../param.fid}}}','{{{../param.deptTime}}}','{{this.aliasFirst}}','{{this.aliasMid}}','{{this.aliasLast}}','{{this.seatNo}}')"
+                                               id="seat{{this.aid}}">Change Seat</button></td>
+                <td class="td-manifest">
+                    {{#if this.extras}}
+                        <button class="btn btn-secondary" onclick="showExtras('{{{../param.fid}}}','{{{../param.deptTime}}}','{{this.aliasFirst}}','{{this.aliasMid}}','{{this.aliasLast}}',[{{this.extras}}])">Show Extras</button>
+                    {{else}}
+                        <button class="btn btn-secondary" onclick="" disabled>Show Extras</button>
+                    {{/if}}
+
+                </td>
             </tr>
         {{/each}}
 

@@ -1,15 +1,11 @@
 var mysql = require("mysql");
+const host = require('../tools/host.json');
 
 //this is just for one query on the page, more can be added
 module.exports = function(){
 
     //connect to database
-    var connection = mysql.createConnection({
-        host : 'cosc304.ok.ubc.ca',
-        user : 'mspouge',
-        password : '13792149',
-        database : 'db_mspouge'
-    });
+    var connection = mysql.createConnection(host);
 
 //write an sql statement for querying the database
 
@@ -44,7 +40,6 @@ module.exports = function(){
         // or anything you need to format after obtaining the data from the db)
         dates = ['deptTime','arrTime','actArrTime','actDeptTime']
         result_set.forEach(e=>{
-            console.log(e.actArrTime)
             dates.forEach(s=> {
                 if (e[s] != '0000-00-00 00:00:00' && e[s] != 'null' && e[s]) {
 
