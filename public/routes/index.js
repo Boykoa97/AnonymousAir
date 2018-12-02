@@ -72,7 +72,7 @@ router.get('/admin/customerTable', function (req, res, next) {
     var admin = require(path.join(__dirname, '../queries/admin/adminTable.js'));
     //a promise is returned so this formats the data into a result set
     var promise = admin().then(function (result) {
-        //console.log(result)
+        console.log(result)
         //send the data into the handlebars file
         res.render('adminCustomerTable', {response :result, layout:'admin.hbs'});
     });
@@ -165,7 +165,7 @@ router.get('/flightdetail',function(req,res,next){
 router.get('/queries/addtocart',function(req,res,next){
   console.log(req.query);
   var flightdetail = require(path.join(__dirname,'../queries/flightdetail.js'));
-  var promise = flightdetail.addtocart(req.query).then(function(result){
+  var promise = flightdetail.addtocart(req.query,req.decoded.cno).then(function(result){
     res.send(result);
   });
 
@@ -231,7 +231,7 @@ router.get('/contact', function (req, res, next) {
 //Render the contact page into the handlebars file
 router.get('/checkout', function (req, res, next) {
     var checkout = require(path.join(__dirname, '../queries/checkout.js'));
-    var promise = checkout.then(function (result) {
+    var promise = checkout.checkout().then(function (result) {
         console.log(result);
         res.render('checkout', result);
     });

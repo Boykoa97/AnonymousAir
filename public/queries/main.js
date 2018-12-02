@@ -83,11 +83,11 @@ console.log(dateNew[0]);
 console.log(dateNew[1]);
 console.log(dateNew[2]);
 
-var sql1 = mysql.format('SELECT fid,price FROM Flight WHERE dept IN (SELECT aid FROM Airport WHERE \
+var sql1 = mysql.format('SELECT fid,deptTime FROM Flight WHERE dept IN (SELECT aid FROM Airport WHERE \
 LOWER(city) = LOWER(?)) AND arr IN (SELECT aid FROM Airport WHERE LOWER(city) = LOWER(?)) AND Month(deptTime) = Month(?) AND Year(deptTime) = Year(?) AND Day(deptTime) = Day(?)',[dept,arr,ddlDate,ddlDate,ddlDate]);
-var sql3 = mysql.format("SELECT fid FROM Flight NATURAL JOIN OnFlightExtra WHERE dept IN (SELECT aid FROM Airport WHERE \
+var sql3 = mysql.format("SELECT fid,deptTime FROM Flight NATURAL JOIN OnFlightExtra WHERE dept IN (SELECT aid FROM Airport WHERE \
 LOWER(city) = LOWER(?)) AND Month(deptTime) = ? AND Day(deptTime) = ? AND Year(deptTime) = ? \
-GROUP BY fid HAVING COUNT(oid) = ? AND SUM(oid) = ? OR (COUNT(oid) > ? AND SUM(oid) > ?)",[dept2, parseInt(dateNew[0],10), parseInt(dateNew[1],10), dateNew[2], group.length + 1, group.reduce((a, b) => a + b, 0), group.length + 1,group.reduce((a, b) => a + b, 0)] );
+GROUP BY fid,deptTime HAVING COUNT(oid) = ? AND SUM(oid) = ? OR (COUNT(oid) > ? AND SUM(oid) > ?)",[dept2, parseInt(dateNew[0],10), parseInt(dateNew[1],10), dateNew[2], group.length + 1, group.reduce((a, b) => a + b, 0), group.length + 1,group.reduce((a, b) => a + b, 0)] );
 var sql2 =  mysql.format('SELECT Month(deptTime), Day(deptTime), Year(deptTime) FROM OnFlightExtra NATURAL JOIN Flight');
 
 //var sql3 = "INSERT INTO OnFlightExtra VALUES ('3','WS0314','2019-01-01 14:55:00')";
@@ -123,17 +123,23 @@ var obj = promise.then(function(res2){
   if (dept == null){
     console.log("this is a whole bunch of nothing");
     var spit = "";
+    var time = "";
   }
   else if (isEmpty(res2)){
     var spit = [];
     spit[0] = "Sorry, no flights available!";
     console.log(spit);
+    var time = "";
 
   }
   else{
     var spit = [];
+    var time = [];
     for(var i in res2){
       spit[i] = res2[i].fid
+    }
+    for (var e in res2){
+      time[e] = res2[e].deptTime
     }
       if (sql == sql1){
         console.log("using sql1");
@@ -255,7 +261,7 @@ var obj = promise.then(function(res2){
 
 
   //returns the variables to the index.js file, which renders the variables in this object to the main.hbs file (notice how in the main.hbs file in curly brackets the variables have the same name as these)
-  return {title:'The Main Page', response: spit, backgroundImg: photoReturn, return1: photoReturn1, return2: photoReturn2, return3: photoReturn3, return4: photoReturn4, return5: photoReturn5};
+  return {title:'The Main Page', response: spit, backgroundImg: photoReturn, return1: photoReturn1, return2: photoReturn2, return3: photoReturn3, return4: photoReturn4, return5: photoReturn5, time: time};
 //  while(res2.next)
 
 
