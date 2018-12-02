@@ -21,6 +21,7 @@ var secBypass = Boolean(param.secBypass == "true");
 var onFlightMeals = Boolean(param.onFlightMeals == "true");
 var currEx = Boolean(param.currEx == "true");
 var fakeId = Boolean(param.fakeId == "true");
+/*
 console.log(dept);
 console.log(arr);
 console.log(date);
@@ -30,36 +31,36 @@ console.log(secBypass);
 console.log(onFlightMeals);
 console.log(currEx);
 console.log(fakeId);
-
+*/
 var group = [];
 var i = 0;
 if (facRec == true){
-  console.log("this sucks");
+
 group[i] = 1;
 i= i+1;
 }
 if (secBypass == true ){
-  console.log("this sucks");
+
   group[i] = 2;
   i = i+1;
 }
 if (onFlightMeals == true ){
-  console.log("this sucks");
+
   group[i] = 3;
   i = i +1;
 }
 if (currEx == true ){
-  console.log("this sucks");
+
   group[i] = 4;
   i = i+1;
 }
 if (fakeId == true ){
-  console.log("this sucks");
+
   group[i] =5;
   i = i+1
 }
 
-console.log(group);
+//console.log(group);
 if (facRec != null || secBypass != null|| onFlightMeals != null|| currEx != null|| fakeId!= null){
 
 }
@@ -69,6 +70,7 @@ if (date != null)
   }
 else dateNew = [0000,00,00];
 var ddlDate = dateNew[2] +"-"+dateNew[0] + "-" + dateNew[1];
+/*
 console.log(param.departure);
 console.log(param.arrival);
 console.log(param.date);
@@ -77,7 +79,7 @@ console.log(ddlDate);
 console.log(dateNew[0]);
 console.log(dateNew[1]);
 console.log(dateNew[2]);
-
+*/
 var sql1 = mysql.format('SELECT fid,deptTime FROM Flight WHERE dept IN (SELECT aid FROM Airport WHERE \
 LOWER(city) = LOWER(?)) AND arr IN (SELECT aid FROM Airport WHERE LOWER(city) = LOWER(?)) AND Month(deptTime) = Month(?) AND Year(deptTime) = Year(?) AND Day(deptTime) = Day(?)',[dept,arr,ddlDate,ddlDate,ddlDate]);
 var sql3 = mysql.format("SELECT fid,deptTime FROM Flight NATURAL JOIN OnFlightExtra WHERE dept IN (SELECT aid FROM Airport WHERE \
@@ -112,18 +114,18 @@ var promise = new Promise(function(resolve,reject){
 
 //render the result of the query into the html page (main.hbs) (and close the connection)
 var obj = promise.then(function(res2){
-  console.log(res2);
-  console.log()
+//  console.log(res2);
+//  console.log()
   connection.end();
   if (dept == null){
-    console.log("this is a whole bunch of nothing");
+    //console.log("this is a whole bunch of nothing");
     var spit = "";
     var time = "";
   }
   else if (isEmpty(res2)){
     var spit = [];
     spit[0] = "Sorry, no flights available!";
-    console.log(spit);
+    //console.log(spit);
     var time = "";
 
   }
@@ -137,7 +139,7 @@ var obj = promise.then(function(res2){
       time[e] = res2[e].deptTime
     }
       if (sql == sql1){
-        console.log("using sql1");
+        //console.log("using sql1");
         var photo = arr.toLowerCase();
 
         switch (photo) {
@@ -256,7 +258,7 @@ var obj = promise.then(function(res2){
 
 
   //returns the variables to the index.js file, which renders the variables in this object to the main.hbs file (notice how in the main.hbs file in curly brackets the variables have the same name as these)
-  return {title:'The Main Page', response: spit, backgroundImg: photoReturn, return1: photoReturn1, return2: photoReturn2, return3: photoReturn3, return4: photoReturn4, return5: photoReturn5, time: time};
+  return {title:'The Main Page', response: res2, backgroundImg: photoReturn, return1: photoReturn1, return2: photoReturn2, return3: photoReturn3, return4: photoReturn4, return5: photoReturn5, time: time};
 //  while(res2.next)
 
 

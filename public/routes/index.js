@@ -102,6 +102,7 @@ router.post('/main', function(req,res,next) {
   var main = require(path.join(__dirname,'../queries/main.js'));
   var promise = main.then(function(result){
     //console.log(result);
+
     res.render('main',result);
   });
 
@@ -113,10 +114,10 @@ router.post('/main', function(req,res,next) {
 router.get('/main',function(req,res,next){
   var main = require(path.join(__dirname,'../queries/main.js'));
   var promise = main.main(req.query).then(function(result){
-  //  console.log(result);
+    console.log(result);
   // console.log(req.query);
-
-    res.render('main',result);
+  console.log(result);
+    res.render('main',{user:req.decoded.username, r:result});
   })
 
 });

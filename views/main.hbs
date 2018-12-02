@@ -5,66 +5,47 @@ body {
     font-family: Arial;
     color: white;
 
-    border-radius: 25px
+    border-radius: 1px
 }
 #recom{
   position: relative;
-  bottom: -10px;
+  bottom: -20px;
 }
 #recommendation{
-  position: absolute;
-  left:0px;
-  top:400px;
+  position: relative;
+  display: none;
+  padding: -50px;
+  background-color: rgba(51,170,51,0.4);
+  border-radius: 10px;
+
 }
 #recomforyou{
   position:relative;
   top: 20px;
   bottom: -10px;
+
 }
 #recommendedforyou{
   position:relative;
   top:20px;
   bottom:-10px;
+  display: none;
+  background-color: rgba(51,170,51,0.55);
+  border-radius: 10px;
 }
 
 .entry {
-  background-color: rgba(211,211,211, 0.4);
-  border-radius:25px;
-  overflow: scroll;
+  background-color: rgba(211,211,211, 0.55);
+  width:700px;
+  border-radius:10px;
+  overflow: visible;
   display:inline;
   float: left;
   position: relative;
 }
-.split {
-    height: 84%;
-    width: 33%;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
-.left {
-    left: 0;
-    background-color: white;
-}
-.upper {
-  height: 3em;
-  width: 3em;
-  position: relative;
-  top: 0px;
-}
-.right {
-    left: 66%;
-
-    background-color: white;
-    background-image: url({{backgroundImg}});
-    background-size: cover;
-    border-radius:25px;
 
 
-}
+
 .tiny1 {
   position:absolute;
   background-image: url({{return1}});
@@ -98,10 +79,7 @@ body {
   left:12em;
 
 }
-.middle {
-    left: 33%;
-    background-color: white;
-}
+
 .centered {
     position: absolute;
     top: 50%;
@@ -115,14 +93,25 @@ body {
     border-radius: 50%;
 }
 </style>
+
+<div style="padding:30px; margin-bottom:-10px; z-index:5"class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Hey {{user}},</strong> Welcome to Anonymous Air! Below you'll find various ways to search for upcoming flights catered to your preference.
+   Also, checkout the Flight Detail page to purchase a ticket
+  <p><strong style="padding-top:10px; font-style:italic">Scroll to the bottom to view your search results</strong></p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <div class = "split left">
   <div class = "centered">
     <body>
-      <h2> Browse Flights by Trip: </h2>
-<form name = "getFlightInfo"; border-radius: 25px > Departing from:<br>
-<input type = "text" name = "desiredDepartureLocation">
+      <button class='btn btn-outline-light' id="trip"> Browse Flights by Trip: </button>
+<form style="color:white; font-weight:bold" name = "getFlightInfo"; border-radius: 25px > Departing from:<br>
+<input style="border-radius:10px" type = "text" name = "desiredDepartureLocation">
 <p> Traveling to: </p>
-<input type = "text" name = "desiredArrivalLocation">
+<input style="border-radius:10px"type = "text" name = "desiredArrivalLocation">
+
 <p> Desired date of departure: </p>
 <head>
     <meta charset="utf-8">
@@ -134,22 +123,26 @@ body {
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <input id="datepicker" width="276" />
+  <div id='totaldate'>
+    <input id="datepicker" width="276"  />
+  </div>
     <script>
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4'
         });
     </script>
-<input type = "button" onclick= "getLocation(document.getFlightInfo.desiredDepartureLocation.value,document.getFlightInfo.desiredArrivalLocation.value,document.getFlightInfo.datepicker.value)" value= "Search">
+    <br>
+<a href="#bottom"><input class='btn btn-primary'type = "button" onclick= "getLocation(document.getFlightInfo.desiredDepartureLocation.value,document.getFlightInfo.desiredArrivalLocation.value,document.getFlightInfo.datepicker.value)" value= "Search"></a>
 </form>
 
 <button id="recom" class = 'btn btn-warning' onclick="recommendFlights(), disappear()">
 Popular Now!
 </button>
+
 <script>
 function disappear(){
   var x = document.getElementById("recommendation");
-   if (x.style.display === "none") {
+   if (window.getComputedStyle(x,null).getPropertyValue('display') === "none") {
        x.style.display = "block";
    } else {
        x.style.display = "none";
@@ -177,7 +170,7 @@ $("#recommendation").load('/main/recommend')
 <script>
 function disappear2(){
   var x = document.getElementById("recommendedforyou");
-   if (x.style.display === "none") {
+   if (window.getComputedStyle(x,null).getPropertyValue('display') === "none") {
        x.style.display = "block";
    } else {
        x.style.display = "none";
@@ -201,8 +194,8 @@ function getLocation(departure, arrival, date){
 
 <div class = "split middle">
   <div class = "centered">
-    <h2> Browse Flights by Desired Features: </h2>
-    <p> Departing from: </p>
+    <button class='btn btn-outline-secondary' id='trip'> Browse Flights by Desired Features: </button>
+    <p > Departing from: </p>
     <form name = "unknownDest" action="#" method="get" onsubmit="return unesi()">
     <input type = "text" name = "desiredDepartureLocation" >
     <p> Desired date of departure: </p>
@@ -216,7 +209,9 @@ function getLocation(departure, arrival, date){
         <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
+      <div id='totaldate'>
         <input id="datepicker3" width="276" />
+      </div>
         <script>
             $('#datepicker3').datepicker({
                 uiLibrary: 'bootstrap4'
@@ -229,7 +224,7 @@ function getLocation(departure, arrival, date){
       <input type = "checkbox" name = "ofMeals" value = "meals"> On Flight Meals <br>
       <input type = "checkbox" name = "curEx" value = "currencyEx"> Currency Exchange <br>
       <input type = "checkbox" name = "feaxId" value = "fakeId"> Identification Fabrication <br>
-      <input type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked, document.unknownDest.datepicker3.value), getPhotos(document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked)" value = "Search">
+      <a href="#bottom"><input class='btn btn-primary'type = "button" onclick = "findFlights(document.unknownDest.desiredDepartureLocation.value, document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked, document.unknownDest.datepicker3.value), getPhotos(document.unknownDest.frSurgery.checked, document.unknownDest.secBypass.checked, document.unknownDest.ofMeals.checked, document.unknownDest.curEx.checked, document.unknownDest.feaxId.checked)" value = "Search"> </a>
     </form>
 <script>
     function findFlights(departure, facRec, secBypass,onFlightMeals,currEx, fakeId, date){
@@ -271,16 +266,56 @@ function getLocation(departure, arrival, date){
       <div class="entry">
 
         <h2> Available Flights:  </h2>
+<!--
  <ul>
- <li style="list-style: none">{{#response}} </li>
- <li><a href = "/main/flightDescription">{{this}} </a></li>
- <li style="list-style: none">{{/response}} </li>
+{{#*inline "partial"}}
+ <li><a href = "/flightdetail"> {{this}} </a></li>
+{{/inline}}
+Flight Ids
+{{#each r.response.spit}}
+  {{>partial}}
+{{/each}}
+Times
+{{#each r.response.time}}
+  {{>partial}}
+{{/each}}
 </ul>
-<ul>
- <li style="list-style-type: none">{{#time}} </li>
- <li>{{this}} </a></li>
- <li style="list-style-type: none">{{/time}} </li>
- </ul>
+-->
+
+{{#*inline "part"}}
+
+  <td>{{this}}</td>
+{{/inline}}
+
+<table>
+  <thead>
+    <th scope="row">Flight ID</th>
+    <th style="padding-left:20px;"scope="row">Departure Date (DD:MM:YYYY)</th>
+  </thead>
+  {{#each r.response}}
+  <tbody>
+    <tr>
+      <td><a href="/flightdetail">{{this.fid}}</a></td>
+      <td>{{formatDate this.deptTime }} </td>
+    </tr>
+  </tbody>
+  {{/each}}
+
+</table>
+
+<script>
+
+$("a[href='#bottom']").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+  var location = document.location;
+  console.log(location);
+  function locationSet(){
+    location.reload();
+};
+  setTimeout(function(){locationSet();},3000);
+  return false;
+});
+</script>
 
     </body>
   </div>

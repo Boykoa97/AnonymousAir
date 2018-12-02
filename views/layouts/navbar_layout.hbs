@@ -23,43 +23,29 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" style="width:100%">
       <li class="nav-item active">
         <a class="nav-link" href="/main">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/bookflight">Book Flight</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/checkin">Checkin</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact">Contact</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/accountinfo">Account Info</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/flightdetail">Flight Detail</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link disabled" href="/admin/auth">Admin</a>
       </li>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/flightdetail">Flight Detail</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/shoppingcart"><img id="cartimage" src="/images/cart.png"></a>
-    </li>
-        <li style="color: #cccccc" class="nav-item">
-            <table>
-                <tr><td>Username:</td><td>{{this.decodedToken.username}}</td></tr>
-                <tr><td>Customer:</td><td>{{this.decodedToken.cno}}</td></tr>
-            </table>
 
-        </li>
-        <li class="nav-item">
-            <button class="btn-xs btn-danger" onclick="logoutPage()">Logout</button>
-        </li>
     </ul>
+    <a class="nav-link" href="/shoppingcart"><img id ="cartimage" src="/images/cartwhite.png"></a>
+    <div id="userinfo">
+    <img id='usericon' src='/images/userwhite.png'>
+    <p id='idnum'>ID: {{this.decodedToken.cno}}
+    {{this.decodedToken.username}}</p>
+    </div>
+
+    <button class="btn btn-outline-danger" onclick="logoutPage()">Logout</button>
   </div>
 </nav>
 
