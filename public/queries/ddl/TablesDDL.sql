@@ -77,6 +77,7 @@ CREATE TABLE PaymentOption (
   cardEXP        CHAR(4),
   cardCCV        CHAR(3),
   billingAddress VARCHAR(50),
+  billingCity    VARCHAR(50),
   billingState   CHAR(2),
   billingCountry CHAR(3),
   billingZIP     CHAR(6),
