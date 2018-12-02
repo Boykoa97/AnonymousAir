@@ -30,7 +30,7 @@ router.use((req, res, next) => {
             //If there is no token pass to admin/auth
             res.render('accDenied',{redirect: '/admin/auth', layout: false});
         }
-    }else if(!(req.url ==='/login') && !(req.url === '/admin/auth')){
+    }else if(!(req.url ==='/login') &&!(req.url ==='/signup') && !(req.url === '/admin/auth')){
         var token = req.cookies.token;
         if (token) {
             jwt.verify(token, security.customerSecret, (err, decoded) => {
@@ -231,7 +231,9 @@ router.get('/contact', function (req, res, next) {
 //Render the contact page into the handlebars file
 router.get('/checkout', function (req, res, next) {
     var checkout = require(path.join(__dirname, '../queries/checkout.js'));
-    var promise = checkout.checkout().then(function (result) {
+
+    var promise = checkout.checkout(req.decoded.cno).then(function (result) {
+
         console.log(result);
         res.render('checkout', result);
     });
@@ -243,7 +245,7 @@ router.get('/checkout', function (req, res, next) {
 router.get('/shoppingcart',function(req,res,next){
   var shoppingcart = require(path.join(__dirname,'../queries/shoppingcart.js'));
   //console.log(shoppingcart);
-  var promise = shoppingcart.cart().then(function(result){
+  var promise = shoppingcart.cart(req.decoded.cno).then(function(result){
     //console.log(result);
 
     res.render('shoppingcart',result);
@@ -395,6 +397,13 @@ router.get('/logout',(req,res,next)=>{
 router.get('/admin/logout',(req,res,next)=>{
     res.render('logoutPage',{redirect:req.query.redirect,layout:false})
 });
+
+router.post('/admin/showExtras',(req,res,next)=>{
+    var extraData = require(path.join(__dirname,'../queries/admin/showExtra.js'));
+    extraData(req.body).then(extras=>{
+        res.render('showExtra',{extras:extras,req: req.body,layout: false});
+    })
+})
 
 
 router.get('/view');

@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeffe063-b130-4ec2-ab92-b924489fc5ea" name="Default Changelist" comment="Fixed CustomerTable">
+    <list default="true" id="eeffe063-b130-4ec2-ab92-b924489fc5ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/queries/admin/showExtra.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/queries/tools/host.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/showExtra.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/flightTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/flightTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/addTuple.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/addTuple.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/adminReset.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/adminReset.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/queries/admin/adminTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/adminTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/aliasTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/aliasTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/changeSeat.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/changeSeat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/flightManifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/flightManifest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/queries/admin/flightTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/flightTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/planeData.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/planeData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/removeFromFlight.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/removeFromFlight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/singleCustomerData.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/singleCustomerData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/singleFlightData.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/singleFlightData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/updateCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/updateCustomer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/queries/admin/updateFlightTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/queries/admin/updateFlightTime.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/adminFlightTable.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/adminFlightTable.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/adminManifestChangeSeat.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/adminManifestChangeSeat.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/adminManifestTable.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/adminManifestTable.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/adminUpdateCustomer.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/adminUpdateCustomer.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/adminUpdateFlight.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/adminUpdateFlight.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +39,8 @@
     <session id="1824961984">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
+          <entry key="project.closed" value="19" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
@@ -39,45 +58,45 @@
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="11" />
-          <entry key="hbs" value="93" />
-          <entry key="js" value="137" />
-          <entry key="json" value="9" />
-          <entry key="sql" value="25" />
+          <entry key="hbs" value="101" />
+          <entry key="js" value="163" />
+          <entry key="json" value="10" />
+          <entry key="sql" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="11" />
-          <entry key="Handlebars/Mustache" value="93" />
+          <entry key="Handlebars/Mustache" value="101" />
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="137" />
-          <entry key="SQL" value="25" />
-          <entry key="tsconfig" value="2" />
+          <entry key="JavaScript" value="163" />
+          <entry key="SQL" value="27" />
+          <entry key="tsconfig" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="33" />
-          <entry key="hbs" value="14287" />
-          <entry key="js" value="32943" />
-          <entry key="json" value="3276" />
+          <entry key="hbs" value="15190" />
+          <entry key="js" value="35102" />
+          <entry key="json" value="3300" />
           <entry key="sql" value="1699" />
-          <entry key="txt" value="442" />
+          <entry key="txt" value="531" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="33" />
-          <entry key="Handlebars/Mustache" value="14287" />
-          <entry key="JSON" value="3137" />
-          <entry key="JavaScript" value="32943" />
-          <entry key="PLAIN_TEXT" value="442" />
+          <entry key="Handlebars/Mustache" value="15190" />
+          <entry key="JSON" value="3161" />
+          <entry key="JavaScript" value="35102" />
+          <entry key="PLAIN_TEXT" value="531" />
           <entry key="SQL" value="1699" />
           <entry key="tsconfig" value="139" />
         </counts>
@@ -95,8 +114,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="87" column="3" lean-forward="true" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
+            <state relative-caret-position="315">
+              <caret line="335" column="51" selection-start-line="335" selection-start-column="51" selection-end-line="335" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/showExtra.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="108" selection-start-line="23" selection-start-column="108" selection-end-line="23" selection-end-column="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/adminUpdateFlight.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/adminManifestChangeSeat.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" selection-start-column="5" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/adminUpdateCustomer.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -104,84 +162,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/queries/admin/flightTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="58" column="28" lean-forward="true" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/adminFlightTable.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-              <folding>
-                <element signature="n#style#0;n#td#5;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#6;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="213">
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/adminCustomerTable.hbs">
+        <entry file="file://$PROJECT_DIR$/public/js/flightTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <state relative-caret-position="355">
+              <caret line="112" column="88" selection-start-line="112" selection-start-column="88" selection-end-line="112" selection-end-column="88" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/queries/admin/adminReset.js">
+        <entry file="file://$PROJECT_DIR$/public/queries/admin/showExtra.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="33" />
+            <state relative-caret-position="510">
+              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/queries/admin/adminTable.js">
+        <entry file="file://$PROJECT_DIR$/public/queries/admin/flightManifest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+            <state relative-caret-position="119">
+              <caret line="81" column="54" lean-forward="true" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql">
+        <entry file="file://$PROJECT_DIR$/views/adminManifestTable.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="186" column="2" lean-forward="true" selection-start-line="186" selection-start-column="2" selection-end-line="186" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/logout.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="86" lean-forward="true" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layouts/navbar_layout.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layouts/admin.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
-              <caret line="106" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="213">
+              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -191,10 +209,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="tsconfig.json" />
         <option value="CSS File" />
-        <option value="Handlebars File" />
         <option value="JavaScript File" />
+        <option value="tsconfig.json" />
+        <option value="Handlebars File" />
       </list>
     </option>
   </component>
@@ -212,6 +230,7 @@
       <find>return</find>
       <find>g</find>
       <find>0000-00-00</find>
+      <find>consol</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -228,30 +247,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/queries/ddl/AirportDDL.sql" />
-        <option value="$PROJECT_DIR$/public/queries/ddl/ExtraDDL.sql" />
-        <option value="$PROJECT_DIR$/public/queries/tools/adminLogins.json" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/aliasTable.hbs" />
         <option value="$PROJECT_DIR$/public/js/flightSeatFinder.js" />
         <option value="$PROJECT_DIR$/views/adminTable.hbs" />
         <option value="$PROJECT_DIR$/public/queries/ddl/OnFlightDDL.sql" />
-        <option value="$PROJECT_DIR$/public/queries/admin/planeData.js" />
-        <option value="$PROJECT_DIR$/public/queries/admin/removeFromFlight.js" />
         <option value="$PROJECT_DIR$/public/js/fligtTable.js" />
         <option value="$PROJECT_DIR$/views/manifestTable.hbs" />
-        <option value="$PROJECT_DIR$/views/adminManifestChangeSeat.hbs" />
-        <option value="$PROJECT_DIR$/views/adminManifestTable.hbs" />
-        <option value="$PROJECT_DIR$/public/queries/admin/flightManifest.js" />
         <option value="$PROJECT_DIR$/public/queries/admin/test.js" />
-        <option value="$PROJECT_DIR$/public/queries/admin/changeSeat.js" />
         <option value="$PROJECT_DIR$/views/adminUpdateCustomer.js" />
-        <option value="$PROJECT_DIR$/public/queries/admin/singleCustomerData.js" />
-        <option value="$PROJECT_DIR$/public/queries/admin/updateCustomer.js" />
         <option value="$PROJECT_DIR$/public/js/customerTable.js" />
-        <option value="$PROJECT_DIR$/views/adminUpdateCustomer.hbs" />
         <option value="$PROJECT_DIR$/public/queries/admin/cancelFlight.js" />
-        <option value="$PROJECT_DIR$/public/queries/admin/singleFlightData.js" />
         <option value="$PROJECT_DIR$/public/queries/admin/adminLogin.js" />
         <option value="$PROJECT_DIR$/public/queries/tools/security.js" />
         <option value="$PROJECT_DIR$/public/queries/login.js" />
@@ -259,26 +263,41 @@
         <option value="$PROJECT_DIR$/public/css/accDenied.css" />
         <option value="$PROJECT_DIR$/views/accDenied.hbs" />
         <option value="$PROJECT_DIR$/views/partials/admin/header.hbs" />
-        <option value="$PROJECT_DIR$/views/adminAuth.hbs" />
         <option value="$PROJECT_DIR$/views/adminCustomerTable.hbs" />
         <option value="$PROJECT_DIR$/views/admin.hbs" />
         <option value="$PROJECT_DIR$/public/js/insertionErrorHandler.js" />
         <option value="$PROJECT_DIR$/views/adminAdd.hbs" />
         <option value="$PROJECT_DIR$/public/queries/tools/tableData.json" />
-        <option value="$PROJECT_DIR$/public/queries/admin/addTuple.js" />
-        <option value="$PROJECT_DIR$/views/adminUpdateFlight.hbs" />
-        <option value="$PROJECT_DIR$/public/js/flightTable.js" />
-        <option value="$PROJECT_DIR$/public/queries/admin/updateFlightTime.js" />
         <option value="$PROJECT_DIR$/views/layouts/navbar_layout.hbs" />
-        <option value="$PROJECT_DIR$/public/js/logout.js" />
-        <option value="$PROJECT_DIR$/views/logoutPage.hbs" />
         <option value="$PROJECT_DIR$/views/layouts/admin.hbs" />
         <option value="$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql" />
+        <option value="$PROJECT_DIR$/views/adminFlightTable.hbs" />
+        <option value="$PROJECT_DIR$/views/adminAuth.hbs" />
+        <option value="$PROJECT_DIR$/views/logoutPage.hbs" />
+        <option value="$PROJECT_DIR$/public/js/logout.js" />
+        <option value="$PROJECT_DIR$/public/js/flightTable.js" />
+        <option value="$PROJECT_DIR$/public/queries/tools/host.json" />
+        <option value="$PROJECT_DIR$/public/queries/admin/showExtras.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/addTuple.js" />
         <option value="$PROJECT_DIR$/public/queries/admin/adminReset.js" />
         <option value="$PROJECT_DIR$/public/queries/admin/adminTable.js" />
-        <option value="$PROJECT_DIR$/public/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/aliasTable.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/changeSeat.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/planeData.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/removeFromFlight.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/singleCustomerData.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/singleFlightData.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/updateCustomer.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/updateFlightTime.js" />
         <option value="$PROJECT_DIR$/public/queries/admin/flightTable.js" />
-        <option value="$PROJECT_DIR$/views/adminFlightTable.hbs" />
+        <option value="$PROJECT_DIR$/public/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/showExtra.hbs" />
+        <option value="$PROJECT_DIR$/views/adminManifestChangeSeat.hbs" />
+        <option value="$PROJECT_DIR$/public/queries/admin/showExtra.js" />
+        <option value="$PROJECT_DIR$/public/queries/admin/flightManifest.js" />
+        <option value="$PROJECT_DIR$/views/adminManifestTable.hbs" />
+        <option value="$PROJECT_DIR$/views/adminUpdateFlight.hbs" />
+        <option value="$PROJECT_DIR$/views/adminUpdateCustomer.hbs" />
       </list>
     </option>
   </component>
@@ -308,8 +327,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="98" />
-    <option name="y" value="-13" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -421,6 +439,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/COSC304/AnonymousAir/public/queries/admin/flightManifest.js&#10;modal&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.13.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
@@ -516,7 +535,8 @@
       <workItem from="1543445154155" duration="6157000" />
       <workItem from="1543517261062" duration="14354000" />
       <workItem from="1543598239128" duration="673000" />
-      <workItem from="1543606130617" duration="1188000" />
+      <workItem from="1543606130617" duration="3688000" />
+      <workItem from="1543636477461" duration="8130000" />
     </task>
     <task id="LOCAL-00001" summary="As per Mike's request in mtg">
       <created>1542489518789</created>
@@ -560,11 +580,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543568062824</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed CustomerTable. Added minor functionality to late flights in flight table">
+      <created>1543607344005</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1543607344005</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixed admin logout functions">
+      <created>1543609241670</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543609241670</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219470000" />
+    <option name="totallyTimeSpent" value="230100000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -585,7 +619,7 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49367756" visible="true" weight="0.26681128" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49367756" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49789253" weight="0.40238613" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -599,13 +633,13 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985207" visible="true" weight="0.19336143" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985207" visible="true" weight="0.19336143" />
       <window_info id="Structure" order="1" sideWeight="0.50147927" side_tool="true" weight="0.19336143" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49367756" visible="true" weight="0.26681128" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49367756" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49789253" weight="0.40238613" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -613,7 +647,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49947312" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49789253" weight="0.24728851" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50632244" side_tool="true" visible="true" weight="0.26681128" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50632244" side_tool="true" weight="0.26681128" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -670,7 +704,9 @@
     <MESSAGE value="Added functionality to change seats. Renamed admin handlebars files to be consistent." />
     <MESSAGE value="Added change flight time, login functions, I can't even remember everything" />
     <MESSAGE value="Finishing up admin functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finishing up admin functionality" />
+    <MESSAGE value="Fixed CustomerTable. Added minor functionality to late flights in flight table" />
+    <MESSAGE value="Fixed admin logout functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed admin logout functions" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -682,77 +718,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="111" column="2" selection-start-line="111" selection-start-column="2" selection-end-line="111" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/planeData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminManifestTable.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminManifestChangeSeat.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="150" selection-start-line="23" selection-start-column="150" selection-end-line="23" selection-end-column="150" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="80" selection-start-line="43" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/userSignUpPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/signup.hbs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/aliasTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/flightdetaillistener.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/changeSeat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="85" column="49" lean-forward="true" selection-end-line="93" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/customerTable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminUpdateCustomer.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="93" lean-forward="true" selection-start-line="10" selection-start-column="93" selection-end-line="10" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -764,27 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/singleFlightData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/singleCustomerData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/updateCustomer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="12" column="86" lean-forward="true" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/queries/tools/security.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -792,29 +740,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/accDenied.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/Connection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="424" column="7" selection-start-line="424" selection-start-column="7" selection-end-line="424" selection-end-column="7" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/login.hbs">
       <provider selected="true" editor-type-id="text-editor">
@@ -832,20 +759,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/admin/customerData.hbs">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminAuth.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/addTuple.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/adminAdd.hbs">
       <provider selected="true" editor-type-id="text-editor">
@@ -878,27 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/updateFlightTime.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/flightTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="105" column="11" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminUpdateFlight.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/queries/ddl/OnFlightExtraDDL.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -909,32 +801,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/flightManifest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/queries/adminReset.js" />
     <entry file="file://$PROJECT_DIR$/public/queries/ddl/FlightDDL.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="167" lean-forward="true" selection-start-line="21" selection-start-column="167" selection-end-line="21" selection-end-column="167" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/logoutPage.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/logout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="86" lean-forward="true" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
         </state>
       </provider>
     </entry>
@@ -952,13 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="186" column="2" lean-forward="true" selection-start-line="186" selection-start-column="2" selection-end-line="186" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/adminCustomerTable.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -966,42 +830,219 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminTable.js">
+    <entry file="file://$PROJECT_DIR$/views/adminAuth.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        <state relative-caret-position="425">
+          <caret line="25" column="95" selection-start-line="25" selection-start-column="95" selection-end-line="25" selection-end-column="95" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/views/logoutPage.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="87" column="3" lean-forward="true" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/logout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/shoppingcart.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminFlightTable.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/tools/host.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/addTuple.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="424" lean-forward="true" selection-start-line="424" selection-end-line="424" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/queries/admin/adminReset.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="33" />
+        <state relative-caret-position="1343">
+          <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/adminTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/aliasTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/changeSeat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="44" lean-forward="true" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/planeData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/removeFromFlight.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/singleFlightData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/updateCustomer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/ddl/TablesDDL.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="991">
+          <caret line="186" column="2" lean-forward="true" selection-start-line="186" selection-start-column="2" selection-end-line="186" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/singleCustomerData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/updateFlightTime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/Connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="424" column="7" selection-start-line="424" selection-start-column="7" selection-end-line="424" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="335" column="51" selection-start-line="335" selection-start-column="51" selection-end-line="335" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/flightTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="112" column="88" selection-start-line="112" selection-start-column="88" selection-end-line="112" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/showExtra.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/queries/admin/flightManifest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="81" column="54" lean-forward="true" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminManifestTable.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/queries/admin/flightTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="58" column="28" lean-forward="true" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        <state relative-caret-position="213">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminFlightTable.hbs">
+    <entry file="file://$PROJECT_DIR$/views/showExtra.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="391">
+          <caret line="23" column="108" selection-start-line="23" selection-start-column="108" selection-end-line="23" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminUpdateFlight.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#td#5;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminManifestChangeSeat.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-column="5" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminUpdateCustomer.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
         </state>
       </provider>
     </entry>

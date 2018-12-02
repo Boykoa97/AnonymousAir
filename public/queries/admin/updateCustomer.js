@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const host = require('../tools/host.json');
 
 module.exports = function(param){
 
@@ -9,7 +10,7 @@ module.exports = function(param){
         password : '13792149',
         database : 'db_mspouge'
     });
-
+host
     let sql = "UPDATE Customer SET username = ?, password =?, email = ? WHERE cno =?";
 
 

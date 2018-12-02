@@ -2,6 +2,7 @@ const mysql = require("mysql");
 const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
+const host = require('../tools/host.json');
 
 
 
@@ -76,13 +77,8 @@ module.exports = async function(req){
 
 async function recursiveRun(index,sqlFiles){
     file = sqlFiles[index];
-    var connection = mysql.createConnection({
-        host : 'cosc304.ok.ubc.ca',
-        user : 'mspouge',
-        password : '13792149',
-        database : 'db_mspouge',
-        multipleStatements: true
-    });
+    host.multipleStatements = true;
+    var connection = mysql.createConnection(host);
     if(index == sqlFiles.length){
         console.log('Reached the end of file list')
         return true

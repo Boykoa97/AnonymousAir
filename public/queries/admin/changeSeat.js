@@ -1,15 +1,11 @@
 const mysql = require('mysql');
 const planeData = require('./planeData.js');
+const host = require('../tools/host.json');
 
 module.exports = async function(param){
 
     console.log(param)
-    var connection = mysql.createConnection({
-        host : 'cosc304.ok.ubc.ca',
-        user : 'mspouge',
-        password : '13792149',
-        database : 'db_mspouge'
-    });
+    var connection = mysql.createConnection(host);
 
     let sql = "UPDATE OnFlight SET seatNo = ? WHERE fid = ? AND deptTime = ? AND aliasId = ?"
 
