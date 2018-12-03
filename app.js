@@ -47,5 +47,5 @@ app.use('/',routes);
 
 //register partials for HandleBars
 //launch the app
-app.listen(3000)
+app.listen(80)
 //opn('http://localhost:3000/login', {app:'chrome'});
