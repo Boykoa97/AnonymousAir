@@ -1,0 +1,35 @@
+
+{{#each flight}}
+    <table class="table-dark">
+        <tr><th>Flight id:</th><th>{{this.fid}}</th></tr>
+        <tr><th>Departure:</th><td>{{this.deptTime}}</td></tr>
+
+    </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Select Alias</td>
+            <td>
+                <select>
+                    {{#each ../alias}}
+                        <option value="{{this.aliasId}}">{{this.aliasFirst}} {{this.aliasLast}}</option>
+                    {{/each}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Select Payment Option:</td>
+            <td>
+                <select>
+                    {{#each ../payment}}
+                        <option value="{{this.cardNum}}">{{this.cardNumClean}} {{this.cardExpiry}}</option>
+                    {{/each}}
+                </select>
+            </td>
+        </tr>
+    </table>
+
+
+{{/each}}
+
+<button class="btn btn-primary" onclick="completeCheckout()">Complete</button>

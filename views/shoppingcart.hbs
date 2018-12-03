@@ -12,7 +12,14 @@
       <td>{{this.fid}}</td>
       <td>{{this.deptTime}}</td>
       <td>{{this.dept}}-->{{this.arr}}</td>
-      <td align="center"><button class = 'btn btn-primary' data-toggle="popover" data-trigger="click" href="" data-content='' title="Extra List" data-html="true" >+</button></td>
+        <td>
+            <table>
+                {{#each extras}}{{#if this}}
+                    <tr><td>{{this}}</td></tr>
+                {{/if}}{{/each}}
+            </table>
+            </td>
+      <td align="center"><button class = 'btn btn-primary' onclick="loadExtrasList('{{this.fid}}','{{this.deptTime}}')" >+</button></td>
 
     </tr>
   </tbody>
@@ -22,23 +29,33 @@
 <form method="get" action="/checkout">
     <button type="submit" class='btn btn-primary'>Checkout</button>
 </form>
+
+<div class = "modal" id ="extrasModal">
+    <div class = "modal-dialog" style="max-width: max-content">
+        <div class = "modal-content">
+            <div class = "modal-header">
+                <div id = "extrasList">
+                    TESTING
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
-$(function () {
-    $('[data-toggle="popover"]').popover();
-    var datacontent = '<div class="custom-control custom-checkbox my-1 mr-sm-2">'+
-    '<input type="checkbox" class="custom-control-input" id="customControlInline">'+
-    '<label class="custom-control-label" for="customControlInline">Facial Reconstruction</label>'+
-    '</div>'+
-    '<div class="custom-control custom-checkbox my-1 mr-sm-2">'+
-    '<input type="checkbox" class="custom-control-input" id="customControlInline">'+
-    '<label class="custom-control-label" for="customControlInline">Identification Fabrication</label>'+
-    '</div>';
+function loadExtrasList(fid,deptTime) {
 
-    $('[data-toggle="popover"]').attr('data-content',datacontent);
-
-
-
-});
-
+    date = new Date(deptTime);
+    tzOffest = new Date().getTimezoneOffset() * 60000;
+    deptTime =new Date(date - tzOffest).toISOString().replace('T', ' ').replace('Z', '');
+    $('#extrasList').load(
+            '/shoppingCart/extras',
+            {fid: fid, deptTime: deptTime},
+            function () {
+                $('#extrasModal').modal();
+            }
+    )
+}
 
 </script>
