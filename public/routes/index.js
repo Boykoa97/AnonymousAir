@@ -425,6 +425,20 @@ router.post('/assignSeatInCart',(req,res,next)=>{
     res.send(assign(req.body,req.decoded.cno));
 })
 
+router.post('/checkout/checkout',(req,res,next) =>{
+    var data = require((path.join(__dirname, '../queries/checkoutModal.js')));
+    data(req.decoded.cno,req.body.total).then(i=>{
+        res.render('checkoutModal',{flight: i.flight, alias: i.alias, payment: i.payment, total: req.body.total})
+    })
+})
+
+router.post('/checkout/checkout/complete',(req,res,next) =>{
+    var data = require((path.join(__dirname, '../queries/removeFromCart.js')));
+    data(req.body.flights,req.decoded.cno).then(i=>{
+        res.send({success: i});
+    })
+})
+
 
 router.get('/view');
 

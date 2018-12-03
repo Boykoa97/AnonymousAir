@@ -1,6 +1,17 @@
 <link rel='stylesheet' href="/css/checkout.css">
 
 <div class='bgcheck'>
+    <div class="modal" id="checkOutModal">
+        <div class="modal-dialog" style="max-width: max-content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div id="checkOutModalContent">
+                        TESTING
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <h1 id='title'>{{title}}</h1>
     <table class="table table-dark">
         <thead>
@@ -68,17 +79,7 @@
     </table>
     <button type='submit' class='btn btn-outline-light' onclick="checkout()">Purchase</button>
 
-    <div class="modal" id="checkOutModal">
-        <div class="modal-dialog" style="max-width: max-content">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div id="checkOutModalContent">
-                        TESTING
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <script>
         total = {{extraTotal}}+ 0.0;
@@ -119,13 +120,19 @@
         });
 
         function checkout() {
-            $('#checkOutModalContent').load(
-                    '/checkout/checkout',
-                    {total: parseFloat($('#totalPrice').val().substring(1))},
-                    function () {
-                        $('#checkOutModal').modal;
-                    }
-            )
+            // $('#checkOutModalContent').load(
+            //         '/checkout/checkout',
+            //         {total: parseFloat($('#totalPrice').val().substring(1))},
+            //         function () {
+            //             $('#checkOutModal').modal;
+            //         }
+            // )
+            var url = '/checkout/checkout'
+            var total = $('#totalPrice').val();
+            var form = $('<form action="'+url+'" method = "post">' +
+                    '<input type ="text" name="total" value ="' + total + '"></form>')
+            $('body').append(form);
+            form.submit();
         }
     </script>
 
