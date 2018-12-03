@@ -46,9 +46,7 @@
 <script>
 function loadExtrasList(fid,deptTime) {
 
-    date = new Date(deptTime);
-    tzOffest = new Date().getTimezoneOffset() * 60000;
-    deptTime =new Date(date - tzOffest).toISOString().replace('T', ' ').replace('Z', '');
+
     $('#extrasList').load(
             '/shoppingCart/extras',
             {fid: fid, deptTime: deptTime},

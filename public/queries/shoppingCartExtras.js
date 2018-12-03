@@ -5,7 +5,9 @@ module.exports = function(param){
 
 
     var connection = mysql.createConnection(host);
-
+    date = new Date(param.deptTime);
+    tzOffest = new Date().getTimezoneOffset() * 60000;
+    param.deptTime =new Date(date - tzOffest).toISOString().replace('T', ' ').replace('Z', '');
     console.log(param)
 
     let sql = "SELECT * FROM OnFlightExtra natural join Extra WHERE fid = ? AND deptTime = ?";
