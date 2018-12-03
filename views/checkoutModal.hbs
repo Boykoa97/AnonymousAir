@@ -1,16 +1,25 @@
 
 {{#each flight}}
+    <div id="{{this.fid}}-{{this.count}}" data-fid = "{{this.fid}}" data-deptTime = '{{this.deptTime}}'>
     <table class="table-dark">
         <tr><th>Flight id:</th><th>{{this.fid}}</th></tr>
-        <tr><th>Departure:</th><td>{{this.deptTime}}</td></tr>
+        <tr><th>Departure:</th><td colspan="3">{{this.deptTime}}</td></tr>
+        <tr><th>Seat:</th><td>{{this.seatData.seatNo}}</td><th>Type:</th><td>{{this.seatData.type}}</td></tr>
+        <tr><th>Extras:</th></tr>
+        {{#each this.extras}}
+            {{#if this}}
+            <tr>
+                <td>{{this}}</td>
+            </tr>
+            {{/if}}
+        {{/each}}
 
-    </tr>
     </table>
     <table>
         <tr>
             <td>Select Alias</td>
             <td>
-                <select>
+                <select id = "alias">
                     {{#each ../alias}}
                         <option value="{{this.aliasId}}">{{this.aliasFirst}} {{this.aliasLast}}</option>
                     {{/each}}
@@ -20,7 +29,7 @@
         <tr>
             <td>Select Payment Option:</td>
             <td>
-                <select>
+                <select id = "payment">
                     {{#each ../payment}}
                         <option value="{{this.cardNum}}">{{this.cardNumClean}} {{this.cardExpiry}}</option>
                     {{/each}}
@@ -28,8 +37,21 @@
             </td>
         </tr>
     </table>
+    </div>
 
 
 {{/each}}
 
 <button class="btn btn-primary" onclick="completeCheckout()">Complete</button>
+
+<script src="/js/completeCheckOut.js"></script>
+<script>
+    function completeCheckout(){
+        ids = [{{#each flight}}
+            '{{this.fid}}-{{this.count}}',
+        {{/each}}]
+
+        addComplete(ids);
+
+    }
+</script>
