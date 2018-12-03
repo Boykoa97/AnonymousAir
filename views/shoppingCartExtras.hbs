@@ -1,0 +1,38 @@
+{{#each extras}}
+    {{#unless this.isDefault}}
+    <label><input type="checkbox" value="" id = "extras{{this.oid}}">{{this.optionTitle}} - $ {{this.price}}</label>
+        <br>
+    {{/unless}}
+{{/each}}
+<br>
+<button class="btn btn-primary" onclick="addToCartExtras('{{fid}}','{{deptTime}}','{{cno}}')">
+    Add to flight
+</button>
+
+<script>
+    function addToCartExtras(fid, deptTime, cno){
+        checked = [];
+        labels = [{{#each extras}}{{#unless this.isDefault}}"extras{{this.oid}}",{{/unless}}{{/each}}]
+        console.log(labels)
+        labels.forEach(e=>{
+           if(document.getElementById(e).checked)
+               checked.push(parseInt(e.substring(6)));
+
+        });
+        console.log(checked);
+
+        $.post(
+            '/shoppingCart/addExtrasSubmit',
+                {checked: checked, cno: cno, fid: fid, deptTime: deptTime},
+                postResult=>{
+                    if(postResult){
+                        window.location.href = "/shoppingcart"
+                    }else{
+                        alert("Sorry, unable to complete request!");
+                    }
+                }
+        )
+
+    }
+
+</script>

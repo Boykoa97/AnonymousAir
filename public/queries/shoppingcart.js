@@ -9,7 +9,7 @@ function shoppingcart_query1(cno){
 //write an sql statement for querying the database
 
 //~~~~~~~~~~~~~~~~~~~~EDIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let sql = 'SELECT * FROM Cart natural join Flight WHERE cno="'+cno+'"';  // NOTE: In the future this will take the cookie value as the cno
+let sql = 'SELECT * FROM Cart natural join Flight, Extra WHERE cno="'+cno+'" AND Cart.oid = Extra.oid';  // NOTE: In the future this will take the cookie value as the cno
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //Create a promise so we can close the connection synchronously
@@ -29,7 +29,24 @@ var promise = new Promise(function(resolve,reject){
 var obj = promise.then(function(result_set){ //Runs if the promise was successful
 
   //Log the result set from the database
+  cleanedSet = [];
   console.log(result_set);
+  result_set.forEach(totalItem=>{
+      inCleaned = false;
+
+      cleanedSet.forEach(cleanedItem=>{
+          if(totalItem.fid === cleanedItem.fid && new Date(cleanedItem.deptTime).getTime() === new Date(totalItem.deptTime).getTime()){
+              inCleaned = true;
+              cleanedItem.extras.push(totalItem.optionTitle)
+          }
+      })
+      if(!inCleaned){
+          totalItem.extras = [];
+          totalItem.extras.push(totalItem.optionTitle);
+          cleanedSet.push(totalItem);
+      }
+  });
+
   connection.end();
 
   //return the variables you want to see on the HTML page
@@ -38,7 +55,7 @@ var obj = promise.then(function(result_set){ //Runs if the promise was successfu
   //can add data manipulation here (i.e. for-loops, calculations,
   // or anything you need to format after obtaining the data from the db)
 
-  return {title:'The Shopping Cart Page', response: result_set};
+  return {title:'The Shopping Cart Page', response: cleanedSet};
 
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

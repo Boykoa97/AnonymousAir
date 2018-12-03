@@ -192,6 +192,7 @@ CREATE TRIGGER ofeDefault
     FOR EACH ROW
     INSERT INTO OnFlightExtra VALUE (0,NEW.fid,NEW.deptTime);
 
+
 INSERT INTO Extra VALUES (0,null,null,null );
 INSERT INTO Airport VALUES ('YLW','CAN','Kelowna','BC','5533 Airport Way','Kelowna International Airport','INTL','1');
 INSERT INTO Airport VALUES ('YVR','CAN','Vancouver','BC','3211 Grant McConachie Way', 'Vancouver International Airport','INTL','5');

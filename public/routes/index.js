@@ -404,6 +404,25 @@ router.post('/admin/showExtras',(req,res,next)=>{
     extraData(req.body).then(extras=>{
         res.render('showExtra',{extras:extras,req: req.body,layout: false});
     })
+});
+
+router.post('/shoppingCart/extras',(req,res,next)=>{
+    var extraData = require(path.join(__dirname,'../queries/shoppingCartExtras.js'));
+    extraData(req.body).then(extras=>{
+        res.render('shoppingCartExtras',{extras:extras,fid: req.body.fid,cno: req.decoded.cno,deptTime: req.body.deptTime,layout: false});
+    })
+})
+
+router.post('/shoppingCart/addExtrasSubmit',(req,res,next)=>{
+    var extras = require(path.join(__dirname,'../queries/addExtraToCart.js'));
+    extras(req.body).then(result=>{
+        res.send(result);
+    })
+})
+
+router.post('/assignSeatInCart',(req,res,next)=>{
+    var assign = require(path.join(__dirname,'../queries/assignSeatInCart.js'))
+    res.send(assign(req.body,req.decoded.cno));
 })
 
 
